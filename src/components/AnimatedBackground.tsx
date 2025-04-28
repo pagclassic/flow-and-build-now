@@ -18,7 +18,11 @@ const AnimatedBackground = () => {
       const windowHeight = window.innerHeight;
       const particleCount = Math.floor((windowWidth * windowHeight) / 20000);
       
-      const colors = ["#e0e7ff", "#dbeafe", "#ede9fe", "#fae8ff"];
+      // Particle colors based on theme
+      const isDarkMode = document.documentElement.classList.contains('dark');
+      const colors = isDarkMode 
+        ? ["#1a1a2e", "#16213e", "#1b2430", "#0f172a"] 
+        : ["#e0e7ff", "#dbeafe", "#ede9fe", "#fae8ff"];
       
       const newParticles = Array.from({ length: particleCount }, (_, i) => ({
         id: i,
@@ -38,9 +42,21 @@ const AnimatedBackground = () => {
       generateParticles();
     };
     
+    // Regenerate particles when theme changes
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === "class") {
+          generateParticles();
+        }
+      });
+    });
+    
+    observer.observe(document.documentElement, { attributes: true });
+    
     window.addEventListener("resize", handleResize);
     return () => {
-      window.addEventListener("resize", handleResize);
+      window.removeEventListener("resize", handleResize);
+      observer.disconnect();
     };
   }, []);
 

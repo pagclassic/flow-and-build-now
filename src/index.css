@@ -46,6 +46,36 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+  
+  .dark {
+    --background: 240 10% 4%;
+    --foreground: 0 0% 98%;
+    
+    --card: 240 10% 8%;
+    --card-foreground: 0 0% 98%;
+    
+    --popover: 240 10% 8%;
+    --popover-foreground: 0 0% 98%;
+    
+    --primary: 237 100% 64%;
+    --primary-foreground: 210 40% 98%;
+    
+    --secondary: 240 5% 16%;
+    --secondary-foreground: 0 0% 98%;
+    
+    --muted: 0 0% 15%;
+    --muted-foreground: 240 5% 65%;
+    
+    --accent: 327 73% 53%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 240 5% 26%;
+    --input: 240 5% 26%;
+    --ring: 240 5% 65%;
+  }
 }
 
 @layer base {
@@ -55,7 +85,7 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground font-sans transition-colors duration-300;
   }
 
   .text-gradient {
@@ -63,7 +93,7 @@
   }
   
   .card-gradient {
-    @apply bg-white bg-opacity-70 backdrop-blur-md hover:bg-opacity-90 transition-all duration-300 shadow-md hover:shadow-lg;
+    @apply bg-white bg-opacity-70 backdrop-blur-md hover:bg-opacity-90 transition-all duration-300 shadow-md hover:shadow-lg dark:bg-gray-800/70 dark:hover:bg-gray-800/90;
   }
 
   .section {
@@ -86,10 +116,14 @@
   }
   
   .glass-card {
-    @apply bg-white/80 backdrop-blur-sm border border-gray-100 shadow-md hover:shadow-lg transition-all;
+    @apply bg-white/80 backdrop-blur-sm border border-gray-100 shadow-md hover:shadow-lg transition-all dark:bg-gray-900/50 dark:border-gray-800;
   }
   
   img {
     @apply object-cover;
+  }
+  
+  .dark-card {
+    @apply bg-card text-foreground rounded-lg overflow-hidden shadow-md;
   }
 }
