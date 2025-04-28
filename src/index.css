@@ -86,7 +86,7 @@
   }
   
   .dark-card {
-    @apply bg-gray-900/60 backdrop-blur-md border border-gray-800/50 text-foreground rounded-lg overflow-hidden shadow-lg;
+    @apply bg-card/60 backdrop-blur-md border border-border/50 text-foreground rounded-lg overflow-hidden shadow-lg;
   }
   
   img {
@@ -94,6 +94,23 @@
   }
   
   .glassmorphism {
-    @apply bg-gray-900/40 backdrop-blur-md border border-gray-800/50 shadow-lg;
+    @apply bg-card/40 backdrop-blur-md border border-border/50 shadow-lg;
+  }
+
+  input, textarea {
+    @apply bg-secondary text-foreground border-border;
+  }
+  
+  /* Logo Animation */
+  .logo-text {
+    @apply relative overflow-hidden;
+  }
+  
+  .logo-text-hover {
+    @apply absolute top-0 left-0 w-0 overflow-hidden transition-all duration-300;
+  }
+  
+  .logo-container:hover .logo-text-hover {
+    @apply w-full;
   }
 }

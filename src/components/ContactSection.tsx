@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
-import { Mail, Phone, MapPin, Send, Linkedin, Github } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Github } from "lucide-react";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -80,7 +80,7 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="section bg-gray-50">
+    <section id="contact" className="section">
       <div className="container mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center animate-on-scroll">
           Get In <span className="text-gradient">Touch</span>
@@ -88,7 +88,7 @@ const ContactSection = () => {
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div className="animate-on-scroll" style={{ transitionDelay: "200ms" }}>
-            <div className="bg-white p-8 rounded-xl shadow-sm h-full">
+            <div className="glassmorphism p-8 rounded-xl h-full">
               <h3 className="text-2xl font-medium mb-6">Contact Information</h3>
               
               <div className="space-y-6 mb-8">
@@ -98,12 +98,12 @@ const ContactSection = () => {
                       {item.icon}
                     </div>
                     <div>
-                      <h4 className="text-sm font-medium text-gray-500">{item.label}</h4>
+                      <h4 className="text-sm font-medium text-muted-foreground">{item.label}</h4>
                       <a 
                         href={item.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-gray-800 hover:text-primary transition-colors"
+                        className="text-foreground hover:text-primary transition-colors"
                       >
                         {item.value}
                       </a>
@@ -118,29 +118,29 @@ const ContactSection = () => {
                   href="https://github.com/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="p-3 bg-gray-100 rounded-full hover:bg-primary/10 transition-colors"
+                  className="p-3 bg-secondary rounded-full hover:bg-primary/10 transition-colors"
                 >
-                  <Github size={20} className="text-gray-700" />
+                  <Github size={20} className="text-foreground" />
                 </a>
                 <a 
                   href="https://linkedin.com/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="p-3 bg-gray-100 rounded-full hover:bg-primary/10 transition-colors"
+                  className="p-3 bg-secondary rounded-full hover:bg-primary/10 transition-colors"
                 >
-                  <Linkedin size={20} className="text-gray-700" />
+                  <Mail size={20} className="text-foreground" />
                 </a>
               </div>
             </div>
           </div>
           
           <div className="animate-on-scroll" style={{ transitionDelay: "400ms" }}>
-            <form onSubmit={handleSubmit} className="bg-white p-8 rounded-xl shadow-sm">
+            <form onSubmit={handleSubmit} className="glassmorphism p-8 rounded-xl">
               <h3 className="text-2xl font-medium mb-6">Send a Message</h3>
               
               <div className="space-y-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1">
                     Name
                   </label>
                   <Input
@@ -150,11 +150,12 @@ const ContactSection = () => {
                     onChange={handleChange}
                     placeholder="Your name"
                     required
+                    className="bg-secondary"
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-1">
                     Email
                   </label>
                   <Input
@@ -165,11 +166,12 @@ const ContactSection = () => {
                     onChange={handleChange}
                     placeholder="your.email@example.com"
                     required
+                    className="bg-secondary"
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-1">
                     Message
                   </label>
                   <Textarea
@@ -180,6 +182,7 @@ const ContactSection = () => {
                     placeholder="How can I help you?"
                     rows={5}
                     required
+                    className="bg-secondary"
                   />
                 </div>
                 

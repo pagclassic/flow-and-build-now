@@ -58,7 +58,7 @@ const ResumeSection = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-4 animate-on-scroll">
               My <span className="text-gradient">Resume</span>
             </h2>
-            <p className="text-gray-600 animate-on-scroll" style={{ transitionDelay: "200ms" }}>
+            <p className="text-muted-foreground animate-on-scroll" style={{ transitionDelay: "200ms" }}>
               A summary of my education, experience and certifications
             </p>
           </div>
@@ -82,11 +82,11 @@ const ResumeSection = () => {
               {educationData.map((item, index) => (
                 <div 
                   key={index} 
-                  className="bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition-shadow animate-on-scroll"
+                  className="dark-card p-5 transition-shadow animate-on-scroll hover:shadow-accent/10 hover:shadow-lg"
                   style={{ transitionDelay: `${800 + index * 200}ms` }}
                 >
                   <div className="flex gap-4">
-                    <div className="h-12 w-12 flex-shrink-0">
+                    <div className="h-12 w-12 flex-shrink-0 bg-secondary rounded-md flex items-center justify-center p-2">
                       <img 
                         src={item.logo} 
                         alt={item.institution} 
@@ -95,8 +95,8 @@ const ResumeSection = () => {
                     </div>
                     <div>
                       <h4 className="font-medium text-lg">{item.institution}</h4>
-                      <p className="text-gray-600">{item.degree}</p>
-                      <div className="flex flex-wrap gap-4 mt-2 text-sm text-gray-500">
+                      <p className="text-muted-foreground">{item.degree}</p>
+                      <div className="flex flex-wrap gap-4 mt-2 text-sm text-muted-foreground">
                         <span className="flex items-center gap-1">
                           <Calendar size={14} />
                           {item.duration}
@@ -123,11 +123,11 @@ const ResumeSection = () => {
               {certificationData.map((item, index) => (
                 <div 
                   key={index} 
-                  className="bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition-shadow animate-on-scroll"
+                  className="dark-card p-5 transition-shadow animate-on-scroll hover:shadow-accent/10 hover:shadow-lg"
                   style={{ transitionDelay: `${800 + index * 200}ms` }}
                 >
                   <div className="flex gap-4">
-                    <div className="h-12 w-12 flex-shrink-0">
+                    <div className="h-12 w-12 flex-shrink-0 bg-secondary rounded-md flex items-center justify-center p-2">
                       <img 
                         src={item.logo} 
                         alt={item.name} 
@@ -136,8 +136,8 @@ const ResumeSection = () => {
                     </div>
                     <div>
                       <h4 className="font-medium text-lg">{item.name}</h4>
-                      <p className="text-gray-600">{item.issuer}</p>
-                      <div className="flex flex-wrap gap-4 mt-2 text-sm text-gray-500">
+                      <p className="text-muted-foreground">{item.issuer}</p>
+                      <div className="flex flex-wrap gap-4 mt-2 text-sm text-muted-foreground">
                         <span className="flex items-center gap-1">
                           <Calendar size={14} />
                           {item.date}
@@ -154,9 +154,9 @@ const ResumeSection = () => {
             </div>
 
             <div className="mt-8 animate-on-scroll" style={{ transitionDelay: "1000ms" }}>
-              <div className="bg-primary/5 border border-primary/20 p-5 rounded-lg">
+              <div className="glassmorphism p-5 rounded-lg border border-border/50">
                 <h4 className="font-medium text-lg mb-2">Technical Skills</h4>
-                <ul className="list-disc list-inside space-y-1 text-gray-700">
+                <ul className="list-disc list-inside space-y-1 text-muted-foreground">
                   <li>HTML5, CSS3, JavaScript</li>
                   <li>React.js, Tailwind CSS</li>
                   <li>Basic Python & Machine Learning concepts</li>
