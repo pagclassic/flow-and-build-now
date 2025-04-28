@@ -7,47 +7,6 @@
 
 @layer base {
   :root {
-    --background: 220 25% 97%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 237 100% 64%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 327 73% 53%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.75rem;
-
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-  
-  .dark {
     --background: 240 10% 4%;
     --foreground: 0 0% 98%;
     
@@ -75,6 +34,17 @@
     --border: 240 5% 26%;
     --input: 240 5% 26%;
     --ring: 240 5% 65%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 240 10% 8%;
+    --sidebar-foreground: 240 5% 65%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 20%;
+    --sidebar-accent-foreground: 240 5.9% 90%;
+    --sidebar-border: 220 13% 25%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -85,15 +55,15 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans transition-colors duration-300;
+    @apply bg-background text-foreground font-sans;
   }
 
   .text-gradient {
     @apply bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent;
   }
   
-  .card-gradient {
-    @apply bg-white bg-opacity-70 backdrop-blur-md hover:bg-opacity-90 transition-all duration-300 shadow-md hover:shadow-lg dark:bg-gray-800/70 dark:hover:bg-gray-800/90;
+  .glass-card {
+    @apply bg-gray-900/40 backdrop-blur-md border border-gray-800/50 shadow-lg hover:shadow-xl transition-all duration-300;
   }
 
   .section {
@@ -115,15 +85,15 @@
     transform: translateY(0);
   }
   
-  .glass-card {
-    @apply bg-white/80 backdrop-blur-sm border border-gray-100 shadow-md hover:shadow-lg transition-all dark:bg-gray-900/50 dark:border-gray-800;
+  .dark-card {
+    @apply bg-gray-900/60 backdrop-blur-md border border-gray-800/50 text-foreground rounded-lg overflow-hidden shadow-lg;
   }
   
   img {
     @apply object-cover;
   }
   
-  .dark-card {
-    @apply bg-card text-foreground rounded-lg overflow-hidden shadow-md;
+  .glassmorphism {
+    @apply bg-gray-900/40 backdrop-blur-md border border-gray-800/50 shadow-lg;
   }
 }

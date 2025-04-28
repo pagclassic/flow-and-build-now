@@ -16,20 +16,17 @@ const AnimatedBackground = () => {
     const generateParticles = () => {
       const windowWidth = window.innerWidth;
       const windowHeight = window.innerHeight;
-      const particleCount = Math.floor((windowWidth * windowHeight) / 20000);
+      const particleCount = Math.floor((windowWidth * windowHeight) / 25000); // Slightly fewer particles
       
-      // Particle colors based on theme
-      const isDarkMode = document.documentElement.classList.contains('dark');
-      const colors = isDarkMode 
-        ? ["#1a1a2e", "#16213e", "#1b2430", "#0f172a"] 
-        : ["#e0e7ff", "#dbeafe", "#ede9fe", "#fae8ff"];
+      // Dark mode particle colors
+      const colors = ["#1a1a2e", "#16213e", "#1b2430", "#0f172a", "#312e81", "#1e1b4b"];
       
       const newParticles = Array.from({ length: particleCount }, (_, i) => ({
         id: i,
         x: Math.random() * windowWidth,
         y: Math.random() * windowHeight,
-        size: Math.random() * 4 + 1,
-        speed: Math.random() * 0.5 + 0.1,
+        size: Math.random() * 3 + 1, // Slightly smaller particles
+        speed: Math.random() * 0.4 + 0.1,
         color: colors[Math.floor(Math.random() * colors.length)]
       }));
       
@@ -42,26 +39,21 @@ const AnimatedBackground = () => {
       generateParticles();
     };
     
-    // Regenerate particles when theme changes
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.attributeName === "class") {
-          generateParticles();
-        }
-      });
-    });
-    
-    observer.observe(document.documentElement, { attributes: true });
-    
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
-      observer.disconnect();
     };
   }, []);
 
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden">
+      {/* Dark gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-gray-950"></div>
+      
+      {/* Glassmorphism blur elements */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-primary/5 blur-3xl"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-accent/5 blur-3xl"></div>
+      
       {particles.map((particle) => (
         <div
           key={particle.id}
@@ -72,7 +64,7 @@ const AnimatedBackground = () => {
             left: `${particle.x}px`,
             top: `${particle.y}px`,
             backgroundColor: particle.color,
-            opacity: 0.6,
+            opacity: 0.4,
             transform: `translateY(${Math.sin(Date.now() * particle.speed * 0.001) * 10}px)`,
             transition: "transform 1s ease-in-out",
           }}
