@@ -1,6 +1,7 @@
 
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import { ExternalLink, Github, ArrowRight } from "lucide-react";
 
 const ProjectsSection = () => {
@@ -30,51 +31,51 @@ const ProjectsSection = () => {
       name: "FixYourLife",
       description: "A life optimization platform where users input their full personal situation, and the AI generates a step-by-step recovery plan with a daily schedule. It also tracks their progress over time, offering updated suggestions when needed.",
       tags: ["AI", "Web Development", "React", "Personal Development"],
-      image: "https://images.unsplash.com/photo-1504805572947-34fad45aed93?q=80&w=2070&auto=format&fit=crop",
+      image: "https://images.unsplash.com/photo-1607988795691-3d0147b43231?q=80&w=2070&auto=format&fit=crop",
       url: "https://fixyourlife.tech",
-      github: "#"
+      github: "https://github.com/"
     },
     {
       id: 2,
       name: "TuneMigrate",
       description: "A suite of online tools under one brand that help users manage and convert playlists between Spotify, YouTube, and other music platforms. Designed to be easy, fast, and free — similar to iLovePDF but focused on music needs.",
       tags: ["API Integration", "Music", "Utility", "Frontend"],
-      image: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=2070&auto=format&fit=crop",
-      url: "#",
-      github: "#"
+      image: "https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?q=80&w=2074&auto=format&fit=crop",
+      url: "https://tunemigrate.com",
+      github: "https://github.com/"
     },
     {
       id: 3,
       name: "Transport Portal",
       description: "A web-based service for transport businesses to digitally store, manage, and analyze their trip entries, which are traditionally maintained in physical registers or Excel. It provides easy, secure, and globally accessible storage.",
       tags: ["Business Solution", "Data Management", "React", "Database"],
-      image: "https://images.unsplash.com/photo-1514214246283-d427a95c5d2f?q=80&w=2080&auto=format&fit=crop",
-      url: "#",
-      github: "#"
+      image: "https://images.unsplash.com/photo-1494412651409-8963ce7935a7?q=80&w=2070&auto=format&fit=crop",
+      url: "https://transportportal.com",
+      github: "https://github.com/"
     },
     {
       id: 4,
       name: "HearWrite",
       description: "An app that helps students complete handwritten assignments faster by converting uploaded documents (PDFs, Word files, or images) into audio. Students can listen to the content and write it easily, saving time and reducing reading fatigue.",
       tags: ["Education", "Accessibility", "Audio Processing", "PDF Conversion"],
-      image: "https://images.unsplash.com/photo-1606889464198-fcb18894cf50?q=80&w=2070&auto=format&fit=crop",
-      url: "#",
-      github: "#"
+      image: "https://images.unsplash.com/photo-1512236258305-32fb136ae01c?q=80&w=2070&auto=format&fit=crop",
+      url: "https://hearwrite.app",
+      github: "https://github.com/"
     }
   ];
 
   return (
-    <section id="projects" className="section bg-gray-50">
-      <div className="container mx-auto">
+    <section id="projects" className="section bg-gray-50 py-24">
+      <div className="container mx-auto px-4 md:px-6">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center animate-on-scroll">
           My <span className="text-gradient">Projects</span>
         </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           {projects.map((project, index) => (
-            <div 
+            <Card 
               key={project.id}
-              className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow animate-on-scroll"
+              className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-shadow animate-on-scroll bg-white rounded-xl"
               style={{ transitionDelay: `${index * 200}ms` }}
             >
               <div className="h-56 overflow-hidden">
@@ -84,7 +85,7 @@ const ProjectsSection = () => {
                   className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
                 />
               </div>
-              <div className="p-6">
+              <CardContent className="p-6">
                 <h3 className="text-xl font-bold mb-2">{project.name}</h3>
                 
                 <p className="text-gray-600 mb-4 line-clamp-3">
@@ -121,8 +122,8 @@ const ProjectsSection = () => {
                     <Github size={18} />
                   </a>
                 </div>
-              </div>
-            </div>
+              </CardContent>
+            </Card>
           ))}
         </div>
 

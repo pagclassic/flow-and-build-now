@@ -1,6 +1,7 @@
 
 import { useEffect } from "react";
-import { CheckCircle, Code, Brain, Globe } from "lucide-react";
+import { Card } from "@/components/ui/card";
+import { Code, Brain, Globe, CheckCircle } from "lucide-react";
 
 const AboutSection = () => {
   useEffect(() => {
@@ -33,8 +34,8 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="section">
-      <div className="container mx-auto">
+    <section id="about" className="section py-24">
+      <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col md:flex-row gap-12 items-center">
           <div className="w-full md:w-1/2">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 animate-on-scroll">
@@ -59,41 +60,37 @@ const AboutSection = () => {
               <h3 className="text-xl font-medium mb-4">Education</h3>
               
               <div className="space-y-4">
-                <div className="flex gap-4 p-4 rounded-lg bg-white shadow-sm">
-                  <div className="h-12 w-12 flex-shrink-0">
-                    <img 
-                      src="public/lovable-uploads/122e74e6-7f31-4ea8-acfe-31cce26d0c0e.png" 
-                      alt="Atharva College" 
-                      className="h-full w-full object-contain"
-                    />
+                <Card className="p-4">
+                  <div className="flex gap-4">
+                    <div className="h-12 w-12 flex-shrink-0 bg-gray-100 rounded-full flex items-center justify-center">
+                      <span className="font-bold text-primary">ACE</span>
+                    </div>
+                    <div>
+                      <h4 className="font-medium">Atharva College of Engineering</h4>
+                      <p className="text-sm text-gray-600">Bachelor of Engineering - BE, Electronics and Communications Engineering</p>
+                      <p className="text-xs text-gray-500">Oct 2024 - May 2028</p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-medium">Atharva College of Engineering</h4>
-                    <p className="text-sm text-gray-600">Bachelor of Engineering - BE, Electronics and Communications Engineering</p>
-                    <p className="text-xs text-gray-500">Oct 2024 - May 2028</p>
-                  </div>
-                </div>
+                </Card>
                 
-                <div className="flex gap-4 p-4 rounded-lg bg-white shadow-sm">
-                  <div className="h-12 w-12 flex-shrink-0">
-                    <img 
-                      src="public/lovable-uploads/c8982e4a-4a4a-4111-8d02-747a22898cf8.png" 
-                      alt="Mahatma Gandhi Vidyamandir" 
-                      className="h-full w-full object-contain"
-                    />
+                <Card className="p-4">
+                  <div className="flex gap-4">
+                    <div className="h-12 w-12 flex-shrink-0 bg-gray-100 rounded-full flex items-center justify-center">
+                      <span className="font-bold text-primary">MGV</span>
+                    </div>
+                    <div>
+                      <h4 className="font-medium">Mahatma Gandhi Vidyamandir</h4>
+                      <p className="text-sm text-gray-600">HSC, Science</p>
+                      <p className="text-xs text-gray-500">Jul 2022 - Feb 2024</p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-medium">Mahatma Gandhi Vidyamandir's Loknete Vyankatrao Hiray Arts, Science & Commerce</h4>
-                    <p className="text-sm text-gray-600">HSC, Science</p>
-                    <p className="text-xs text-gray-500">Jul 2022 - Feb 2024</p>
-                  </div>
-                </div>
+                </Card>
               </div>
             </div>
           </div>
           
           <div className="w-full md:w-1/2 animate-on-scroll" style={{ transitionDelay: "600ms" }}>
-            <div className="bg-white rounded-xl shadow-md p-6 card-gradient">
+            <Card className="p-6">
               <h3 className="text-xl font-medium mb-6">Skills & Expertise</h3>
               
               <div className="grid grid-cols-2 gap-4">
@@ -107,14 +104,10 @@ const AboutSection = () => {
               
               <div className="mt-8">
                 <h4 className="text-lg font-medium mb-3">Certifications</h4>
-                <div className="p-4 rounded-lg bg-gray-50">
+                <Card className="p-4 bg-gray-50">
                   <div className="flex gap-4">
-                    <div className="h-12 w-12 flex-shrink-0">
-                      <img 
-                        src="public/lovable-uploads/2728574f-fd94-49ea-8d5f-d8625c54c420.png" 
-                        alt="DIPEX Certificate" 
-                        className="h-full w-full object-contain"
-                      />
+                    <div className="h-12 w-12 flex-shrink-0 bg-white rounded-full flex items-center justify-center">
+                      <CheckCircle className="text-primary" />
                     </div>
                     <div>
                       <h5 className="font-medium">Dipex (State level competition cum exhibition)</h5>
@@ -122,9 +115,9 @@ const AboutSection = () => {
                       <p className="text-xs text-gray-500">DIPEX 2025</p>
                     </div>
                   </div>
-                </div>
+                </Card>
               </div>
-            </div>
+            </Card>
           </div>
         </div>
       </div>

@@ -51,6 +51,7 @@
 @layer base {
   * {
     @apply border-border;
+    scroll-behavior: smooth;
   }
 
   body {
@@ -62,7 +63,7 @@
   }
   
   .card-gradient {
-    @apply bg-white bg-opacity-50 backdrop-blur-md hover:bg-opacity-70 transition-all duration-300;
+    @apply bg-white bg-opacity-70 backdrop-blur-md hover:bg-opacity-90 transition-all duration-300 shadow-md hover:shadow-lg;
   }
 
   .section {
@@ -82,5 +83,13 @@
   .animate-on-scroll.is-visible {
     opacity: 1;
     transform: translateY(0);
+  }
+  
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-sm border border-gray-100 shadow-md hover:shadow-lg transition-all;
+  }
+  
+  img {
+    @apply object-cover;
   }
 }

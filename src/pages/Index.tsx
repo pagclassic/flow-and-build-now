@@ -12,6 +12,30 @@ import AnimatedBackground from "@/components/AnimatedBackground";
 
 const Index = () => {
   useEffect(() => {
+    // Initialize smooth scrolling
+    const handleAnchorClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const href = target.getAttribute('href');
+      
+      if (href && href.startsWith('#')) {
+        e.preventDefault();
+        const targetId = href.substring(1);
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      }
+    };
+
+    // Add event listeners to all anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', handleAnchorClick as EventListener);
+    });
+
     // Initialize scroll animation observer
     const observer = new IntersectionObserver(
       (entries) => {
@@ -30,6 +54,10 @@ const Index = () => {
     });
 
     return () => {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.removeEventListener('click', handleAnchorClick as EventListener);
+      });
+      
       document.querySelectorAll(".animate-on-scroll").forEach((el) => {
         observer.unobserve(el);
       });

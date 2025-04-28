@@ -50,17 +50,22 @@ const HeroSection = () => {
               isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
             }`}
           >
-            <Button>
-              Contact Me
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-            <Button variant="outline">View Projects</Button>
+            <a href="#contact">
+              <Button>
+                Contact Me
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </a>
+            <a href="#projects">
+              <Button variant="outline">View Projects</Button>
+            </a>
             <div className="flex items-center gap-4 ml-2">
               <a 
                 href="https://github.com/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-gray-700 hover:text-primary transition-colors"
+                aria-label="GitHub"
               >
                 <Github size={20} />
               </a>
@@ -69,6 +74,7 @@ const HeroSection = () => {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-gray-700 hover:text-primary transition-colors"
+                aria-label="LinkedIn"
               >
                 <Linkedin size={20} />
               </a>
@@ -84,9 +90,9 @@ const HeroSection = () => {
           >
             <div className="relative z-10 animate-bounce-light">
               <img 
-                src="public/lovable-uploads/cfb6705a-ca6f-48ab-ab91-6f146a133890.png" 
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1287&auto=format&fit=crop"
                 alt="Pratik A. Gangurde" 
-                className="w-full max-w-md mx-auto rounded-full bg-white p-2 shadow-lg"
+                className="w-4/5 max-w-sm mx-auto rounded-full bg-white p-2 shadow-lg object-cover aspect-square"
               />
             </div>
             <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 blur-xl rounded-full -z-10"></div>
@@ -94,13 +100,12 @@ const HeroSection = () => {
         </div>
       </div>
       
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <a href="#about" className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
-      </div>
+      </a>
       
-      {/* Background elements */}
       <div className="absolute top-20 right-10 h-32 w-32 rounded-full bg-primary/10 blur-2xl"></div>
       <div className="absolute bottom-20 left-10 h-40 w-40 rounded-full bg-accent/10 blur-3xl"></div>
     </section>
