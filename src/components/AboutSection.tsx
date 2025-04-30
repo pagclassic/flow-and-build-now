@@ -55,38 +55,6 @@ const AboutSection = () => {
                 Let's connect and explore opportunities to innovate together!
               </p>
             </div>
-            
-            <div className="mt-8 animate-on-scroll" style={{ transitionDelay: "400ms" }}>
-              <h3 className="text-xl font-medium mb-4">Education</h3>
-              
-              <div className="space-y-4">
-                <Card className="p-4">
-                  <div className="flex gap-4">
-                    <div className="h-12 w-12 flex-shrink-0 bg-gray-100 rounded-full flex items-center justify-center">
-                      <span className="font-bold text-primary">ACE</span>
-                    </div>
-                    <div>
-                      <h4 className="font-medium">Atharva College of Engineering</h4>
-                      <p className="text-sm text-gray-600">Bachelor of Engineering - BE, Electronics and Communications Engineering</p>
-                      <p className="text-xs text-gray-500">Oct 2024 - May 2028</p>
-                    </div>
-                  </div>
-                </Card>
-                
-                <Card className="p-4">
-                  <div className="flex gap-4">
-                    <div className="h-12 w-12 flex-shrink-0 bg-gray-100 rounded-full flex items-center justify-center">
-                      <span className="font-bold text-primary">MGV</span>
-                    </div>
-                    <div>
-                      <h4 className="font-medium">Mahatma Gandhi Vidyamandir</h4>
-                      <p className="text-sm text-gray-600">HSC, Science</p>
-                      <p className="text-xs text-gray-500">Jul 2022 - Feb 2024</p>
-                    </div>
-                  </div>
-                </Card>
-              </div>
-            </div>
           </div>
           
           <div className="w-full md:w-1/2 animate-on-scroll h-full" style={{ transitionDelay: "600ms" }}>
