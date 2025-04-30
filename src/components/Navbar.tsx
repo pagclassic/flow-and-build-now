@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "./ThemeToggle";
+import LogoAnimation from "./LogoAnimation";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,10 +44,8 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
-          <a href="#home" className="text-2xl font-bold group relative">
-            <span className="text-accent">P</span>
-            <span className="inline-block overflow-hidden transition-all duration-300 group-hover:w-0 group-hover:opacity-0">ratik</span>
-            <span className="absolute left-[1.2rem] opacity-0 group-hover:opacity-100 transition-opacity duration-300 group-hover:inline">ortfolio</span>
+          <a href="#home" className="font-bold">
+            <LogoAnimation />
           </a>
 
           {/* Desktop Navigation */}
