@@ -36,7 +36,7 @@ const AboutSection = () => {
   return (
     <section id="about" className="section py-24">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="flex flex-col md:flex-row gap-12 items-center">
+        <div className="flex flex-col md:flex-row gap-12 items-start">
           <div className="w-full md:w-1/2">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 animate-on-scroll">
               About <span className="text-gradient">Me</span>
@@ -89,8 +89,8 @@ const AboutSection = () => {
             </div>
           </div>
           
-          <div className="w-full md:w-1/2 animate-on-scroll" style={{ transitionDelay: "600ms" }}>
-            <Card className="p-6">
+          <div className="w-full md:w-1/2 animate-on-scroll h-full" style={{ transitionDelay: "600ms" }}>
+            <Card className="p-6 h-full flex flex-col">
               <h3 className="text-xl font-medium mb-6">Skills & Expertise</h3>
               
               <div className="grid grid-cols-2 gap-4">
@@ -102,7 +102,7 @@ const AboutSection = () => {
                 ))}
               </div>
               
-              <div className="mt-8">
+              <div className="mt-auto pt-8">
                 <h4 className="text-lg font-medium mb-3">Certifications</h4>
                 <Card className="p-4 bg-gray-50">
                   <div className="flex gap-4">
