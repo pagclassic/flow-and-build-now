@@ -1,33 +1,37 @@
 
 import { useEffect } from "react";
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Eye, Code, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Eye, Code, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const ProjectsSection = () => {
+const AllProjects = () => {
   useEffect(() => {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-        }
-      });
-    }, {
-      threshold: 0.1
-    });
-    document.querySelectorAll(".animate-on-scroll").forEach(el => {
+    // Initialize scroll animation observer
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    // Observe all elements with animate-on-scroll class
+    document.querySelectorAll(".animate-on-scroll").forEach((el) => {
       observer.observe(el);
     });
+
     return () => {
-      document.querySelectorAll(".animate-on-scroll").forEach(el => {
+      document.querySelectorAll(".animate-on-scroll").forEach((el) => {
         observer.unobserve(el);
       });
     };
   }, []);
-  
-  // Display only the first two projects on the landing page
-  const featuredProjects = [{
+
+  const projects = [{
     id: 1,
     title: "FixYourLife",
     category: "ARTIFICIAL INTELLIGENCE",
@@ -45,17 +49,44 @@ const ProjectsSection = () => {
     image: "https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?q=80&w=2074&auto=format&fit=crop",
     codeUrl: "https://github.com/",
     demoUrl: "https://tunemigrate.com"
+  }, {
+    id: 3,
+    title: "Transport Portal",
+    category: "NEXT.JS, NODE.JS, EXPRESS.JS, MONGODB",
+    description: "A web-based service for transport businesses to digitally store, manage, and analyze their trip entries, which are traditionally maintained in physical registers or Excel. It provides easy, secure, and globally accessible storage.",
+    tags: ["Next.js", "Node.js", "Express.js", "MongoDB"],
+    image: "https://images.unsplash.com/photo-1494412651409-8963ce7935a7?q=80&w=2070&auto=format&fit=crop",
+    codeUrl: "https://github.com/",
+    demoUrl: "https://transportportal.com"
+  }, {
+    id: 4,
+    title: "HearWrite",
+    category: "NEXT.JS, NODE.JS, EXPRESS.JS, MONGODB",
+    description: "An app that helps students complete handwritten assignments faster by converting uploaded documents (PDFs, Word files, or images) into audio. Students can listen to the content and write it easily, saving time and reducing reading fatigue.",
+    tags: ["Next.js", "Node.js", "Express.js", "MongoDB"],
+    image: "https://images.unsplash.com/photo-1512236258305-32fb136ae01c?q=80&w=2070&auto=format&fit=crop",
+    codeUrl: "https://github.com/",
+    demoUrl: "https://hearwrite.app"
   }];
-
+  
   return (
-    <section id="projects" className="section bg-background py-24">
-      <div className="container mx-auto px-4 md:px-6">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center animate-on-scroll">
-          My <span className="text-gradient">Projects</span>
-        </h2>
-
+    <div className="min-h-screen bg-background">
+      <div className="container mx-auto px-4 md:px-6 pt-24 pb-12">
+        <div className="flex items-center justify-between mb-8">
+          <Link to="/" className="mb-6">
+            <Button variant="ghost" className="gap-2">
+              <ArrowLeft size={18} />
+              Back to Home
+            </Button>
+          </Link>
+        </div>
+        
+        <h1 className="text-4xl font-bold mb-12 animate-on-scroll">
+          All <span className="text-gradient">Projects</span>
+        </h1>
+        
         <div className="flex flex-col space-y-8">
-          {featuredProjects.map((project, index) => (
+          {projects.map((project, index) => (
             <Card key={project.id} className="overflow-hidden border-none shadow-lg dark-card animate-on-scroll" style={{
               transitionDelay: `${index * 200}ms`
             }}>
@@ -99,18 +130,9 @@ const ProjectsSection = () => {
             </Card>
           ))}
         </div>
-        
-        <div className="flex justify-center mt-10">
-          <Link to="/projects">
-            <Button variant="outline" className="gap-2">
-              See All Projects
-              <ArrowRight size={18} />
-            </Button>
-          </Link>
-        </div>
       </div>
-    </section>
+    </div>
   );
 };
 
-export default ProjectsSection;
+export default AllProjects;
