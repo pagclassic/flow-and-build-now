@@ -22,7 +22,7 @@ const ThemeToggle = () => {
       </Button>
 
       <Dialog open={showDialog} onOpenChange={setShowDialog}>
-        <DialogContent className="sm:max-w-md my-0 mx-0 px-[34px] py-[50px]">
+        <DialogContent className="sm:max-w-md my-0 mx-0 py-[50px] px-[50px] rounded-2xl">
           <DialogHeader>
             <DialogTitle className="text-center text-zinc-400">
               Really? Light Mode? 🤨
