@@ -70,7 +70,7 @@ const AboutSection = () => {
               <h3 className="text-xl font-medium mb-6">Skills & Expertise</h3>
               
               <div className="grid grid-cols-2 gap-4">
-                {skills.map((skill, index) => <div key={index} className="flex items-center gap-2 p-3 rounded-lg transition-colors bg-gray-900">
+                {skills.map((skill, index) => <div key={index} className="flex items-center gap-2 p-3 rounded-lg transition-colors bg-zinc-900">
                     {skill.icon}
                     <span>{skill.name}</span>
                   </div>)}
