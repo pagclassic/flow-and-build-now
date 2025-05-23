@@ -1,11 +1,18 @@
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useToast } from "@/hooks/use-toast";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 const ThemeToggle = () => {
-  const { toast } = useToast();
+  const [showDialog, setShowDialog] = useState(false);
 
   // Set dark mode on component mount
   useEffect(() => {
@@ -14,23 +21,43 @@ const ThemeToggle = () => {
   }, []);
 
   const handleLightModeClick = () => {
-    toast({
-      title: "Really? Light Mode? 🤨",
-      description: "Are you literally a developer? You want to switch to light mode? Huhh, you failed as a developer!",
-      variant: "destructive",
-    });
+    setShowDialog(true);
+  };
+
+  const handleDismiss = () => {
+    setShowDialog(false);
   };
 
   return (
-    <Button 
-      variant="ghost" 
-      size="icon" 
-      className="rounded-full"
-      aria-label="Dark mode"
-      onClick={handleLightModeClick}
-    >
-      <Moon className="h-5 w-5" />
-    </Button>
+    <>
+      <Button 
+        variant="ghost" 
+        size="icon" 
+        className="rounded-full"
+        aria-label="Dark mode"
+        onClick={handleLightModeClick}
+      >
+        <Moon className="h-5 w-5" />
+      </Button>
+
+      <Dialog open={showDialog} onOpenChange={setShowDialog}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-center text-destructive">
+              Really? Light Mode? 🤨
+            </DialogTitle>
+            <DialogDescription className="text-center">
+              Are you literally a developer? You want to switch to light mode? Huhh, you failed as a developer!
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter className="justify-center">
+            <Button onClick={handleDismiss} variant="outline">
+              Sorry, I will not do it again
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 };
 
