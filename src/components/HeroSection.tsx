@@ -52,7 +52,7 @@ const HeroSection = () => {
         <div className="w-full md:w-1/2 mt-12 md:mt-0">
           <div className={`relative transform transition-all duration-1000 delay-900 ${isVisible ? "translate-x-0 opacity-100" : "translate-x-20 opacity-0"}`}>
             <div className="relative z-10 animate-bounce-light">
-              <img alt="Pratik A. Gangurde" src="/lovable-uploads/29844725-8617-49e6-9003-eb8a517ab80d.jpg" className="w-4/5 max-w-sm mx-auto rounded-full bg-white p-2 shadow-lg aspect-square object-cover" />
+              <img alt="Pratik A. Gangurde" className="w-4/5 max-w-sm mx-auto rounded-full bg-white p-2 shadow-lg aspect-square object-cover" src="/lovable-uploads/6a3d458b-b403-4389-ba2f-ec329232cde8.jpg" />
             </div>
             <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 blur-xl rounded-full -z-10"></div>
           </div>
