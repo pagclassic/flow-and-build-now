@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Eye, Code, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
+import Navbar from "@/components/Navbar";
 
 const AllProjects = () => {
   useEffect(() => {
@@ -71,6 +72,7 @@ const AllProjects = () => {
   
   return (
     <div className="min-h-screen bg-background">
+      <Navbar />
       <div className="container mx-auto px-4 md:px-6 pt-24 pb-12">
         <div className="flex items-center justify-between mb-8">
           <Link to="/" className="mb-6">
