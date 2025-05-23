@@ -4,7 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
-import { Mail, Phone, MapPin, Send, Github } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Github, Eye } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +15,7 @@ const ContactSection = () => {
   });
   
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showContactDialog, setShowContactDialog] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -68,8 +70,8 @@ const ContactSection = () => {
     {
       icon: <Phone className="text-primary" />,
       label: "Phone",
-      value: "+91 98765 43210",
-      link: "tel:+919876543210"
+      value: "+91 97667 XXXXX",
+      showButton: true
     },
     {
       icon: <MapPin className="text-primary" />,
@@ -97,16 +99,33 @@ const ContactSection = () => {
                     <div className="mt-1 p-2 bg-primary/10 rounded-lg">
                       {item.icon}
                     </div>
-                    <div>
+                    <div className="flex-1">
                       <h4 className="text-sm font-medium text-muted-foreground">{item.label}</h4>
-                      <a 
-                        href={item.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-foreground hover:text-primary transition-colors"
-                      >
-                        {item.value}
-                      </a>
+                      <div className="flex items-center gap-3">
+                        {item.link ? (
+                          <a 
+                            href={item.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-foreground hover:text-primary transition-colors"
+                          >
+                            {item.value}
+                          </a>
+                        ) : (
+                          <span className="text-foreground">{item.value}</span>
+                        )}
+                        {item.showButton && (
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => setShowContactDialog(true)}
+                            className="ml-2 h-8 px-3 text-xs"
+                          >
+                            <Eye size={14} className="mr-1" />
+                            Show Contact
+                          </Button>
+                        )}
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -205,6 +224,32 @@ const ContactSection = () => {
           </div>
         </div>
       </div>
+
+      {/* Contact Dialog */}
+      <Dialog open={showContactDialog} onOpenChange={setShowContactDialog}>
+        <DialogContent className="sm:max-w-md bg-gradient-to-br from-card/90 to-secondary/90 backdrop-blur-md border border-border/50 rounded-2xl shadow-2xl">
+          <DialogHeader className="text-center pb-4">
+            <DialogTitle className="text-2xl font-bold bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+              Wait a minute! 🤔
+            </DialogTitle>
+          </DialogHeader>
+          
+          <div className="text-center space-y-6 py-4">
+            <div className="text-lg text-foreground leading-relaxed">
+              Do you really want to see his contact? He is a developer, probably he is lonely. 
+              <br />
+              <span className="text-primary font-semibold">Keep him lonely, no need to call! 😅</span>
+            </div>
+            
+            <Button 
+              onClick={() => setShowContactDialog(false)}
+              className="w-full bg-gradient-to-r from-accent to-primary hover:from-accent/90 hover:to-primary/90 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+            >
+              Understood 😔
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
