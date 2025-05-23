@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Eye, Code, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { toast } from "@/hooks/use-toast";
 
 const ProjectsSection = () => {
   useEffect(() => {
@@ -26,6 +27,13 @@ const ProjectsSection = () => {
     };
   }, []);
   
+  const handleUnderDevelopment = () => {
+    toast({
+      title: "Under Development",
+      description: "This project is currently under development.",
+    });
+  };
+  
   // Display only the first two projects on the landing page
   const featuredProjects = [{
     id: 1,
@@ -34,7 +42,7 @@ const ProjectsSection = () => {
     description: "A life optimization platform where users input their full personal situation, and the AI generates a step-by-step recovery plan with a daily schedule. It also tracks their progress over time, offering updated suggestions when needed.",
     tags: ["Next.js", "TypeScript", "LLM", "Supabase"],
     image: "https://images.unsplash.com/photo-1607988795691-3d0147b43231?q=80&w=2070&auto=format&fit=crop",
-    codeUrl: "https://github.com/",
+    codeUrl: "https://github.com/PRATIKABAJIGANGURDE/life-restructured",
     demoUrl: "https://fixyourlife.tech"
   }, {
     id: 2,
@@ -43,8 +51,8 @@ const ProjectsSection = () => {
     description: "A suite of online tools under one brand that help users manage and convert playlists between Spotify, YouTube, and other music platforms. Designed to be easy, fast, and free — similar to iLovePDF but focused on music needs.",
     tags: ["Next.js", "TypeScript", "LLM", "Supabase"],
     image: "https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?q=80&w=2074&auto=format&fit=crop",
-    codeUrl: "https://github.com/",
-    demoUrl: "https://tunemigrate.com"
+    codeUrl: "https://github.com/PRATIKABAJIGANGURDE/tunemigrate",
+    demoUrl: "https://tunemigrate.vercel.app/app"
   }];
 
   return (

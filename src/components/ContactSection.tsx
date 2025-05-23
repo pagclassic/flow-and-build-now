@@ -62,8 +62,8 @@ const ContactSection = () => {
     {
       icon: <Mail className="text-primary" />,
       label: "Email",
-      value: "pratik.gangurde@example.com",
-      link: "mailto:pratik.gangurde@example.com"
+      value: "pratikgangurde35@gmail.com",
+      link: "mailto:pratikgangurde35@gmail.com"
     },
     {
       icon: <Phone className="text-primary" />,
@@ -115,7 +115,7 @@ const ContactSection = () => {
               <h4 className="text-lg font-medium mb-4">Connect With Me</h4>
               <div className="flex gap-4">
                 <a 
-                  href="https://github.com/" 
+                  href="https://github.com/PRATIKABAJIGANGURDE" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="p-3 bg-secondary rounded-full hover:bg-primary/10 transition-colors"
@@ -123,7 +123,7 @@ const ContactSection = () => {
                   <Github size={20} className="text-foreground" />
                 </a>
                 <a 
-                  href="https://linkedin.com/" 
+                  href="https://www.linkedin.com/in/pratik-a-gangurde/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="p-3 bg-secondary rounded-full hover:bg-primary/10 transition-colors"

@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Eye, Code, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
+import { toast } from "@/hooks/use-toast";
 
 const AllProjects = () => {
   useEffect(() => {
@@ -32,6 +33,13 @@ const AllProjects = () => {
     };
   }, []);
 
+  const handleUnderDevelopment = () => {
+    toast({
+      title: "Under Development",
+      description: "This project is currently under development.",
+    });
+  };
+
   const projects = [{
     id: 1,
     title: "FixYourLife",
@@ -39,7 +47,7 @@ const AllProjects = () => {
     description: "A life optimization platform where users input their full personal situation, and the AI generates a step-by-step recovery plan with a daily schedule. It also tracks their progress over time, offering updated suggestions when needed.",
     tags: ["Next.js", "TypeScript", "LLM", "Supabase"],
     image: "https://images.unsplash.com/photo-1607988795691-3d0147b43231?q=80&w=2070&auto=format&fit=crop",
-    codeUrl: "https://github.com/",
+    codeUrl: "https://github.com/PRATIKABAJIGANGURDE/life-restructured",
     demoUrl: "https://fixyourlife.tech"
   }, {
     id: 2,
@@ -48,8 +56,8 @@ const AllProjects = () => {
     description: "A suite of online tools under one brand that help users manage and convert playlists between Spotify, YouTube, and other music platforms. Designed to be easy, fast, and free — similar to iLovePDF but focused on music needs.",
     tags: ["Next.js", "TypeScript", "LLM", "Supabase"],
     image: "https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?q=80&w=2074&auto=format&fit=crop",
-    codeUrl: "https://github.com/",
-    demoUrl: "https://tunemigrate.com"
+    codeUrl: "https://github.com/PRATIKABAJIGANGURDE/tunemigrate",
+    demoUrl: "https://tunemigrate.vercel.app/app"
   }, {
     id: 3,
     title: "Transport Portal",
@@ -57,8 +65,9 @@ const AllProjects = () => {
     description: "A web-based service for transport businesses to digitally store, manage, and analyze their trip entries, which are traditionally maintained in physical registers or Excel. It provides easy, secure, and globally accessible storage.",
     tags: ["Next.js", "Node.js", "Express.js", "MongoDB"],
     image: "https://images.unsplash.com/photo-1494412651409-8963ce7935a7?q=80&w=2070&auto=format&fit=crop",
-    codeUrl: "https://github.com/",
-    demoUrl: "https://transportportal.com"
+    codeUrl: "",
+    demoUrl: "",
+    underDevelopment: true
   }, {
     id: 4,
     title: "HearWrite",
@@ -66,8 +75,9 @@ const AllProjects = () => {
     description: "An app that helps students complete handwritten assignments faster by converting uploaded documents (PDFs, Word files, or images) into audio. Students can listen to the content and write it easily, saving time and reducing reading fatigue.",
     tags: ["Next.js", "Node.js", "Express.js", "MongoDB"],
     image: "https://images.unsplash.com/photo-1512236258305-32fb136ae01c?q=80&w=2070&auto=format&fit=crop",
-    codeUrl: "https://github.com/",
-    demoUrl: "https://hearwrite.app"
+    codeUrl: "",
+    demoUrl: "",
+    underDevelopment: true
   }];
   
   return (
@@ -118,11 +128,18 @@ const AllProjects = () => {
                   </div>
                   
                   <div className="flex items-center gap-4 mt-4">
-                    <Button variant="outline" className="gap-2 border-gray-700 hover:bg-gray-800" onClick={() => window.open(project.codeUrl, "_blank")}>
+                    <Button 
+                      variant="outline" 
+                      className="gap-2 border-gray-700 hover:bg-gray-800" 
+                      onClick={project.underDevelopment ? handleUnderDevelopment : () => window.open(project.codeUrl, "_blank")}
+                    >
                       <Code size={18} />
                       View Code
                     </Button>
-                    <Button className="gap-2" onClick={() => window.open(project.demoUrl, "_blank")}>
+                    <Button 
+                      className="gap-2" 
+                      onClick={project.underDevelopment ? handleUnderDevelopment : () => window.open(project.demoUrl, "_blank")}
+                    >
                       <Eye size={18} />
                       Live Demo
                     </Button>

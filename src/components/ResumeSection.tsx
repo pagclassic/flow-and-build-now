@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { FileText, Download, Calendar, MapPin, Building, ArrowUpRight } from "lucide-react";
@@ -30,14 +29,14 @@ const ResumeSection = () => {
       degree: "Bachelor of Engineering - BE, Electronics and Communications Engineering",
       duration: "Oct 2024 - May 2028",
       location: "Mumbai, Maharashtra",
-      logo: "public/lovable-uploads/122e74e6-7f31-4ea8-acfe-31cce26d0c0e.png"
+      logo: "/lovable-uploads/35908cfa-bda5-4dbc-82fa-094de855dab6.png"
     },
     {
       institution: "Mahatma Gandhi Vidyamandir's Loknete Vyankatrao Hiray Arts, Science & Commerce",
       degree: "HSC, Science",
       duration: "Jul 2022 - Feb 2024",
       location: "Nashik, Maharashtra",
-      logo: "public/lovable-uploads/c8982e4a-4a4a-4111-8d02-747a22898cf8.png"
+      logo: "/lovable-uploads/7298afb2-69a5-468a-ad26-de1373dfedd9.png"
     }
   ];
 
@@ -46,7 +45,7 @@ const ResumeSection = () => {
       name: "Dipex (State level competition cum exhibition)",
       issuer: "DIPEX Official",
       date: "DIPEX 2025",
-      logo: "public/lovable-uploads/2728574f-fd94-49ea-8d5f-d8625c54c420.png"
+      logo: "/lovable-uploads/87045168-7867-4479-bdd0-054f67d226d9.png"
     }
   ];
 

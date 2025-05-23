@@ -19,7 +19,7 @@ const Footer = () => {
             <h3 className="text-lg font-medium mb-2">Connect With Me</h3>
             <div className="flex gap-4">
               <a 
-                href="https://github.com/" 
+                href="https://github.com/PRATIKABAJIGANGURDE" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="hover:text-primary transition-colors"
@@ -28,7 +28,7 @@ const Footer = () => {
                 <Github size={20} />
               </a>
               <a 
-                href="https://linkedin.com/" 
+                href="https://www.linkedin.com/in/pratik-a-gangurde/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="hover:text-primary transition-colors"
