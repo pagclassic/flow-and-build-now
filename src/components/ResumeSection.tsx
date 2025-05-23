@@ -79,7 +79,7 @@ const ResumeSection = () => {
             }}>
                   <div className="flex gap-4">
                     <div className="h-12 w-12 flex-shrink-0 bg-secondary rounded-md flex items-center justify-center p-2">
-                      <img src={item.logo} alt={item.institution} className="h-full w-full object-cover rounded-lg" />
+                      <img src={item.logo} alt={item.institution} className="h-full w-full object-cover rounded-md" />
                     </div>
                     <div>
                       <h4 className="font-medium text-lg">{item.institution}</h4>
