@@ -78,7 +78,7 @@ const ResumeSection = () => {
               transitionDelay: `${800 + index * 200}ms`
             }}>
                   <div className="flex gap-4">
-                    <div className="h-12 w-12 flex-shrink-0 bg-secondary rounded-md flex items-center justify-center p-2">
+                    <div className="h-12 w-12 flex-shrink-0 bg-secondary-md flex items-center justify-center p-2">
                       <img src={item.logo} alt={item.institution} className="h-full w-full object-cover" />
                     </div>
                     <div>
