@@ -41,116 +41,118 @@ const ResumeSection = () => {
     logo: "/lovable-uploads/87045168-7867-4479-bdd0-054f67d226d9.png"
   }];
   return <section id="resume" className="section">
-      <div className="container mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 animate-on-scroll">
-              My <span className="text-gradient">Resume</span>
-            </h2>
-            <p className="text-muted-foreground animate-on-scroll" style={{
+    <div className="container mx-auto">
+      <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
+        <div>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 animate-on-scroll">
+            My <span className="text-gradient">Resume</span>
+          </h2>
+          <p className="text-muted-foreground animate-on-scroll" style={{
             transitionDelay: "200ms"
           }}>
-              A summary of my education, experience and certifications
-            </p>
-          </div>
-          <div className="mt-6 md:mt-0 animate-on-scroll" style={{
+            A summary of my education, experience and certifications
+          </p>
+        </div>
+        <div className="mt-6 md:mt-0 animate-on-scroll" style={{
           transitionDelay: "400ms"
         }}>
-            <Button className="flex items-center gap-2">
-              <FileText size={18} />
-              <span>Download CV</span>
-              <Download className="ml-1 h-4 w-4" />
-            </Button>
+          <Button className="flex items-center gap-2">
+            <FileText size={18} />
+            <span>Download CV</span>
+            <Download className="ml-1 h-4 w-4" />
+          </Button>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        <div>
+          <h3 className="text-2xl font-semibold mb-6 flex items-center animate-on-scroll" style={{
+            transitionDelay: "600ms"
+          }}>
+            <Building className="mr-2" />
+            <span>Education</span>
+          </h3>
+
+          <div className="space-y-6">
+            {educationData.map((item, index) => <div key={index} className="dark-card p-5 transition-shadow animate-on-scroll hover:shadow-accent/10 hover:shadow-lg" style={{
+              transitionDelay: `${800 + index * 200}ms`
+            }}>
+              <div className="flex gap-4">
+                <div className="h-12 w-12 flex-shrink-0 bg-secondary rounded-md flex items-center justify-center p-2">
+                  <img src={item.logo} alt={item.institution} className="h-full w-full object-cover rounded-md" />
+                </div>
+                <div>
+                  <h4 className="font-medium text-lg">{item.institution}</h4>
+                  <p className="text-muted-foreground">{item.degree}</p>
+                  <div className="flex flex-wrap gap-4 mt-2 text-sm text-muted-foreground">
+                    <span className="flex items-center gap-1">
+                      <Calendar size={14} />
+                      {item.duration}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <MapPin size={14} />
+                      {item.location}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>)}
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-          <div>
-            <h3 className="text-2xl font-semibold mb-6 flex items-center animate-on-scroll" style={{
+        <div>
+          <h3 className="text-2xl font-semibold mb-6 flex items-center animate-on-scroll" style={{
             transitionDelay: "600ms"
           }}>
-              <Building className="mr-2" />
-              <span>Education</span>
-            </h3>
+            <FileText className="mr-2" />
+            <span>Certifications</span>
+          </h3>
 
-            <div className="space-y-6">
-              {educationData.map((item, index) => <div key={index} className="dark-card p-5 transition-shadow animate-on-scroll hover:shadow-accent/10 hover:shadow-lg" style={{
+          <div className="space-y-6">
+            {certificationData.map((item, index) => <div key={index} className="dark-card p-5 transition-shadow animate-on-scroll hover:shadow-accent/10 hover:shadow-lg" style={{
               transitionDelay: `${800 + index * 200}ms`
             }}>
-                  <div className="flex gap-4">
-                    <div className="h-12 w-12 flex-shrink-0 bg-secondary rounded-md flex items-center justify-center p-2">
-                      <img src={item.logo} alt={item.institution} className="h-full w-full object-cover rounded-md" />
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-lg">{item.institution}</h4>
-                      <p className="text-muted-foreground">{item.degree}</p>
-                      <div className="flex flex-wrap gap-4 mt-2 text-sm text-muted-foreground">
-                        <span className="flex items-center gap-1">
-                          <Calendar size={14} />
-                          {item.duration}
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <MapPin size={14} />
-                          {item.location}
-                        </span>
-                      </div>
-                    </div>
+              <div className="flex gap-4">
+                <div className="h-12 w-12 flex-shrink-0 bg-secondary rounded-md flex items-center justify-center p-2">
+                  <img src={item.logo} alt={item.name} className="h-full w-full object-cover rounded-md" />
+                </div>
+                <div>
+                  <h4 className="font-medium text-lg">{item.name}</h4>
+                  <p className="text-muted-foreground">{item.issuer}</p>
+                  <div className="flex flex-wrap gap-4 mt-2 text-sm text-muted-foreground">
+                    <span className="flex items-center gap-1">
+                      <Calendar size={14} />
+                      {item.date}
+                    </span>
                   </div>
-                </div>)}
-            </div>
+                  <Button asChild variant="link">
+                    <a href="https://www.linkedin.com/in/pratik-a-gangurde/" target="_blank" rel="noopener noreferrer">
+                      View Certificate
+                      <ArrowUpRight className="ml-1" size={14} />
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </div>)}
           </div>
 
-          <div>
-            <h3 className="text-2xl font-semibold mb-6 flex items-center animate-on-scroll" style={{
-            transitionDelay: "600ms"
-          }}>
-              <FileText className="mr-2" />
-              <span>Certifications</span>
-            </h3>
-
-            <div className="space-y-6">
-              {certificationData.map((item, index) => <div key={index} className="dark-card p-5 transition-shadow animate-on-scroll hover:shadow-accent/10 hover:shadow-lg" style={{
-              transitionDelay: `${800 + index * 200}ms`
-            }}>
-                  <div className="flex gap-4">
-                    <div className="h-12 w-12 flex-shrink-0 bg-secondary rounded-md flex items-center justify-center p-2">
-                      <img src={item.logo} alt={item.name} className="h-full w-full object-cover rounded-md" />
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-lg">{item.name}</h4>
-                      <p className="text-muted-foreground">{item.issuer}</p>
-                      <div className="flex flex-wrap gap-4 mt-2 text-sm text-muted-foreground">
-                        <span className="flex items-center gap-1">
-                          <Calendar size={14} />
-                          {item.date}
-                        </span>
-                      </div>
-                      <Button variant="link">
-                        View Certificate
-                        <ArrowUpRight size={14} />
-                      </Button>
-                    </div>
-                  </div>
-                </div>)}
-            </div>
-
-            <div className="mt-8 animate-on-scroll" style={{
+          <div className="mt-8 animate-on-scroll" style={{
             transitionDelay: "1000ms"
           }}>
-              <div className="glassmorphism p-5 rounded-lg border border-border/50">
-                <h4 className="font-medium text-lg mb-2">Technical Skills</h4>
-                <ul className="list-disc list-inside space-y-1 text-muted-foreground">
-                  <li>HTML5, CSS3, JavaScript</li>
-                  <li>React.js, Tailwind CSS</li>
-                  <li>Basic Python & Machine Learning concepts</li>
-                  <li>UI/UX Design Principles</li>
-                  <li>Version Control (Git)</li>
-                </ul>
-              </div>
+            <div className="glassmorphism p-5 rounded-lg border border-border/50">
+              <h4 className="font-medium text-lg mb-2">Technical Skills</h4>
+              <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+                <li>HTML5, CSS3, JavaScript</li>
+                <li>React.js, Tailwind CSS</li>
+                <li>Basic Python & Machine Learning concepts</li>
+                <li>UI/UX Design Principles</li>
+                <li>Version Control (Git)</li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
-    </section>;
+    </div>
+  </section>;
 };
 export default ResumeSection;
