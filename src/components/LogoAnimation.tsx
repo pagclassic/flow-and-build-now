@@ -14,8 +14,8 @@ const LogoAnimation: React.FC = () => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Always-visible "P" with theme primary color */}
-      <span className="text-2xl font-bold text-primary">P</span>
+      {/* Always-visible "P" */}
+      <span className="text-2xl font-bold text-accent">P</span>
 
       <div className="relative">
         {/* "ratik" part of Pratik that fades out */}
@@ -28,13 +28,13 @@ const LogoAnimation: React.FC = () => {
           transition={{ duration: 0.3, ease: 'easeOut' }}
         >
           {pratikLetters.map((letter, i) => (
-            <span key={`pratik-${i}`} className="text-2xl font-bold text-foreground">
+            <span key={`pratik-${i}`} className="text-2xl font-bold">
               {letter}
             </span>
           ))}
         </motion.div>
 
-        {/* "ortfolio" part that fades in with gradient effect */}
+        {/* "ortfolio" part that fades in */}
         <motion.div
           className="flex absolute top-0 left-0"
           initial={{ opacity: 0, x: 10 }}
@@ -54,7 +54,7 @@ const LogoAnimation: React.FC = () => {
                 delay: i * 0.03,
                 ease: 'easeOut'
               }}
-              className="text-2xl font-bold text-gradient"
+              className="text-2xl font-bold"
             >
               {letter}
             </motion.span>
