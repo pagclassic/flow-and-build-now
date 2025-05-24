@@ -46,10 +46,9 @@ const ContactSection = () => {
   };
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
+    // Show immediate feedback
     setTimeout(() => {
       toast({
         title: "Message sent!",
@@ -57,7 +56,7 @@ const ContactSection = () => {
       });
       setFormData({ name: "", email: "", message: "" });
       setIsSubmitting(false);
-    }, 1500);
+    }, 1000);
   };
 
   const contactInfo = [
@@ -154,7 +153,12 @@ const ContactSection = () => {
           </div>
           
           <div className="animate-on-scroll" style={{ transitionDelay: "400ms" }}>
-            <form onSubmit={handleSubmit} className="glassmorphism p-8 rounded-xl">
+            <form 
+              action="https://formspree.io/f/mldbyrjz" 
+              method="POST"
+              onSubmit={handleSubmit} 
+              className="glassmorphism p-8 rounded-xl"
+            >
               <h3 className="text-2xl font-medium mb-6">Send a Message</h3>
               
               <div className="space-y-4">
