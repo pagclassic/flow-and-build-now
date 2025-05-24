@@ -125,7 +125,7 @@ const ResumeSection = () => {
                           {item.date}
                         </span>
                       </div>
-                      <Button variant="link" className="p-0 h-auto text-primary mt-2 flex items-center gap-1">
+                      <Button variant="https://www.linkedin.com/in/pratik-a-gangurde/">
                         View Certificate
                         <ArrowUpRight size={14} />
                       </Button>
