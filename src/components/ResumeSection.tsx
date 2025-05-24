@@ -126,7 +126,7 @@ const ResumeSection = () => {
                     </span>
                   </div>
                   <Button asChild variant="link">
-                    <a href="https://www.linkedin.com/in/pratik-a-gangurde/" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.linkedin.com/in/pratik-a-gangurde/" target="_blank" rel="noopener noreferrer" className="px-0 py-0 my-0 mx-0">
                       View Certificate
                       <ArrowUpRight className="ml-1" size={14} />
                     </a>
