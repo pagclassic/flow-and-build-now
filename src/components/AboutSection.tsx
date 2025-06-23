@@ -51,13 +51,13 @@ const AboutSection = () => {
             <div className="space-y-4 animate-on-scroll" style={{
             transitionDelay: "200ms"
           }}>
-              <p className="text-gray-700">
-                I am a first-year Electronics and Telecommunication (EXTC) engineering student at Atharva College of Engineering. With a passion for web development and a growing interest in artificial intelligence and machine learning, I am committed to building a strong foundation in technology and innovation.
-              </p>
+              <p className="text-gray-700">I’m a 2nd year B.Tech Electronics & Telecommunication student passionate about IoT, embedded systems, and solving real-world problems through smart technology. I enjoy working with microcontrollers like the ESP32, integrating sensors, and building automation-based projects.
+
+My learning is mostly hands-on — from automating water supply systems to experimenting with new modules and wireless communication protocols. I'm always exploring how hardware and software come together to create efficient and innovative solutions.
+
+I'm excited to keep learning, building impactful projects, and growing in the field of electronics and smart systems.</p>
               
-              <p className="text-gray-700">
-                Currently, I am honing my communication skills and enjoy connecting with tech enthusiasts to exchange ideas and insights. I believe in continuous learning and thrive in collaborative environments that foster creativity and growth.
-              </p>
+              
               
               
             </div>
