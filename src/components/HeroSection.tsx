@@ -22,10 +22,7 @@ const HeroSection = () => {
           </div>
           
           <div className={`transform transition-all duration-1000 delay-500 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}>
-            <p className="text-lg text-gray-600 mb-8">
-              First-year B.Tech student at Atharva College of Engineering, passionate about building innovative 
-              solutions and exploring new technologies.
-            </p>
+            <p className="text-lg text-gray-600 mb-8">2nd year B.Tech Electronics &amp; Telecommunication student | Exploring IoT, embedded systems, and solving real-world problems through hands-on tech projects.</p>
           </div>
           
           <div className={`flex flex-wrap gap-4 transform transition-all duration-1000 delay-700 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}>
