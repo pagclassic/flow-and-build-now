@@ -56,7 +56,7 @@ const EducationSection = () => {
                   <ul className="text-sm space-y-2 text-gray-600">
                     {index === 0 ? <>
                         <li>• Second-year student focusing on electronics and telecommunications</li>
-                        <li>• Exploring web development and artificial intelligence</li>
+                        <li>• Exploring IoT and Embedded system</li>
                       </> : <>
                         <li>• Completed HSC with focus on science subjects</li>
                         <li>• Participated in various technical exhibitions</li>
