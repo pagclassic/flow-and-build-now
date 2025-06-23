@@ -16,9 +16,7 @@ const HeroSection = () => {
           </div>
           
           <div className={`transform transition-all duration-1000 delay-300 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}>
-            <h2 className="text-2xl md:text-3xl font-medium text-gray-700 mb-6">
-              Web Developer & AI/ML Enthusiast
-            </h2>
+            <h2 className="text-2xl md:text-3xl font-medium text-gray-700 mb-6">Electronics &amp; IoT Enthusiast | Building Hardware Projects</h2>
           </div>
           
           <div className={`transform transition-all duration-1000 delay-500 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}>
