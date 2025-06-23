@@ -229,28 +229,34 @@ const ContactSection = () => {
         </div>
       </div>
 
-      {/* Contact Dialog */}
+      {/* Enhanced Contact Dialog */}
       <Dialog open={showContactDialog} onOpenChange={setShowContactDialog}>
-        <DialogContent className="sm:max-w-md bg-gradient-to-br from-card/90 to-secondary/90 backdrop-blur-md border border-border/50 rounded-2xl shadow-2xl">
-          <DialogHeader className="text-center pb-4">
-            <DialogTitle className="text-2xl font-bold bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
-              Wait a minute! 🤔
-            </DialogTitle>
-          </DialogHeader>
-          
-          <div className="text-center space-y-6 py-4">
-            <div className="text-lg text-foreground leading-relaxed">
-              Do you really want to see his contact? He is a developer, probably he is lonely. 
-              <br />
-              <span className="text-primary font-semibold">Keep him lonely, no need to call! 😅</span>
-            </div>
+        <DialogContent className="sm:max-w-md border-0 bg-gradient-to-br from-gray-900/95 via-slate-900/95 to-gray-800/95 backdrop-blur-xl shadow-2xl rounded-3xl overflow-hidden animate-scale-in">
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-blue-500/10 to-cyan-500/10 animate-pulse" />
+          <div className="relative z-10">
+            <DialogHeader className="text-center pb-6 pt-4">
+              <div className="mx-auto mb-4 w-16 h-16 bg-gradient-to-br from-orange-400 to-red-500 rounded-full flex items-center justify-center shadow-lg animate-bounce">
+                <span className="text-2xl">🤔</span>
+              </div>
+              <DialogTitle className="text-3xl font-bold bg-gradient-to-r from-orange-400 via-red-500 to-pink-500 bg-clip-text text-transparent leading-tight">
+                Wait a minute!
+              </DialogTitle>
+            </DialogHeader>
             
-            <Button 
-              onClick={() => setShowContactDialog(false)}
-              className="w-full bg-gradient-to-r from-accent to-primary hover:from-accent/90 hover:to-primary/90 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
-            >
-              Understood 😔
-            </Button>
+            <div className="text-center space-y-6 py-6 px-2">
+              <div className="text-lg text-gray-100 leading-relaxed font-medium">
+                Do you really want to see his contact? He is a developer, probably he is lonely. 
+                <br />
+                <span className="text-gradient font-bold text-xl">Keep him lonely, no need to call! 😅</span>
+              </div>
+              
+              <Button 
+                onClick={() => setShowContactDialog(false)}
+                className="w-full bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105 border-2 border-white/20"
+              >
+                <span className="text-lg">Understood 😔</span>
+              </Button>
+            </div>
           </div>
         </DialogContent>
       </Dialog>
