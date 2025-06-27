@@ -76,16 +76,28 @@ I'm excited to keep learning, building impactful projects, and growing in the fi
           <div className="w-full md:w-1/2 animate-on-scroll h-full" style={{
             transitionDelay: "600ms"
           }}>
-            <Card className="p-6 h-full flex flex-col my-[45px]">
+            <Card className="p-6 h-full flex flex-col my-[45px] relative overflow-hidden">
               <h3 className="text-xl font-medium mb-6">Skills & Expertise</h3>
               
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-4 blur-sm">
                 {skills.map((skill, index) => (
                   <div key={index} className="flex items-center gap-2 p-3 rounded-lg transition-colors bg-zinc-900">
                     {skill.icon}
                     <span>{skill.name}</span>
                   </div>
                 ))}
+              </div>
+              
+              {/* Overlay message */}
+              <div className="absolute inset-0 flex items-center justify-center bg-black/20 backdrop-blur-[1px]">
+                <div className="text-center p-4">
+                  <div className="text-lg font-semibold text-white mb-2">
+                    🚧 Potential Skills
+                  </div>
+                  <div className="text-sm text-gray-300">
+                    Currently working on mastering these technologies
+                  </div>
+                </div>
               </div>
             </Card>
           </div>
