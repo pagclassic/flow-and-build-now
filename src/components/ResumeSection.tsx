@@ -141,9 +141,9 @@ const ResumeSection = () => {
             <div className="mt-8 animate-on-scroll" style={{
               transitionDelay: "1000ms"
             }}>
-              <div className="glassmorphism p-5 rounded-lg border border-border/50">
+              <div className="glassmorphism p-5 rounded-lg border border-border/50 relative overflow-hidden">
                 <h4 className="font-medium text-lg mb-2">Technical Skills</h4>
-                <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+                <ul className="list-disc list-inside space-y-1 text-muted-foreground blur-sm">
                   <li>ESP32 & Arduino Development</li>
                   <li>IoT Systems & Sensor Integration</li>
                   <li>Embedded C/C++ Programming</li>
@@ -151,6 +151,18 @@ const ResumeSection = () => {
                   <li>Wireless Communication (WiFi, Bluetooth)</li>
                   <li>Automation & Control Systems</li>
                 </ul>
+                
+                {/* Overlay message */}
+                <div className="absolute inset-0 flex items-center justify-center bg-black/20 backdrop-blur-[1px]">
+                  <div className="text-center p-4">
+                    <div className="text-lg font-semibold text-white mb-2">
+                      🚧 Potential Skills
+                    </div>
+                    <div className="text-sm text-gray-300">
+                      Currently working on mastering these technologies
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
