@@ -87,26 +87,26 @@ const ContactSection = () => {
           Get In <span className="text-gradient">Touch</span>
         </h2>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           <div className="animate-on-scroll" style={{ transitionDelay: "200ms" }}>
-            <div className="glassmorphism p-8 rounded-xl h-full">
-              <h3 className="text-2xl font-medium mb-6">Contact Information</h3>
+            <div className="glassmorphism p-6 md:p-8 rounded-xl h-full">
+              <h3 className="text-xl md:text-2xl font-medium mb-4 md:mb-6 text-center lg:text-left">Contact Information</h3>
               
-              <div className="space-y-6 mb-8">
+              <div className="space-y-4 md:space-y-6 mb-6 md:mb-8">
                 {contactInfo.map((item, index) => (
-                  <div key={index} className="flex items-start gap-4">
-                    <div className="mt-1 p-2 bg-primary/10 rounded-lg">
+                  <div key={index} className="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4 text-center sm:text-left">
+                    <div className="p-2 bg-primary/10 rounded-lg flex-shrink-0">
                       {item.icon}
                     </div>
-                    <div className="flex-1">
-                      <h4 className="text-sm font-medium text-muted-foreground">{item.label}</h4>
-                      <div className="flex items-center gap-3">
+                    <div className="flex-1 min-w-0">
+                      <h4 className="text-sm font-medium text-muted-foreground mb-1">{item.label}</h4>
+                      <div className="flex flex-col sm:flex-row items-center sm:items-start gap-2 sm:gap-3">
                         {item.link ? (
                           <a 
                             href={item.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-foreground hover:text-primary transition-colors"
+                            className="text-foreground hover:text-primary transition-colors break-all"
                           >
                             {item.value}
                           </a>
@@ -118,10 +118,10 @@ const ContactSection = () => {
                             variant="outline"
                             size="sm"
                             onClick={() => setShowContactDialog(true)}
-                            className="ml-2 h-8 px-3 text-xs"
+                            className="h-7 px-2 text-xs flex-shrink-0"
                           >
-                            <Eye size={14} className="mr-1" />
-                            Show Contact
+                            <Eye size={12} className="mr-1" />
+                            Show
                           </Button>
                         )}
                       </div>
@@ -130,8 +130,8 @@ const ContactSection = () => {
                 ))}
               </div>
               
-              <h4 className="text-lg font-medium mb-4">Connect With Me</h4>
-              <div className="flex gap-4">
+              <h4 className="text-lg font-medium mb-4 text-center lg:text-left">Connect With Me</h4>
+              <div className="flex gap-4 justify-center lg:justify-start">
                 <a 
                   href="https://github.com/PRATIKABAJIGANGURDE" 
                   target="_blank" 
@@ -157,9 +157,9 @@ const ContactSection = () => {
               action="https://formspree.io/f/mldbyrjz" 
               method="POST"
               onSubmit={handleSubmit} 
-              className="glassmorphism p-8 rounded-xl"
+              className="glassmorphism p-6 md:p-8 rounded-xl"
             >
-              <h3 className="text-2xl font-medium mb-6">Send a Message</h3>
+              <h3 className="text-xl md:text-2xl font-medium mb-4 md:mb-6 text-center lg:text-left">Send a Message</h3>
               
               <div className="space-y-4">
                 <div>
@@ -203,7 +203,7 @@ const ContactSection = () => {
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="How can I help you?"
-                    rows={5}
+                    rows={4}
                     required
                     className="bg-secondary"
                   />
