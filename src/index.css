@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
@@ -57,30 +58,44 @@
     @apply bg-background text-foreground font-sans;
   }
 
-  /* Custom Scrollbar Styling */
-  ::-webkit-scrollbar {
-    width: 12px;
+  /* Custom Scrollbar Styling - Hidden on mobile, visible on desktop */
+  @media (min-width: 768px) {
+    ::-webkit-scrollbar {
+      width: 12px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #000000;
+      border-radius: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #404040;
+      border-radius: 6px;
+      border: 2px solid #000000;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #606060;
+    }
+
+    /* Firefox scrollbar for desktop */
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: #404040 #000000;
+    }
   }
 
-  ::-webkit-scrollbar-track {
-    background: #000000;
-    border-radius: 6px;
-  }
+  /* Hide scrollbars on mobile */
+  @media (max-width: 767px) {
+    ::-webkit-scrollbar {
+      display: none;
+    }
 
-  ::-webkit-scrollbar-thumb {
-    background: #404040;
-    border-radius: 6px;
-    border: 2px solid #000000;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: #606060;
-  }
-
-  /* Firefox scrollbar */
-  * {
-    scrollbar-width: thin;
-    scrollbar-color: #404040 #000000;
+    /* Firefox scrollbar hidden on mobile */
+    * {
+      scrollbar-width: none;
+    }
   }
 
   .text-gradient {
