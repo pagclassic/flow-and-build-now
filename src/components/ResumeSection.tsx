@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { FileText, Download, Calendar, MapPin, Building, ArrowUpRight } from "lucide-react";
@@ -76,22 +77,22 @@ const ResumeSection = () => {
             </h3>
 
             <div className="space-y-6">
-              {educationData.map((item, index) => <div key={index} className="dark-card p-5 transition-shadow animate-on-scroll hover:shadow-accent/10 hover:shadow-lg" style={{
+              {educationData.map((item, index) => <div key={index} className="dark-card p-4 md:p-5 transition-shadow animate-on-scroll hover:shadow-accent/10 hover:shadow-lg" style={{
                 transitionDelay: `${800 + index * 200}ms`
               }}>
-                <div className="flex gap-4">
-                  <div className="h-12 w-12 flex-shrink-0 bg-secondary rounded-md flex items-center justify-center p-2">
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <div className="h-16 w-16 sm:h-12 sm:w-12 flex-shrink-0 bg-secondary rounded-md flex items-center justify-center p-2 mx-auto sm:mx-0">
                     <img src={item.logo} alt={item.institution} className="h-full w-full object-cover rounded-md" />
                   </div>
-                  <div>
-                    <h4 className="font-medium text-lg">{item.institution}</h4>
-                    <p className="text-muted-foreground">{item.degree}</p>
-                    <div className="flex flex-wrap gap-4 mt-2 text-sm text-muted-foreground">
-                      <span className="flex items-center gap-1">
+                  <div className="text-center sm:text-left flex-1">
+                    <h4 className="font-medium text-lg mb-2">{item.institution}</h4>
+                    <p className="text-muted-foreground mb-3">{item.degree}</p>
+                    <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-4 text-sm text-muted-foreground">
+                      <span className="flex items-center justify-center sm:justify-start gap-1">
                         <Calendar size={14} />
                         {item.duration}
                       </span>
-                      <span className="flex items-center gap-1">
+                      <span className="flex items-center justify-center sm:justify-start gap-1">
                         <MapPin size={14} />
                         {item.location}
                       </span>
@@ -111,28 +112,30 @@ const ResumeSection = () => {
             </h3>
 
             <div className="space-y-6">
-              {certificationData.map((item, index) => <div key={index} className="dark-card p-5 transition-shadow animate-on-scroll hover:shadow-accent/10 hover:shadow-lg" style={{
+              {certificationData.map((item, index) => <div key={index} className="dark-card p-4 md:p-5 transition-shadow animate-on-scroll hover:shadow-accent/10 hover:shadow-lg" style={{
                 transitionDelay: `${800 + index * 200}ms`
               }}>
-                <div className="flex gap-4">
-                  <div className="h-12 w-12 flex-shrink-0 bg-secondary rounded-md flex items-center justify-center p-2">
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <div className="h-16 w-16 sm:h-12 sm:w-12 flex-shrink-0 bg-secondary rounded-md flex items-center justify-center p-2 mx-auto sm:mx-0">
                     <img src={item.logo} alt={item.name} className="h-full w-full object-cover rounded-md" />
                   </div>
-                  <div>
-                    <h4 className="font-medium text-lg">{item.name}</h4>
-                    <p className="text-muted-foreground">{item.issuer}</p>
-                    <div className="flex flex-wrap gap-4 mt-2 text-sm text-muted-foreground">
-                      <span className="flex items-center gap-1">
+                  <div className="text-center sm:text-left flex-1">
+                    <h4 className="font-medium text-lg mb-2">{item.name}</h4>
+                    <p className="text-muted-foreground mb-3">{item.issuer}</p>
+                    <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-4 mb-3 text-sm text-muted-foreground">
+                      <span className="flex items-center justify-center sm:justify-start gap-1">
                         <Calendar size={14} />
                         {item.date}
                       </span>
                     </div>
-                    <Button asChild variant="link">
-                      <a href="https://www.linkedin.com/in/pratik-a-gangurde/" target="_blank" rel="noopener noreferrer">
-                        View Certificate
-                        <ArrowUpRight className="ml-1" size={14} />
-                      </a>
-                    </Button>
+                    <div className="flex justify-center sm:justify-start">
+                      <Button asChild variant="link" className="px-0">
+                        <a href="https://www.linkedin.com/in/pratik-a-gangurde/" target="_blank" rel="noopener noreferrer">
+                          View Certificate
+                          <ArrowUpRight className="ml-1" size={14} />
+                        </a>
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </div>)}
