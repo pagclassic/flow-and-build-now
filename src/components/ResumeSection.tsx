@@ -76,29 +76,30 @@ const ResumeSection = () => {
             </h3>
 
             <div className="space-y-6">
-              {educationData.map((item, index) => <div key={index} className="dark-card p-5 transition-shadow animate-on-scroll hover:shadow-accent/10 hover:shadow-lg" style={{
-                transitionDelay: `${800 + index * 200}ms`
-              }}>
-                <div className="flex gap-4">
-                  <div className="h-12 w-12 flex-shrink-0 bg-secondary rounded-md flex items-center justify-center p-2">
-                    <img src={item.logo} alt={item.institution} className="h-full w-full object-cover rounded-md" />
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-lg">{item.institution}</h4>
-                    <p className="text-muted-foreground">{item.degree}</p>
-                    <div className="flex flex-wrap gap-4 mt-2 text-sm text-muted-foreground">
-                      <span className="flex items-center gap-1">
-                        <Calendar size={14} />
-                        {item.duration}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <MapPin size={14} />
-                        {item.location}
-                      </span>
+              {educationData.map((item, index) => (
+                <div key={index} className="dark-card p-6 transition-shadow animate-on-scroll hover:shadow-accent/10 hover:shadow-lg" style={{
+                  transitionDelay: `${800 + index * 200}ms`
+                }}>
+                  <div className="text-center mb-4">
+                    <div className="h-16 w-16 mx-auto bg-secondary rounded-full flex items-center justify-center p-3 mb-3">
+                      <img src={item.logo} alt={item.institution} className="h-full w-full object-cover rounded-full" />
                     </div>
+                    <h4 className="font-semibold text-xl mb-2">{item.institution}</h4>
+                    <p className="text-muted-foreground text-base">{item.degree}</p>
+                  </div>
+                  
+                  <div className="flex justify-center gap-6 text-sm text-muted-foreground">
+                    <span className="flex items-center gap-1">
+                      <Calendar size={14} />
+                      {item.duration}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <MapPin size={14} />
+                      {item.location}
+                    </span>
                   </div>
                 </div>
-              </div>)}
+              ))}
             </div>
           </div>
 
