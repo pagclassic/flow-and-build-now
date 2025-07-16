@@ -32,27 +32,59 @@ const ProjectsSection = () => {
           My <span className="text-gradient">Projects</span>
         </h2>
 
-        <div className="flex justify-center">
-          <Card className="max-w-lg w-full p-8 text-center border-none shadow-lg dark-card animate-on-scroll">
-            <div className="flex justify-center mb-6">
-              <div className="p-4 bg-accent/10 rounded-full">
-                <Wrench className="w-8 h-8 text-accent" />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          {[
+            {
+              title: "FixYourLife",
+              category: "AI Platform",
+              description: "Life optimization platform with AI-generated recovery plans",
+              tags: ["Next.js", "TypeScript", "LLM"],
+              image: "https://images.unsplash.com/photo-1607988795691-3d0147b43231?q=80&w=2070&auto=format&fit=crop"
+            },
+            {
+              title: "TuneMigrate",
+              category: "Music Tools",
+              description: "Suite of tools for managing playlists across music platforms",
+              tags: ["Next.js", "TypeScript", "API"],
+              image: "https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?q=80&w=2074&auto=format&fit=crop"
+            },
+            {
+              title: "Arduino Accelerometer Display",
+              category: "Hardware Project",
+              description: "Real-time accelerometer data display using Arduino and LCD",
+              tags: ["Arduino", "ADXL345", "Hardware"],
+              image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop"
+            }
+          ].map((project, index) => (
+            <Card key={index} className="overflow-hidden border-none shadow-lg dark-card animate-on-scroll hover:shadow-xl transition-shadow duration-300" style={{
+              transitionDelay: `${index * 200}ms`
+            }}>
+              <div className="h-48 overflow-hidden">
+                <img src={project.image} alt={project.title} className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-300" />
               </div>
-            </div>
-            
-            <h3 className="text-2xl font-bold mb-4">Currently Working on Projects</h3>
-            <p className="text-muted-foreground mb-6">
-              I'm currently developing exciting new projects that will be showcased here soon. 
-              Stay tuned for updates!
-            </p>
-            
-            <div className="flex justify-center">
-              <Button variant="outline" className="gap-2">
-                <Code size={18} />
-                Check Back Soon
-              </Button>
-            </div>
-          </Card>
+              <div className="p-6">
+                <div className="text-xs text-accent mb-2 uppercase tracking-wide">{project.category}</div>
+                <h3 className="text-xl font-bold mb-3">{project.title}</h3>
+                <p className="text-muted-foreground mb-4 line-clamp-2">{project.description}</p>
+                <div className="flex flex-wrap gap-2">
+                  {project.tags.map((tag, i) => (
+                    <span key={i} className="text-xs px-2 py-1 bg-accent/10 text-accent rounded-full">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </Card>
+          ))}
+        </div>
+        
+        <div className="flex justify-center">
+          <a href="/projects">
+            <Button className="gap-2">
+              <Code size={18} />
+              View All Projects
+            </Button>
+          </a>
         </div>
       </div>
     </section>
