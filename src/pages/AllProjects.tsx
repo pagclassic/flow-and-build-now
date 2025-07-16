@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Eye, Code, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
-import { toast } from "@/hooks/use-toast";
+
 
 const AllProjects = () => {
   useEffect(() => {
@@ -33,33 +33,9 @@ const AllProjects = () => {
     };
   }, []);
 
-  const handleUnderDevelopment = () => {
-    toast({
-      title: "Under Development",
-      description: "This project is currently under development.",
-    });
-  };
 
   const projects = [{
     id: 1,
-    title: "FixYourLife",
-    category: "ARTIFICIAL INTELLIGENCE",
-    description: "A life optimization platform where users input their full personal situation, and the AI generates a step-by-step recovery plan with a daily schedule. It also tracks their progress over time, offering updated suggestions when needed.",
-    tags: ["Next.js", "TypeScript", "LLM", "Supabase"],
-    image: "https://images.unsplash.com/photo-1607988795691-3d0147b43231?q=80&w=2070&auto=format&fit=crop",
-    codeUrl: "https://github.com/PRATIKABAJIGANGURDE/life-restructured",
-    demoUrl: "https://fixyourlife.tech"
-  }, {
-    id: 2,
-    title: "TuneMigrate",
-    category: "ARTIFICIAL INTELLIGENCE",
-    description: "A suite of online tools under one brand that help users manage and convert playlists between Spotify, YouTube, and other music platforms. Designed to be easy, fast, and free — similar to iLovePDF but focused on music needs.",
-    tags: ["Next.js", "TypeScript", "LLM", "Supabase"],
-    image: "https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?q=80&w=2074&auto=format&fit=crop",
-    codeUrl: "https://github.com/PRATIKABAJIGANGURDE/tunemigrate",
-    demoUrl: "https://tunemigrate.vercel.app/app"
-  }, {
-    id: 3,
     title: "Real-Time Accelerometer Data Display",
     category: "HARDWARE PROJECT",
     description: "Arduino project using ADXL345 accelerometer and 16x2 LCD display to show real-time X, Y, Z axis data. Demonstrates I2C communication, LCD interfacing, and hardware debugging skills.",
@@ -67,51 +43,7 @@ const AllProjects = () => {
     image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop",
     codeUrl: "https://github.com/username/accelerometer-lcd-display",
     demoUrl: "",
-    hardwareProject: true,
-    overview: "This project uses an ADXL345 accelerometer and a 16x2 LCD display connected to an Arduino Mega. It reads real-time X, Y, Z axis data and displays it smoothly on the LCD screen. The project helped me understand I2C communication, LCD interfacing, and hardware debugging.",
-    goal: "I wanted to learn how to interface sensors and display data without a computer (Serial Monitor). The goal was to read accelerometer values and display them in real-time on an LCD using only the Arduino and hardware components.",
-    components: [
-      { name: "Arduino Mega", quantity: 1, notes: "Main controller" },
-      { name: "ADXL345 Accelerometer", quantity: 1, notes: "I2C sensor" },
-      { name: "16x2 LCD Display (JHD162A)", quantity: 1, notes: "Without I2C module" },
-      { name: "Jumper Wires", quantity: "~15", notes: "Male-to-male" },
-      { name: "Breadboard", quantity: 1, notes: "For prototyping" },
-      { name: "1kΩ Resistor", quantity: 1, notes: "For contrast (VO pin)" },
-      { name: "USB Cable", quantity: 1, notes: "For programming and power" }
-    ],
-    libraries: ["Adafruit_Sensor", "Adafruit_ADXL345_U", "Wire (built-in)", "LiquidCrystal (built-in)"],
-    problems: [
-      { problem: "LCD only showed one line", solution: "RW pin (Pin 5) was floating → I connected it manually to GND" },
-      { problem: "LCD was showing boxes only", solution: "I didn't use a potentiometer, so I used a 1kΩ resistor to fix contrast" },
-      { problem: "Float values printing ?", solution: "snprintf(...%f) doesn't work on Arduino, so I used lcd.print(float, 1)" },
-      { problem: "Display was flickering", solution: "Avoided lcd.clear() and used setCursor() with padding" }
-    ],
-    learnings: [
-      "How to interface an I2C sensor and parallel LCD on the same Arduino",
-      "How to debug hardware issues like contrast and RW pin problems",
-      "How to format and fit data within LCD size limits",
-      "Why some Arduino functions (like %f in sprintf) don't always work"
-    ]
-  }, {
-    id: 4,
-    title: "Transport Portal",
-    category: "NEXT.JS, NODE.JS, EXPRESS.JS, MONGODB",
-    description: "A web-based service for transport businesses to digitally store, manage, and analyze their trip entries, which are traditionally maintained in physical registers or Excel. It provides easy, secure, and globally accessible storage.",
-    tags: ["Next.js", "Node.js", "Express.js", "MongoDB"],
-    image: "https://images.unsplash.com/photo-1494412651409-8963ce7935a7?q=80&w=2070&auto=format&fit=crop",
-    codeUrl: "",
-    demoUrl: "",
-    underDevelopment: true
-  }, {
-    id: 5,
-    title: "HearWrite",
-    category: "NEXT.JS, NODE.JS, EXPRESS.JS, MONGODB",
-    description: "An app that helps students complete handwritten assignments faster by converting uploaded documents (PDFs, Word files, or images) into audio. Students can listen to the content and write it easily, saving time and reducing reading fatigue.",
-    tags: ["Next.js", "Node.js", "Express.js", "MongoDB"],
-    image: "https://images.unsplash.com/photo-1512236258305-32fb136ae01c?q=80&w=2070&auto=format&fit=crop",
-    codeUrl: "",
-    demoUrl: "",
-    underDevelopment: true
+    hardwareProject: true
   }];
   
   return (
@@ -136,50 +68,49 @@ const AllProjects = () => {
             <Card key={project.id} className="overflow-hidden border-none shadow-lg dark-card animate-on-scroll" style={{
               transitionDelay: `${index * 200}ms`
             }}>
-              <div className="flex flex-col lg:flex-row">
-                <div className="lg:w-1/2 h-60 lg:h-auto overflow-hidden">
-                  <div className="h-full w-full relative">
-                    <img src={project.image} alt={project.title} className="w-full h-full object-cover object-center" />
-                    <div className="absolute top-4 right-4 bg-black/70 text-white px-2 py-1 text-xs rounded">
-                      {project.id === 1 || project.id === 2 ? "Completed" : "In Development"}
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="lg:w-1/2 p-6 lg:p-10 flex flex-col justify-between">
-                  <div>
-                    <h3 className="text-2xl font-bold mb-4">{project.title}</h3>
-                    <p className="text-muted-foreground mb-6 line-clamp-3">
-                      {project.description}
-                    </p>
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {project.tags.map((tag, i) => (
-                        <span key={i} className="text-xs px-3 py-1 bg-accent/10 text-accent rounded-full">
-                          {tag}
-                        </span>
-                      ))}
+                <div className="flex flex-col lg:flex-row">
+                  <div className="lg:w-1/2 h-60 lg:h-auto overflow-hidden">
+                    <div className="h-full w-full relative">
+                      <img src={project.image} alt={project.title} className="w-full h-full object-cover object-center" />
+                      <div className="absolute top-4 right-4 bg-black/70 text-white px-2 py-1 text-xs rounded">
+                        Completed
+                      </div>
                     </div>
                   </div>
                   
-                  <div className="flex items-center gap-4 mt-4">
-                    <Button 
-                      variant="outline" 
-                      className="gap-2 border-gray-700 hover:bg-gray-800" 
-                      onClick={project.underDevelopment ? handleUnderDevelopment : () => window.open(project.codeUrl, "_blank")}
-                    >
-                      <Code size={18} />
-                      View Code
-                    </Button>
-                    <Button 
-                      className="gap-2" 
-                      onClick={project.underDevelopment ? handleUnderDevelopment : () => window.open(project.demoUrl, "_blank")}
-                    >
-                      <Eye size={18} />
-                      Live Demo
-                    </Button>
+                  <div className="lg:w-1/2 p-6 lg:p-10 flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-2xl font-bold mb-4">{project.title}</h3>
+                      <p className="text-muted-foreground mb-6 line-clamp-3">
+                        {project.description}
+                      </p>
+                      <div className="flex flex-wrap gap-2 mb-6">
+                        {project.tags.map((tag, i) => (
+                          <span key={i} className="text-xs px-3 py-1 bg-accent/10 text-accent rounded-full">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center gap-4 mt-4">
+                      <Button 
+                        variant="outline" 
+                        className="gap-2 border-gray-700 hover:bg-gray-800" 
+                        onClick={() => window.open(project.codeUrl, "_blank")}
+                      >
+                        <Code size={18} />
+                        View Code
+                      </Button>
+                      <Link to={`/projects/${project.id}`}>
+                        <Button className="gap-2">
+                          <Eye size={18} />
+                          View Details
+                        </Button>
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
             </Card>
           ))}
         </div>
