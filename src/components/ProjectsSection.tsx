@@ -35,7 +35,20 @@ const ProjectsSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {[
             {
-              id: 1,
+              title: "FixYourLife",
+              category: "AI Platform",
+              description: "Life optimization platform with AI-generated recovery plans",
+              tags: ["Next.js", "TypeScript", "LLM"],
+              image: "https://images.unsplash.com/photo-1607988795691-3d0147b43231?q=80&w=2070&auto=format&fit=crop"
+            },
+            {
+              title: "TuneMigrate",
+              category: "Music Tools",
+              description: "Suite of tools for managing playlists across music platforms",
+              tags: ["Next.js", "TypeScript", "API"],
+              image: "https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?q=80&w=2074&auto=format&fit=crop"
+            },
+            {
               title: "Arduino Accelerometer Display",
               category: "Hardware Project",
               description: "Real-time accelerometer data display using Arduino and LCD",
@@ -53,20 +66,12 @@ const ProjectsSection = () => {
                 <div className="text-xs text-accent mb-2 uppercase tracking-wide">{project.category}</div>
                 <h3 className="text-xl font-bold mb-3">{project.title}</h3>
                 <p className="text-muted-foreground mb-4 line-clamp-2">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag, i) => (
                     <span key={i} className="text-xs px-2 py-1 bg-accent/10 text-accent rounded-full">
                       {tag}
                     </span>
                   ))}
-                </div>
-                <div className="flex items-center gap-2">
-                  <a href={`/projects/${project.id}`} className="flex-1">
-                    <Button className="w-full gap-2">
-                      <Code size={18} />
-                      View Details
-                    </Button>
-                  </a>
                 </div>
               </div>
             </Card>
@@ -75,7 +80,7 @@ const ProjectsSection = () => {
         
         <div className="flex justify-center">
           <a href="/projects">
-            <Button variant="outline" className="gap-2">
+            <Button className="gap-2">
               <Code size={18} />
               View All Projects
             </Button>
