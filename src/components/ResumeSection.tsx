@@ -141,7 +141,7 @@ const ResumeSection = () => {
                     </div>
                     <div className="flex justify-center sm:justify-start">
                       <Button asChild variant="link" className="px-0">
-                        <a href="https://www.linkedin.com/in/pratik-a-gangurde/" target="_blank" rel="noopener noreferrer">
+                        <a href="https://drive.google.com/file/d/1nj4xIo1fyyI5uuOvpZWNez2MN5Qa7a-2/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
                           View Certificate
                           <ArrowUpRight className="ml-1" size={14} />
                         </a>
