@@ -85,10 +85,10 @@ const AllCertificates = () => {
             {certificationData.map((item, index) => (
               <div 
                 key={index} 
-                className="dark-card p-6 transition-all duration-300 animate-on-scroll hover:shadow-accent/10 hover:shadow-lg hover:scale-105"
+                className="dark-card p-6 transition-all duration-300 animate-on-scroll hover:shadow-accent/10 hover:shadow-lg hover:scale-105 flex flex-col h-full"
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-4 flex-grow">
                   <div className="h-20 w-20 bg-secondary rounded-lg flex items-center justify-center p-3 mx-auto">
                     <img 
                       src={item.logo} 
@@ -97,7 +97,7 @@ const AllCertificates = () => {
                     />
                   </div>
                   
-                  <div className="text-center">
+                  <div className="text-center flex-grow flex flex-col">
                     <h3 className="font-semibold text-xl mb-3">{item.name}</h3>
                     <p className="text-muted-foreground mb-4">{item.issuer}</p>
                     
@@ -107,22 +107,24 @@ const AllCertificates = () => {
                     </div>
                     
                     {item.description && (
-                      <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                      <p className="text-sm text-muted-foreground mb-6 leading-relaxed flex-grow">
                         {item.description}
                       </p>
                     )}
                     
-                    <Button asChild variant="outline" size="sm" className="w-full">
-                      <a 
-                        href="https://www.notion.so/My-Certificates-233fddb4a0ff804ea948ff872b0b2efc?source=copy_link" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-2"
-                      >
-                        View Certificate
-                        <ExternalLink size={14} />
-                      </a>
-                    </Button>
+                    <div className="mt-auto">
+                      <Button asChild variant="outline" size="sm" className="w-full">
+                        <a 
+                          href="https://www.notion.so/My-Certificates-233fddb4a0ff804ea948ff872b0b2efc?source=copy_link" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center gap-2"
+                        >
+                          View Certificate
+                          <ExternalLink size={14} />
+                        </a>
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </div>
