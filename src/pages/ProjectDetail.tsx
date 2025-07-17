@@ -71,18 +71,21 @@ const ProjectDetail = () => {
 #include <Adafruit_ADXL345_U.h>
 #include <LiquidCrystal.h>
 
-// LCD pin config
-LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+// LCD pin connections: rs, rw, e, d4, d5, d6, d7
+LiquidCrystal lcd(3, 4, 5, 6, 7, 8, 9);
 Adafruit_ADXL345_Unified accel = Adafruit_ADXL345_Unified();
 
 void setup() {
-  lcd.begin(16, 2);
   Serial.begin(9600);
+  lcd.begin(16, 2); // Initialize 16x2 LCD
+
   if (!accel.begin()) {
-    lcd.print("Sensor error!");
+    lcd.print("No ADXL345");
+    Serial.println("No ADXL345 detected!");
     while (1);
   }
-  lcd.print("ADXL345 Ready");
+
+  lcd.print("ADXL345 found!");
   delay(1000);
   lcd.clear();
 }
@@ -90,40 +93,34 @@ void setup() {
 void loop() {
   sensors_event_t event;
   accel.getEvent(&event);
-  float x = event.acceleration.x;
-  float y = event.acceleration.y;
-  float z = event.acceleration.z;
 
   lcd.setCursor(0, 0);
   lcd.print("X:");
-  lcd.print(x, 1);
+  lcd.print(event.acceleration.x, 1); // 1 decimal place
   lcd.print(" Y:");
-  lcd.print(y, 1);
+  lcd.print(event.acceleration.y, 1);
 
   lcd.setCursor(0, 1);
   lcd.print("Z:");
-  lcd.print(z, 1);
-  lcd.print("           ");
+  lcd.print(event.acceleration.z, 1);
+  lcd.print(" g       "); // Clear trailing chars
 
-  delay(300);
+  delay(500);
 }`,
     libraries: ["Adafruit_Sensor", "Adafruit_ADXL345_U", "Wire (built-in)", "LiquidCrystal (built-in)"],
     problems: [
-      { problem: "LCD only showed one line", solution: "RW pin (Pin 5) was floating → I connected it manually to GND" },
-      { problem: "LCD was showing boxes only", solution: "I didn't use a potentiometer, so I used a 1kΩ resistor to fix contrast" },
-      { problem: "Float values printing ?", solution: "snprintf(...%f) doesn't work on Arduino, so I used lcd.print(float, 1)" },
+      { problem: "LCD only showed Only one line", solution: "Remove solder which connected to 2 pins" },
+      { problem: "LCD was showing boxes only", solution: "I didn't have a potentiometer, so I used a LED (Red) to fix contrast" },
       { problem: "Display was flickering", solution: "Avoided lcd.clear() and used setCursor() with padding" }
     ],
     jugaads: [
-      "Used a fixed resistor (1kΩ) instead of a potentiometer for LCD contrast",
-      "Manually grounded RW pin since R8 resistor was missing on the LCD module",
+      "Used a LED (Red) instead of a potentiometer for LCD contrast",
       "Used smart layout and spacing to fit all float values in 1 LCD line"
     ],
     learnings: [
       "How to interface an I2C sensor and parallel LCD on the same Arduino",
       "How to debug hardware issues like contrast and RW pin problems",
       "How to format and fit data within LCD size limits",
-      "Why some Arduino functions (like %f in sprintf) don't always work"
     ],
     githubUrl: "https://github.com/username/accelerometer-lcd-display"
   };
@@ -156,7 +153,7 @@ void loop() {
           <Card className="p-6 md:p-8 border-none shadow-lg dark-card animate-on-scroll">
             <div className="flex items-center gap-3 mb-4">
               <BookOpen className="w-6 h-6 text-accent" />
-              <h2 className="text-2xl font-bold">📝 Overview</h2>
+              <h2 className="text-2xl font-bold">Overview</h2>
             </div>
             <p className="text-muted-foreground leading-relaxed">{project.overview}</p>
           </Card>
@@ -165,7 +162,7 @@ void loop() {
           <Card className="p-6 md:p-8 border-none shadow-lg dark-card animate-on-scroll">
             <div className="flex items-center gap-3 mb-4">
               <Settings className="w-6 h-6 text-accent" />
-              <h2 className="text-2xl font-bold">🎯 Goal / Problem Statement</h2>
+              <h2 className="text-2xl font-bold">Goal / Problem Statement</h2>
             </div>
             <p className="text-muted-foreground leading-relaxed">{project.goal}</p>
           </Card>
@@ -174,7 +171,7 @@ void loop() {
           <Card className="p-6 md:p-8 border-none shadow-lg dark-card animate-on-scroll">
             <div className="flex items-center gap-3 mb-4">
               <Microchip className="w-6 h-6 text-accent" />
-              <h2 className="text-2xl font-bold">🧰 Components Used</h2>
+              <h2 className="text-2xl font-bold">Components Used</h2>
             </div>
             <div className="overflow-x-auto">
               <table className="w-full border-collapse">
@@ -202,7 +199,7 @@ void loop() {
           <Card className="p-6 md:p-8 border-none shadow-lg dark-card animate-on-scroll">
             <div className="flex items-center gap-3 mb-6">
               <Settings className="w-6 h-6 text-accent" />
-              <h2 className="text-2xl font-bold">🔗 Wiring & Connections</h2>
+              <h2 className="text-2xl font-bold">Wiring & Connections</h2>
             </div>
             
             <div className="space-y-8">
@@ -231,7 +228,7 @@ void loop() {
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold mb-4">🧭 ADXL345 → Arduino Mega (I2C)</h3>
+                <h3 className="text-xl font-semibold mb-4">ADXL345 → Arduino Mega (I2C)</h3>
                 <div className="overflow-x-auto">
                   <table className="w-full border-collapse">
                     <thead>
@@ -260,7 +257,7 @@ void loop() {
           <Card className="p-6 md:p-8 border-none shadow-lg dark-card animate-on-scroll">
             <div className="flex items-center gap-3 mb-4">
               <Code className="w-6 h-6 text-accent" />
-              <h2 className="text-2xl font-bold">🧑‍💻 Code</h2>
+              <h2 className="text-2xl font-bold">Code</h2>
             </div>
             <div className="bg-muted/50 rounded-lg p-4 overflow-x-auto">
               <pre className="text-sm">
@@ -273,7 +270,7 @@ void loop() {
           <Card className="p-6 md:p-8 border-none shadow-lg dark-card animate-on-scroll">
             <div className="flex items-center gap-3 mb-4">
               <BookOpen className="w-6 h-6 text-accent" />
-              <h2 className="text-2xl font-bold">📚 Libraries Used</h2>
+              <h2 className="text-2xl font-bold">Libraries Used</h2>
             </div>
             <ul className="space-y-2">
               {project.libraries.map((library, index) => (
@@ -292,7 +289,7 @@ void loop() {
           <Card className="p-6 md:p-8 border-none shadow-lg dark-card animate-on-scroll">
             <div className="flex items-center gap-3 mb-4">
               <Wrench className="w-6 h-6 text-accent" />
-              <h2 className="text-2xl font-bold">🛠️ Problems Faced & Fixes</h2>
+              <h2 className="text-2xl font-bold">Problems Faced & Fixes</h2>
             </div>
             <div className="space-y-4">
               {project.problems.map((item, index) => (
@@ -310,7 +307,7 @@ void loop() {
           <Card className="p-6 md:p-8 border-none shadow-lg dark-card animate-on-scroll">
             <div className="flex items-center gap-3 mb-4">
               <Lightbulb className="w-6 h-6 text-accent" />
-              <h2 className="text-2xl font-bold">🧠 Jugaads / Hacks</h2>
+              <h2 className="text-2xl font-bold">Jugaads / Hacks</h2>
             </div>
             <ul className="space-y-3">
               {project.jugaads.map((jugaad, index) => (
