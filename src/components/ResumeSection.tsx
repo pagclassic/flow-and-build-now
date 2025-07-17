@@ -39,7 +39,7 @@ const ResumeSection = () => {
   const certificationData = [{
     name: "Dipex (State level competition cum exhibition)",
     issuer: "DIPEX Official",
-    date: "DIPEX 2025",
+    date: "2-6 April 2025",
     logo: "/lovable-uploads/87045168-7867-4479-bdd0-054f67d226d9.png"
   }];
   return (
@@ -141,7 +141,7 @@ const ResumeSection = () => {
                     </div>
                     <div className="flex justify-center sm:justify-start">
                       <Button asChild variant="link" className="px-0">
-                        <a href="https://drive.google.com/file/d/1nj4xIo1fyyI5uuOvpZWNez2MN5Qa7a-2/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.notion.so/My-Certificates-233fddb4a0ff804ea948ff872b0b2efc?source=copy_link" target="_blank" rel="noopener noreferrer">
                           View Certificate
                           <ArrowUpRight className="ml-1" size={14} />
                         </a>
