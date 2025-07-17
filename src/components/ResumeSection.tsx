@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { FileText, Download, Calendar, MapPin, Building, ArrowUpRight, Eye } from "lucide-react";
@@ -41,6 +42,16 @@ const ResumeSection = () => {
     issuer: "DIPEX Official",
     date: "2-6 April 2025",
     logo: "/lovable-uploads/87045168-7867-4479-bdd0-054f67d226d9.png"
+  }, {
+    name: "CodeCraft UI/UX",
+    issuer: "Computer Socitey India - ACOE",
+    date: "21st January 2025",
+    logo: "/lovable-uploads/csi.png"
+  }, {
+    name: "IoT And Embedded System",
+    issuer: "Adverk Technologies",
+    date: "16th July 2025",
+    logo: "/lovable-uploads/adverk.jpeg"
   }];
   return (
     <section id="resume" className="section">
@@ -117,7 +128,7 @@ const ResumeSection = () => {
               }}>
                 <Link to="/certificates" className="flex items-center gap-2">
                   <Eye size={16} />
-                  View All
+                  View All ({certificationData.length})
                 </Link>
               </Button>
             </div>
