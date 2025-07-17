@@ -1,7 +1,7 @@
-
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { FileText, Download, Calendar, MapPin, Building, ArrowUpRight } from "lucide-react";
+import { FileText, Download, Calendar, MapPin, Building, ArrowUpRight, Eye } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const ResumeSection = () => {
   useEffect(() => {
@@ -104,12 +104,23 @@ const ResumeSection = () => {
           </div>
 
           <div>
-            <h3 className="text-2xl font-semibold mb-6 flex items-center animate-on-scroll" style={{
-              transitionDelay: "600ms"
-            }}>
-              <FileText className="mr-2" />
-              <span>Certifications</span>
-            </h3>
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-2xl font-semibold flex items-center animate-on-scroll" style={{
+                transitionDelay: "600ms"
+              }}>
+                <FileText className="mr-2" />
+                <span>Certifications</span>
+              </h3>
+              
+              <Button asChild variant="outline" size="sm" className="animate-on-scroll" style={{
+                transitionDelay: "700ms"
+              }}>
+                <Link to="/certificates" className="flex items-center gap-2">
+                  <Eye size={16} />
+                  View All
+                </Link>
+              </Button>
+            </div>
 
             <div className="space-y-6">
               {certificationData.map((item, index) => <div key={index} className="dark-card p-4 md:p-5 transition-shadow animate-on-scroll hover:shadow-accent/10 hover:shadow-lg" style={{
