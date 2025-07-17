@@ -323,7 +323,7 @@ void loop() {
           <Card className="p-6 md:p-8 border-none shadow-lg dark-card animate-on-scroll">
             <div className="flex items-center gap-3 mb-4">
               <BookOpen className="w-6 h-6 text-accent" />
-              <h2 className="text-2xl font-bold">✅ What I Learned</h2>
+              <h2 className="text-2xl font-bold">What I Learned</h2>
             </div>
             <ul className="space-y-3">
               {project.learnings.map((learning, index) => (
