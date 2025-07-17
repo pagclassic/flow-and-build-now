@@ -45,14 +45,14 @@ const ProjectDetail = () => {
       { name: "16x2 LCD Display (JHD162A)", quantity: 1, notes: "Without I2C module" },
       { name: "Jumper Wires", quantity: "~15", notes: "Male-to-male" },
       { name: "Breadboard", quantity: 1, notes: "For prototyping" },
-      { name: "1kΩ Resistor", quantity: 1, notes: "For contrast (VO pin)" },
+      { name: "Red LED", quantity: 1, notes: "For contrast (VO pin)" },
       { name: "USB Cable", quantity: 1, notes: "For programming and power" }
     ],
     wiring: {
       lcd: [
         { pin: "VSS", function: "GND", connection: "GND" },
         { pin: "VCC", function: "Power", connection: "5V" },
-        { pin: "VO", function: "Contrast", connection: "GND via RED LED" },
+        { pin: "VO", function: "Contrast", connection: "GND via Red LED" },
         { pin: "RS", function: "Register Select", connection: "12" },
         { pin: "RW", function: "Write", connection: "GND ✅ (manually connected since R8 missing)" },
         { pin: "E", function: "Enable", connection: "11" },
