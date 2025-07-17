@@ -24,6 +24,7 @@ const ResumeSection = () => {
       });
     };
   }, []);
+  
   const educationData = [{
     institution: "Atharva College of Engineering",
     degree: "Bachelor of Engineering - BE, Electronics and Communications Engineering",
@@ -37,22 +38,18 @@ const ResumeSection = () => {
     location: "Nashik, Maharashtra",
     logo: "/lovable-uploads/7298afb2-69a5-468a-ad26-de1373dfedd9.png"
   }];
-  const certificationData = [{
+  
+  // Only show the first certificate in resume section
+  const firstCertification = {
     name: "Dipex (State level competition cum exhibition)",
     issuer: "DIPEX Official",
     date: "2-6 April 2025",
     logo: "/lovable-uploads/87045168-7867-4479-bdd0-054f67d226d9.png"
-  }, {
-    name: "CodeCraft UI/UX",
-    issuer: "Computer Socitey India - ACOE",
-    date: "21st January 2025",
-    logo: "/lovable-uploads/csi.png"
-  }, {
-    name: "IoT And Embedded System",
-    issuer: "Adverk Technologies",
-    date: "16th July 2025",
-    logo: "/lovable-uploads/adverk.jpeg"
-  }];
+  };
+  
+  // Total count for the "View All" button
+  const totalCertifications = 3;
+  
   return (
     <section id="resume" className="section">
       <div className="container mx-auto">
@@ -128,26 +125,26 @@ const ResumeSection = () => {
               }}>
                 <Link to="/certificates" className="flex items-center gap-2">
                   <Eye size={16} />
-                  View All ({certificationData.length})
+                  View All ({totalCertifications})
                 </Link>
               </Button>
             </div>
 
             <div className="space-y-6">
-              {certificationData.map((item, index) => <div key={index} className="dark-card p-4 md:p-5 transition-shadow animate-on-scroll hover:shadow-accent/10 hover:shadow-lg" style={{
-                transitionDelay: `${800 + index * 200}ms`
+              <div className="dark-card p-4 md:p-5 transition-shadow animate-on-scroll hover:shadow-accent/10 hover:shadow-lg" style={{
+                transitionDelay: "800ms"
               }}>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <div className="h-16 w-16 sm:h-12 sm:w-12 flex-shrink-0 bg-secondary rounded-md flex items-center justify-center p-2 mx-auto sm:mx-0">
-                    <img src={item.logo} alt={item.name} className="h-full w-full object-cover rounded-md" />
+                    <img src={firstCertification.logo} alt={firstCertification.name} className="h-full w-full object-cover rounded-md" />
                   </div>
                   <div className="text-center sm:text-left flex-1">
-                    <h4 className="font-medium text-lg mb-2">{item.name}</h4>
-                    <p className="text-muted-foreground mb-3">{item.issuer}</p>
+                    <h4 className="font-medium text-lg mb-2">{firstCertification.name}</h4>
+                    <p className="text-muted-foreground mb-3">{firstCertification.issuer}</p>
                     <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-4 mb-3 text-sm text-muted-foreground">
                       <span className="flex items-center justify-center sm:justify-start gap-1">
                         <Calendar size={14} />
-                        {item.date}
+                        {firstCertification.date}
                       </span>
                     </div>
                     <div className="flex justify-center sm:justify-start">
@@ -160,7 +157,7 @@ const ResumeSection = () => {
                     </div>
                   </div>
                 </div>
-              </div>)}
+              </div>
             </div>
 
             <div className="mt-8 animate-on-scroll" style={{
