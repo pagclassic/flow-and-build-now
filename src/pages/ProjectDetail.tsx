@@ -71,8 +71,8 @@ const ProjectDetail = () => {
 #include <Adafruit_ADXL345_U.h>
 #include <LiquidCrystal.h>
 
-// LCD pin connections: rs, rw, e, d4, d5, d6, d7
-LiquidCrystal lcd(3, 4, 5, 6, 7, 8, 9);
+// LCD pin connections: rs, e, d4, d5, d6, d7
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
 Adafruit_ADXL345_Unified accel = Adafruit_ADXL345_Unified();
 
 void setup() {
