@@ -117,7 +117,7 @@ const AllCertificates = () => {
                         href="https://www.notion.so/My-Certificates-233fddb4a0ff804ea948ff872b0b2efc?source=copy_link" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="flex items-center justify-center gap-2"
+                        className="inline-flex items-center justify-center gap-2"
                       >
                         View Certificate
                         <ExternalLink size={14} />
