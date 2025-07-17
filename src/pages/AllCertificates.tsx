@@ -41,14 +41,14 @@ const AllCertificates = () => {
     {
       name: "CodeCraft UI/UX",
       issuer: "Computer Socitey India - ACOE",
-      date: "21St January 2025",
+      date: "21st January 2025",
       logo: "/lovable-uploads/csi.png",
       description: "Participated in the CodeCraft UI/UX Hackathon at Atharva College of Engineering, designing user-centric solutions under time constraints. Collaborated with peers to prototype innovative interfaces, enhancing creativity and real-world problem-solving skills."
     },
     {
       name: "IoT And Embedded System",
       issuer: "Adverk Technologies",
-      date: "16Th July 2025",
+      date: "16th July 2025",
       logo: "/lovable-uploads/adverk.jpeg",
       description: "Completed a hands-on course in IoT and Embedded Systems, covering microcontrollers, sensors, and communication protocols. Built hardware projects using Arduino, LCDs, and accelerometers, gaining practical skills in circuit design, coding, and real-world debugging."
     },
