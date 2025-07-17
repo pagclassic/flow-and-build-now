@@ -52,7 +52,7 @@ const ProjectDetail = () => {
       lcd: [
         { pin: "VSS", function: "GND", connection: "GND" },
         { pin: "VCC", function: "Power", connection: "5V" },
-        { pin: "VO", function: "Contrast", connection: "GND via 1kΩ" },
+        { pin: "VO", function: "Contrast", connection: "GND via RED LED" },
         { pin: "RS", function: "Register Select", connection: "12" },
         { pin: "RW", function: "Write", connection: "GND ✅ (manually connected since R8 missing)" },
         { pin: "E", function: "Enable", connection: "11" },
