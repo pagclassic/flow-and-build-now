@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedBackground from "@/components/AnimatedBackground";
-
 const AllCertificates = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
@@ -28,7 +27,6 @@ const AllCertificates = () => {
       });
     };
   }, []);
-
   const certificationData = [{
     name: "Dipex (State level competition cum exhibition)",
     issuer: "DIPEX Official",
@@ -54,7 +52,6 @@ const AllCertificates = () => {
     description: "Completed a hands-on course in IoT and Embedded Systems, covering microcontrollers, sensors, and communication protocols.",
     status: "Upcoming"
   }];
-
   const getTypeIcon = (type: string) => {
     switch (type) {
       case "hackathon":
@@ -67,7 +64,6 @@ const AllCertificates = () => {
         return <Award className="w-4 h-4" />;
     }
   };
-
   const getTypeColor = (type: string) => {
     switch (type) {
       case "hackathon":
@@ -80,11 +76,9 @@ const AllCertificates = () => {
         return "bg-gray-500/10 text-gray-400 border-gray-500/30";
     }
   };
-
   const getStatusColor = (status: string) => {
     return status === "Completed" ? "bg-green-500/10 text-green-400 border-green-500/30" : "bg-orange-500/10 text-orange-400 border-orange-500/30";
   };
-
   return <div className="min-h-screen bg-background">
       <AnimatedBackground />
       <Navbar />
@@ -144,6 +138,7 @@ const AllCertificates = () => {
                         {getTypeIcon(item.type)}
                         {item.type}
                       </Badge>
+                      
                     </div>
                   </div>
                   
@@ -165,14 +160,12 @@ const AllCertificates = () => {
                     {item.description}
                   </p>
                   
-                  <div className="flex items-center justify-center">
-                    <Button asChild variant="outline" size="sm" className="group-hover:bg-accent group-hover:text-accent-foreground transition-colors duration-300 whitespace-nowrap">
-                      <a href="https://www.notion.so/My-Certificates-233fddb4a0ff804ea948ff872b0b2efc?source=copy_link" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2">
-                        <span>View Certificate</span>
-                        <ExternalLink size={14} />
-                      </a>
-                    </Button>
-                  </div>
+                  <Button asChild variant="outline" size="sm" className="w-full group-hover:bg-accent group-hover:text-accent-foreground transition-colors duration-300">
+                    <a href="https://www.notion.so/My-Certificates-233fddb4a0ff804ea948ff872b0b2efc?source=copy_link" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2">
+                      <span>View Certificate</span>
+                      <ExternalLink size={14} />
+                    </a>
+                  </Button>
                 </CardContent>
               </Card>)}
           </div>
@@ -200,5 +193,4 @@ const AllCertificates = () => {
       <Footer />
     </div>;
 };
-
 export default AllCertificates;
