@@ -1,7 +1,7 @@
-
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { FileText, Download, Calendar, MapPin, Building, ArrowUpRight, Eye } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { FileText, Download, Calendar, MapPin, Building, ArrowUpRight, Eye, Award, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const ResumeSection = () => {
@@ -44,7 +44,9 @@ const ResumeSection = () => {
     name: "Dipex (State level competition cum exhibition)",
     issuer: "DIPEX Official",
     date: "2-6 April 2025",
-    logo: "/lovable-uploads/87045168-7867-4479-bdd0-054f67d226d9.png"
+    logo: "/lovable-uploads/87045168-7867-4479-bdd0-054f67d226d9.png",
+    type: "competition",
+    status: "Upcoming"
   };
   
   // Total count for the "View All" button
@@ -131,31 +133,84 @@ const ResumeSection = () => {
             </div>
 
             <div className="space-y-6">
-              <div className="dark-card p-4 md:p-5 transition-shadow animate-on-scroll hover:shadow-accent/10 hover:shadow-lg" style={{
+              <div className="relative group dark-card transition-all duration-500 animate-on-scroll hover:shadow-accent/20 hover:shadow-xl hover:scale-[1.02] border-l-4 border-l-accent" style={{
                 transitionDelay: "800ms"
               }}>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <div className="h-16 w-16 sm:h-12 sm:w-12 flex-shrink-0 bg-secondary rounded-md flex items-center justify-center p-2 mx-auto sm:mx-0">
-                    <img src={firstCertification.logo} alt={firstCertification.name} className="h-full w-full object-cover rounded-md" />
-                  </div>
-                  <div className="text-center sm:text-left flex-1">
-                    <h4 className="font-medium text-lg mb-2">{firstCertification.name}</h4>
-                    <p className="text-muted-foreground mb-3">{firstCertification.issuer}</p>
-                    <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-4 mb-3 text-sm text-muted-foreground">
-                      <span className="flex items-center justify-center sm:justify-start gap-1">
-                        <Calendar size={14} />
-                        {firstCertification.date}
-                      </span>
+                {/* Status badge positioned at top-right */}
+                <div className="absolute top-4 right-4 z-10">
+                  <Badge variant="outline" className="bg-orange-500/10 text-orange-400 border-orange-500/30 font-medium">
+                    <Star className="w-3 h-3 mr-1" />
+                    {firstCertification.status}
+                  </Badge>
+                </div>
+
+                <div className="p-6">
+                  {/* Header with logo and type badge */}
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="relative">
+                      <div className="h-16 w-16 bg-gradient-to-br from-accent/20 to-primary/20 rounded-xl flex items-center justify-center p-3 shadow-lg">
+                        <img 
+                          src={firstCertification.logo} 
+                          alt={firstCertification.name} 
+                          className="h-full w-full object-contain rounded-lg" 
+                        />
+                      </div>
+                      {/* Glow effect */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-primary/10 rounded-xl blur-md -z-10 group-hover:from-accent/20 group-hover:to-primary/20 transition-all duration-300"></div>
                     </div>
-                    <div className="flex justify-center sm:justify-start">
-                      <Button asChild variant="link" className="px-0">
-                        <a href="https://www.notion.so/My-Certificates-233fddb4a0ff804ea948ff872b0b2efc?source=copy_link" target="_blank" rel="noopener noreferrer">
-                          View Certificate
-                          <ArrowUpRight className="ml-1" size={14} />
-                        </a>
-                      </Button>
+                    
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-2">
+                        <Badge variant="outline" className="bg-blue-500/10 text-blue-400 border-blue-500/30 text-xs font-medium">
+                          <Award className="w-3 h-3 mr-1" />
+                          Competition
+                        </Badge>
+                      </div>
+                      
+                      <h4 className="font-semibold text-lg leading-tight mb-1 group-hover:text-accent transition-colors duration-300">
+                        {firstCertification.name}
+                      </h4>
+                      
+                      <p className="text-muted-foreground text-sm font-medium">
+                        {firstCertification.issuer}
+                      </p>
                     </div>
                   </div>
+
+                  {/* Date section with enhanced styling */}
+                  <div className="flex items-center gap-2 mb-6 p-3 rounded-lg bg-secondary/30 border border-border/30">
+                    <div className="p-2 rounded-full bg-accent/10">
+                      <Calendar className="w-4 h-4 text-accent" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-foreground">Event Date</p>
+                      <p className="text-xs text-muted-foreground">{firstCertification.date}</p>
+                    </div>
+                  </div>
+
+                  {/* Action button with enhanced design */}
+                  <div className="flex items-center justify-center">
+                    <Button 
+                      asChild 
+                      className="w-full bg-gradient-to-r from-accent to-primary hover:from-accent/90 hover:to-primary/90 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105"
+                    >
+                      <a 
+                        href="https://www.notion.so/My-Certificates-233fddb4a0ff804ea948ff872b0b2efc?source=copy_link" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="inline-flex items-center justify-center gap-2"
+                      >
+                        <span>View Certificate</span>
+                        <ArrowUpRight size={16} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+
+                {/* Subtle background pattern */}
+                <div className="absolute inset-0 opacity-5 pointer-events-none">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-accent to-transparent rounded-full -translate-y-16 translate-x-16"></div>
+                  <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-primary to-transparent rounded-full translate-y-12 -translate-x-12"></div>
                 </div>
               </div>
             </div>
