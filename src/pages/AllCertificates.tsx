@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -8,7 +7,6 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedBackground from "@/components/AnimatedBackground";
-
 const AllCertificates = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
@@ -20,48 +18,40 @@ const AllCertificates = () => {
     }, {
       threshold: 0.1
     });
-    
     document.querySelectorAll(".animate-on-scroll").forEach(el => {
       observer.observe(el);
     });
-    
     return () => {
       document.querySelectorAll(".animate-on-scroll").forEach(el => {
         observer.unobserve(el);
       });
     };
   }, []);
-
-  const certificationData = [
-    {
-      name: "Dipex (State level competition cum exhibition)",
-      issuer: "DIPEX Official",
-      date: "2-6 April 2025",
-      type: "competition",
-      logo: "/lovable-uploads/87045168-7867-4479-bdd0-054f67d226d9.png",
-      description: "State level competition and exhibition showcasing innovative projects and technical skills.",
-      status: "Upcoming"
-    },
-    {
-      name: "CodeCraft UI/UX",
-      issuer: "Computer Society India - ACOE",
-      date: "21st January 2025",
-      type: "hackathon",
-      logo: "/lovable-uploads/csi.png",
-      description: "Participated in the CodeCraft UI/UX Hackathon at Atharva College of Engineering, designing user-centric solutions under time constraints.",
-      status: "Completed"
-    },
-    {
-      name: "IoT And Embedded System",
-      issuer: "Adverk Technologies",
-      date: "16th July 2025",
-      type: "course",
-      logo: "/lovable-uploads/adverk.jpeg",
-      description: "Completed a hands-on course in IoT and Embedded Systems, covering microcontrollers, sensors, and communication protocols.",
-      status: "Upcoming"
-    },
-  ];
-
+  const certificationData = [{
+    name: "Dipex (State level competition cum exhibition)",
+    issuer: "DIPEX Official",
+    date: "2-6 April 2025",
+    type: "competition",
+    logo: "/lovable-uploads/87045168-7867-4479-bdd0-054f67d226d9.png",
+    description: "State level competition and exhibition showcasing innovative projects and technical skills.",
+    status: "Upcoming"
+  }, {
+    name: "CodeCraft UI/UX",
+    issuer: "Computer Society India - ACOE",
+    date: "21st January 2025",
+    type: "hackathon",
+    logo: "/lovable-uploads/csi.png",
+    description: "Participated in the CodeCraft UI/UX Hackathon at Atharva College of Engineering, designing user-centric solutions under time constraints.",
+    status: "Completed"
+  }, {
+    name: "IoT And Embedded System",
+    issuer: "Adverk Technologies",
+    date: "16th July 2025",
+    type: "course",
+    logo: "/lovable-uploads/adverk.jpeg",
+    description: "Completed a hands-on course in IoT and Embedded Systems, covering microcontrollers, sensors, and communication protocols.",
+    status: "Upcoming"
+  }];
   const getTypeIcon = (type: string) => {
     switch (type) {
       case "hackathon":
@@ -74,7 +64,6 @@ const AllCertificates = () => {
         return <Award className="w-4 h-4" />;
     }
   };
-
   const getTypeColor = (type: string) => {
     switch (type) {
       case "hackathon":
@@ -87,15 +76,10 @@ const AllCertificates = () => {
         return "bg-gray-500/10 text-gray-400 border-gray-500/30";
     }
   };
-
   const getStatusColor = (status: string) => {
-    return status === "Completed" 
-      ? "bg-green-500/10 text-green-400 border-green-500/30"
-      : "bg-orange-500/10 text-orange-400 border-orange-500/30";
+    return status === "Completed" ? "bg-green-500/10 text-green-400 border-green-500/30" : "bg-orange-500/10 text-orange-400 border-orange-500/30";
   };
-
-  return (
-    <div className="min-h-screen bg-background">
+  return <div className="min-h-screen bg-background">
       <AnimatedBackground />
       <Navbar />
       
@@ -136,40 +120,25 @@ const AllCertificates = () => {
 
           {/* Certificates Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {certificationData.map((item, index) => (
-              <Card 
-                key={index} 
-                className="group bg-card/60 backdrop-blur-sm border-border/50 hover:border-accent/50 transition-all duration-500 animate-on-scroll hover:shadow-2xl hover:shadow-accent/5 hover:-translate-y-2 overflow-hidden"
-                style={{ transitionDelay: `${index * 150}ms` }}
-              >
+            {certificationData.map((item, index) => <Card key={index} className="group bg-card/60 backdrop-blur-sm border-border/50 hover:border-accent/50 transition-all duration-500 animate-on-scroll hover:shadow-2xl hover:shadow-accent/5 hover:-translate-y-2 overflow-hidden" style={{
+            transitionDelay: `${index * 150}ms`
+          }}>
                 <CardHeader className="pb-4">
                   <div className="flex items-start justify-between gap-3 mb-4">
                     <div className="relative">
                       <div className="w-16 h-16 bg-secondary/80 rounded-xl flex items-center justify-center p-3 group-hover:scale-110 transition-transform duration-300">
-                        <img 
-                          src={item.logo} 
-                          alt={item.name} 
-                          className="w-full h-full object-contain rounded-lg" 
-                        />
+                        <img src={item.logo} alt={item.name} className="w-full h-full object-contain rounded-lg" />
                       </div>
                       <div className="absolute -top-1 -right-1">
                         {getTypeIcon(item.type)}
                       </div>
                     </div>
                     <div className="flex flex-col gap-2">
-                      <Badge 
-                        variant="outline" 
-                        className={`capitalize text-xs font-medium ${getTypeColor(item.type)} flex items-center gap-1`}
-                      >
+                      <Badge variant="outline" className={`capitalize text-xs font-medium ${getTypeColor(item.type)} flex items-center gap-1`}>
                         {getTypeIcon(item.type)}
                         {item.type}
                       </Badge>
-                      <Badge 
-                        variant="outline" 
-                        className={`text-xs font-medium ${getStatusColor(item.status)}`}
-                      >
-                        {item.status}
-                      </Badge>
+                      
                     </div>
                   </div>
                   
@@ -191,25 +160,14 @@ const AllCertificates = () => {
                     {item.description}
                   </p>
                   
-                  <Button 
-                    asChild 
-                    variant="outline" 
-                    size="sm" 
-                    className="w-full group-hover:bg-accent group-hover:text-accent-foreground transition-colors duration-300"
-                  >
-                    <a 
-                      href="https://www.notion.so/My-Certificates-233fddb4a0ff804ea948ff872b0b2efc?source=copy_link" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2"
-                    >
+                  <Button asChild variant="outline" size="sm" className="w-full group-hover:bg-accent group-hover:text-accent-foreground transition-colors duration-300">
+                    <a href="https://www.notion.so/My-Certificates-233fddb4a0ff804ea948ff872b0b2efc?source=copy_link" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2">
                       <span>View Certificate</span>
                       <ExternalLink size={14} />
                     </a>
                   </Button>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
 
           {/* Call to Action Section */}
@@ -233,8 +191,6 @@ const AllCertificates = () => {
       </main>
       
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default AllCertificates;
