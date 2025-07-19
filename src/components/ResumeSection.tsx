@@ -41,7 +41,7 @@ const ResumeSection = () => {
   
   // Only show the first certificate in resume section
   const firstCertification = {
-    name: "Dipex (State level competition cum exhibition)",
+    name: "Dipex 2025",
     issuer: "DIPEX Official",
     date: "2-6 April 2025",
     logo: "/lovable-uploads/87045168-7867-4479-bdd0-054f67d226d9.png"
