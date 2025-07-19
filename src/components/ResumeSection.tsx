@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { FileText, Download, Calendar, MapPin, Building, ArrowUpRight, Eye, Award, Star } from "lucide-react";
 import { Link } from "react-router-dom";
-
 const ResumeSection = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
@@ -24,7 +23,6 @@ const ResumeSection = () => {
       });
     };
   }, []);
-  
   const educationData = [{
     institution: "Atharva College of Engineering",
     degree: "Bachelor of Engineering - BE, Electronics and Communications Engineering",
@@ -38,7 +36,7 @@ const ResumeSection = () => {
     location: "Nashik, Maharashtra",
     logo: "/lovable-uploads/7298afb2-69a5-468a-ad26-de1373dfedd9.png"
   }];
-  
+
   // Only show the first certificate in resume section
   const firstCertification = {
     name: "Dipex (State level competition cum exhibition)",
@@ -48,12 +46,10 @@ const ResumeSection = () => {
     type: "competition",
     status: "Upcoming"
   };
-  
+
   // Total count for the "View All" button
   const totalCertifications = 3;
-  
-  return (
-    <section id="resume" className="section">
+  return <section id="resume" className="section">
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
           <div>
@@ -61,14 +57,14 @@ const ResumeSection = () => {
               My <span className="text-gradient">Resume</span>
             </h2>
             <p className="text-muted-foreground animate-on-scroll" style={{
-              transitionDelay: "200ms"
-            }}>
+            transitionDelay: "200ms"
+          }}>
               A summary of my education, experience and certifications
             </p>
           </div>
           <div className="mt-6 md:mt-0 animate-on-scroll" style={{
-            transitionDelay: "400ms"
-          }}>
+          transitionDelay: "400ms"
+        }}>
             <Button className="flex items-center gap-2">
               <FileText size={18} />
               <span>Download CV</span>
@@ -80,16 +76,16 @@ const ResumeSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           <div>
             <h3 className="text-2xl font-semibold mb-6 flex items-center animate-on-scroll" style={{
-              transitionDelay: "600ms"
-            }}>
+            transitionDelay: "600ms"
+          }}>
               <Building className="mr-2" />
               <span>Education</span>
             </h3>
 
             <div className="space-y-6">
               {educationData.map((item, index) => <div key={index} className="dark-card p-4 md:p-5 transition-shadow animate-on-scroll hover:shadow-accent/10 hover:shadow-lg" style={{
-                transitionDelay: `${800 + index * 200}ms`
-              }}>
+              transitionDelay: `${800 + index * 200}ms`
+            }}>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <div className="h-16 w-16 sm:h-12 sm:w-12 flex-shrink-0 bg-secondary rounded-md flex items-center justify-center p-2 mx-auto sm:mx-0">
                     <img src={item.logo} alt={item.institution} className="h-full w-full object-cover rounded-md" />
@@ -116,15 +112,15 @@ const ResumeSection = () => {
           <div>
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-2xl font-semibold flex items-center animate-on-scroll" style={{
-                transitionDelay: "600ms"
-              }}>
+              transitionDelay: "600ms"
+            }}>
                 <FileText className="mr-2" />
                 <span>Certifications</span>
               </h3>
               
               <Button asChild variant="outline" size="sm" className="animate-on-scroll" style={{
-                transitionDelay: "700ms"
-              }}>
+              transitionDelay: "700ms"
+            }}>
                 <Link to="/certificates" className="flex items-center gap-2">
                   <Eye size={16} />
                   View All ({totalCertifications})
@@ -134,14 +130,11 @@ const ResumeSection = () => {
 
             <div className="space-y-6">
               <div className="relative group dark-card transition-all duration-500 animate-on-scroll hover:shadow-accent/20 hover:shadow-xl hover:scale-[1.02] border-l-4 border-l-accent" style={{
-                transitionDelay: "800ms"
-              }}>
+              transitionDelay: "800ms"
+            }}>
                 {/* Status badge positioned at top-right */}
                 <div className="absolute top-4 right-4 z-10">
-                  <Badge variant="outline" className="bg-orange-500/10 text-orange-400 border-orange-500/30 font-medium">
-                    <Star className="w-3 h-3 mr-1" />
-                    {firstCertification.status}
-                  </Badge>
+                  
                 </div>
 
                 <div className="p-6">
@@ -149,11 +142,7 @@ const ResumeSection = () => {
                   <div className="flex items-start gap-4 mb-4">
                     <div className="relative">
                       <div className="h-16 w-16 bg-gradient-to-br from-accent/20 to-primary/20 rounded-xl flex items-center justify-center p-3 shadow-lg">
-                        <img 
-                          src={firstCertification.logo} 
-                          alt={firstCertification.name} 
-                          className="h-full w-full object-contain rounded-lg" 
-                        />
+                        <img src={firstCertification.logo} alt={firstCertification.name} className="h-full w-full object-contain rounded-lg" />
                       </div>
                       {/* Glow effect */}
                       <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-primary/10 rounded-xl blur-md -z-10 group-hover:from-accent/20 group-hover:to-primary/20 transition-all duration-300"></div>
@@ -190,16 +179,8 @@ const ResumeSection = () => {
 
                   {/* Action button with enhanced design */}
                   <div className="flex items-center justify-center">
-                    <Button 
-                      asChild 
-                      className="w-full bg-gradient-to-r from-accent to-primary hover:from-accent/90 hover:to-primary/90 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105"
-                    >
-                      <a 
-                        href="https://www.notion.so/My-Certificates-233fddb4a0ff804ea948ff872b0b2efc?source=copy_link" 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className="inline-flex items-center justify-center gap-2"
-                      >
+                    <Button asChild className="w-full bg-gradient-to-r from-accent to-primary hover:from-accent/90 hover:to-primary/90 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105">
+                      <a href="https://www.notion.so/My-Certificates-233fddb4a0ff804ea948ff872b0b2efc?source=copy_link" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2">
                         <span>View Certificate</span>
                         <ArrowUpRight size={16} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
                       </a>
@@ -216,8 +197,8 @@ const ResumeSection = () => {
             </div>
 
             <div className="mt-8 animate-on-scroll" style={{
-              transitionDelay: "1000ms"
-            }}>
+            transitionDelay: "1000ms"
+          }}>
               <div className="glassmorphism p-5 rounded-lg border border-border/50 relative overflow-hidden">
                 <h4 className="font-medium text-lg mb-2">Technical Skills</h4>
                 <ul className="list-disc list-inside space-y-1 text-muted-foreground blur-sm">
@@ -245,8 +226,6 @@ const ResumeSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default ResumeSection;
