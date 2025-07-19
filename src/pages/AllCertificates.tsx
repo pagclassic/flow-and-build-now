@@ -2,7 +2,8 @@
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Calendar, ExternalLink } from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { ArrowLeft, Calendar, ExternalLink, Award, Trophy, BookOpen } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -38,15 +39,17 @@ const AllCertificates = () => {
       date: "2-6 April 2025",
       type: "competition",
       logo: "/lovable-uploads/87045168-7867-4479-bdd0-054f67d226d9.png",
-      description: "State level competition and exhibition showcasing innovative projects and technical skills."
+      description: "State level competition and exhibition showcasing innovative projects and technical skills.",
+      status: "Upcoming"
     },
     {
       name: "CodeCraft UI/UX",
-      issuer: "Computer Socitey India - ACOE",
+      issuer: "Computer Society India - ACOE",
       date: "21st January 2025",
       type: "hackathon",
       logo: "/lovable-uploads/csi.png",
-      description: "Participated in the CodeCraft UI/UX Hackathon at Atharva College of Engineering, designing user-centric solutions under time constraints. Collaborated with peers to prototype innovative interfaces, enhancing creativity and real-world problem-solving skills."
+      description: "Participated in the CodeCraft UI/UX Hackathon at Atharva College of Engineering, designing user-centric solutions under time constraints.",
+      status: "Completed"
     },
     {
       name: "IoT And Embedded System",
@@ -54,34 +57,41 @@ const AllCertificates = () => {
       date: "16th July 2025",
       type: "course",
       logo: "/lovable-uploads/adverk.jpeg",
-      description: "Completed a hands-on course in IoT and Embedded Systems, covering microcontrollers, sensors, and communication protocols. Built hardware projects using Arduino, LCDs, and accelerometers, gaining practical skills in circuit design, coding, and real-world debugging."
+      description: "Completed a hands-on course in IoT and Embedded Systems, covering microcontrollers, sensors, and communication protocols.",
+      status: "Upcoming"
     },
   ];
 
-  const getTypeVariant = (type: string) => {
+  const getTypeIcon = (type: string) => {
     switch (type) {
       case "hackathon":
-        return "default";
+        return <Trophy className="w-4 h-4" />;
       case "competition":
-        return "secondary";
+        return <Award className="w-4 h-4" />;
       case "course":
-        return "outline";
+        return <BookOpen className="w-4 h-4" />;
       default:
-        return "outline";
+        return <Award className="w-4 h-4" />;
     }
   };
 
   const getTypeColor = (type: string) => {
     switch (type) {
       case "hackathon":
-        return "bg-blue-500/10 text-blue-400 border-blue-500/20";
+        return "bg-blue-500/10 text-blue-400 border-blue-500/30";
       case "competition":
-        return "bg-green-500/10 text-green-400 border-green-500/20";
+        return "bg-emerald-500/10 text-emerald-400 border-emerald-500/30";
       case "course":
-        return "bg-purple-500/10 text-purple-400 border-purple-500/20";
+        return "bg-purple-500/10 text-purple-400 border-purple-500/30";
       default:
-        return "";
+        return "bg-gray-500/10 text-gray-400 border-gray-500/30";
     }
+  };
+
+  const getStatusColor = (status: string) => {
+    return status === "Completed" 
+      ? "bg-green-500/10 text-green-400 border-green-500/30"
+      : "bg-orange-500/10 text-orange-400 border-orange-500/30";
   };
 
   return (
@@ -90,9 +100,10 @@ const AllCertificates = () => {
       <Navbar />
       
       <main className="pt-20">
-        <div className="container mx-auto px-4 py-12">
+        <div className="container mx-auto px-4 py-12 max-w-6xl">
+          {/* Header Section */}
           <div className="flex items-center gap-4 mb-8 animate-on-scroll">
-            <Button asChild variant="outline" size="sm">
+            <Button asChild variant="outline" size="sm" className="gap-2">
               <Link to="/">
                 <ArrowLeft size={16} />
                 Back to Home
@@ -100,71 +111,123 @@ const AllCertificates = () => {
             </Button>
           </div>
 
-          <div className="mb-12 animate-on-scroll">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              All <span className="text-gradient">Certificates</span>
+          <div className="text-center mb-16 animate-on-scroll">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              My <span className="text-gradient">Certifications</span>
             </h1>
-            <p className="text-muted-foreground text-lg">
-              A comprehensive collection of my professional certifications and achievements
+            <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+              A comprehensive collection of my professional achievements, certifications, and learning milestones
             </p>
+            <div className="flex justify-center gap-6 mt-6 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-emerald-400"></div>
+                <span>{certificationData.filter(cert => cert.type === 'competition').length} Competitions</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-blue-400"></div>
+                <span>{certificationData.filter(cert => cert.type === 'hackathon').length} Hackathons</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-purple-400"></div>
+                <span>{certificationData.filter(cert => cert.type === 'course').length} Courses</span>
+              </div>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Certificates Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {certificationData.map((item, index) => (
-              <div 
+              <Card 
                 key={index} 
-                className="dark-card p-6 transition-all duration-300 animate-on-scroll hover:shadow-accent/10 hover:shadow-lg hover:scale-105 flex flex-col h-full"
-                style={{ transitionDelay: `${index * 100}ms` }}
+                className="group bg-card/60 backdrop-blur-sm border-border/50 hover:border-accent/50 transition-all duration-500 animate-on-scroll hover:shadow-2xl hover:shadow-accent/5 hover:-translate-y-2 overflow-hidden"
+                style={{ transitionDelay: `${index * 150}ms` }}
               >
-                <div className="flex flex-col gap-4 flex-grow">
-                  <div className="flex items-start justify-between gap-2 mb-2">
-                    <div className="h-20 w-20 bg-secondary rounded-lg flex items-center justify-center p-3">
-                      <img 
-                        src={item.logo} 
-                        alt={item.name} 
-                        className="h-full w-full object-cover rounded-lg" 
-                      />
+                <CardHeader className="pb-4">
+                  <div className="flex items-start justify-between gap-3 mb-4">
+                    <div className="relative">
+                      <div className="w-16 h-16 bg-secondary/80 rounded-xl flex items-center justify-center p-3 group-hover:scale-110 transition-transform duration-300">
+                        <img 
+                          src={item.logo} 
+                          alt={item.name} 
+                          className="w-full h-full object-contain rounded-lg" 
+                        />
+                      </div>
+                      <div className="absolute -top-1 -right-1">
+                        {getTypeIcon(item.type)}
+                      </div>
                     </div>
-                    <Badge 
-                      variant="outline" 
-                      className={`capitalize ${getTypeColor(item.type)} text-xs`}
-                    >
-                      {item.type}
-                    </Badge>
+                    <div className="flex flex-col gap-2">
+                      <Badge 
+                        variant="outline" 
+                        className={`capitalize text-xs font-medium ${getTypeColor(item.type)} flex items-center gap-1`}
+                      >
+                        {getTypeIcon(item.type)}
+                        {item.type}
+                      </Badge>
+                      <Badge 
+                        variant="outline" 
+                        className={`text-xs font-medium ${getStatusColor(item.status)}`}
+                      >
+                        {item.status}
+                      </Badge>
+                    </div>
                   </div>
                   
-                  <div className="text-center flex-grow flex flex-col">
-                    <h3 className="font-semibold text-xl mb-3">{item.name}</h3>
-                    <p className="text-muted-foreground mb-4">{item.issuer}</p>
-                    
-                    <div className="flex items-center justify-center gap-2 mb-4 text-sm text-muted-foreground">
-                      <Calendar size={14} />
-                      {item.date}
-                    </div>
-                    
-                    {item.description && (
-                      <p className="text-sm text-muted-foreground mb-6 leading-relaxed flex-grow">
-                        {item.description}
-                      </p>
-                    )}
-                    
-                    <div className="mt-auto">
-                      <Button asChild variant="outline" size="sm" className="w-full">
-                        <a 
-                          href="https://www.notion.so/My-Certificates-233fddb4a0ff804ea948ff872b0b2efc?source=copy_link" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center gap-2"
-                        >
-                          View Certificate
-                          <ExternalLink size={14} />
-                        </a>
-                      </Button>
-                    </div>
+                  <CardTitle className="text-xl font-semibold leading-tight group-hover:text-accent transition-colors duration-300">
+                    {item.name}
+                  </CardTitle>
+                  <CardDescription className="text-muted-foreground font-medium">
+                    {item.issuer}
+                  </CardDescription>
+                </CardHeader>
+                
+                <CardContent className="pt-0">
+                  <div className="flex items-center gap-2 mb-4 text-sm text-muted-foreground">
+                    <Calendar size={14} />
+                    <span>{item.date}</span>
                   </div>
-                </div>
-              </div>
+                  
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-6 line-clamp-3">
+                    {item.description}
+                  </p>
+                  
+                  <Button 
+                    asChild 
+                    variant="outline" 
+                    size="sm" 
+                    className="w-full group-hover:bg-accent group-hover:text-accent-foreground transition-colors duration-300"
+                  >
+                    <a 
+                      href="https://www.notion.so/My-Certificates-233fddb4a0ff804ea948ff872b0b2efc?source=copy_link" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2"
+                    >
+                      <span>View Certificate</span>
+                      <ExternalLink size={14} />
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
             ))}
+          </div>
+
+          {/* Call to Action Section */}
+          <div className="text-center mt-16 animate-on-scroll">
+            <div className="glassmorphism p-8 rounded-2xl border border-border/50 max-w-2xl mx-auto">
+              <h3 className="text-2xl font-semibold mb-4">
+                Continuous Learning Journey
+              </h3>
+              <p className="text-muted-foreground mb-6">
+                I'm always exploring new technologies and participating in competitions to expand my knowledge and skills in electronics and IoT.
+              </p>
+              <Button asChild className="gap-2">
+                <Link to="/#contact">
+                  Get In Touch
+                  <ExternalLink size={16} />
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </main>
