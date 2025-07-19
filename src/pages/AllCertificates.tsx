@@ -1,6 +1,7 @@
 
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Calendar, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
@@ -35,6 +36,7 @@ const AllCertificates = () => {
       name: "Dipex (State level competition cum exhibition)",
       issuer: "DIPEX Official",
       date: "2-6 April 2025",
+      type: "competition",
       logo: "/lovable-uploads/87045168-7867-4479-bdd0-054f67d226d9.png",
       description: "State level competition and exhibition showcasing innovative projects and technical skills."
     },
@@ -42,6 +44,7 @@ const AllCertificates = () => {
       name: "CodeCraft UI/UX",
       issuer: "Computer Socitey India - ACOE",
       date: "21st January 2025",
+      type: "hackathon",
       logo: "/lovable-uploads/csi.png",
       description: "Participated in the CodeCraft UI/UX Hackathon at Atharva College of Engineering, designing user-centric solutions under time constraints. Collaborated with peers to prototype innovative interfaces, enhancing creativity and real-world problem-solving skills."
     },
@@ -49,12 +52,37 @@ const AllCertificates = () => {
       name: "IoT And Embedded System",
       issuer: "Adverk Technologies",
       date: "16th July 2025",
+      type: "course",
       logo: "/lovable-uploads/adverk.jpeg",
       description: "Completed a hands-on course in IoT and Embedded Systems, covering microcontrollers, sensors, and communication protocols. Built hardware projects using Arduino, LCDs, and accelerometers, gaining practical skills in circuit design, coding, and real-world debugging."
     },
-    // A
-    // Add more certificates here as needed
   ];
+
+  const getTypeVariant = (type: string) => {
+    switch (type) {
+      case "hackathon":
+        return "default";
+      case "competition":
+        return "secondary";
+      case "course":
+        return "outline";
+      default:
+        return "outline";
+    }
+  };
+
+  const getTypeColor = (type: string) => {
+    switch (type) {
+      case "hackathon":
+        return "bg-blue-500/10 text-blue-400 border-blue-500/20";
+      case "competition":
+        return "bg-green-500/10 text-green-400 border-green-500/20";
+      case "course":
+        return "bg-purple-500/10 text-purple-400 border-purple-500/20";
+      default:
+        return "";
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -89,12 +117,20 @@ const AllCertificates = () => {
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <div className="flex flex-col gap-4 flex-grow">
-                  <div className="h-20 w-20 bg-secondary rounded-lg flex items-center justify-center p-3 mx-auto">
-                    <img 
-                      src={item.logo} 
-                      alt={item.name} 
-                      className="h-full w-full object-cover rounded-lg" 
-                    />
+                  <div className="flex items-start justify-between gap-2 mb-2">
+                    <div className="h-20 w-20 bg-secondary rounded-lg flex items-center justify-center p-3">
+                      <img 
+                        src={item.logo} 
+                        alt={item.name} 
+                        className="h-full w-full object-cover rounded-lg" 
+                      />
+                    </div>
+                    <Badge 
+                      variant="outline" 
+                      className={`capitalize ${getTypeColor(item.type)} text-xs`}
+                    >
+                      {item.type}
+                    </Badge>
                   </div>
                   
                   <div className="text-center flex-grow flex flex-col">
