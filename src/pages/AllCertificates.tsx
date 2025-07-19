@@ -28,7 +28,7 @@ const AllCertificates = () => {
     };
   }, []);
   const certificationData = [{
-    name: "Dipex (State level competition cum exhibition)",
+    name: "Dipex 2025",
     issuer: "DIPEX Official",
     date: "2-6 April 2025",
     type: "competition",
