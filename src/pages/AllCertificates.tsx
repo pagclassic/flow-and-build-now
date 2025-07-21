@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -7,6 +8,7 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedBackground from "@/components/AnimatedBackground";
+
 const AllCertificates = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
@@ -27,6 +29,7 @@ const AllCertificates = () => {
       });
     };
   }, []);
+
   const certificationData = [{
     name: "Dipex 2025",
     issuer: "DIPEX Official",
@@ -52,6 +55,7 @@ const AllCertificates = () => {
     description: "Completed a hands-on course in IoT and Embedded Systems, covering microcontrollers, sensors, and communication protocols.",
     status: "Upcoming"
   }];
+
   const getTypeIcon = (type: string) => {
     switch (type) {
       case "hackathon":
@@ -64,6 +68,7 @@ const AllCertificates = () => {
         return <Award className="w-4 h-4" />;
     }
   };
+
   const getTypeColor = (type: string) => {
     switch (type) {
       case "hackathon":
@@ -76,10 +81,15 @@ const AllCertificates = () => {
         return "bg-gray-500/10 text-gray-400 border-gray-500/30";
     }
   };
+
   const getStatusColor = (status: string) => {
-    return status === "Completed" ? "bg-green-500/10 text-green-400 border-green-500/30" : "bg-orange-500/10 text-orange-400 border-orange-500/30";
+    return status === "Completed" 
+      ? "bg-green-500/10 text-green-400 border-green-500/30" 
+      : "bg-orange-500/10 text-orange-400 border-orange-500/30";
   };
-  return <div className="min-h-screen bg-background">
+
+  return (
+    <div className="min-h-screen bg-background">
       <AnimatedBackground />
       <Navbar />
       
@@ -120,17 +130,17 @@ const AllCertificates = () => {
 
           {/* Certificates Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {certificationData.map((item, index) => <Card key={index} className="group bg-card/60 backdrop-blur-sm border-border/50 hover:border-accent/50 transition-all duration-500 animate-on-scroll hover:shadow-2xl hover:shadow-accent/5 hover:-translate-y-2 overflow-hidden" style={{
-            transitionDelay: `${index * 150}ms`
-          }}>
-                <CardHeader className="pb-4">
+            {certificationData.map((item, index) => (
+              <Card key={index} className="group relative overflow-hidden border-border/50 bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm hover:shadow-2xl hover:shadow-accent/20 transition-all duration-500 animate-on-scroll hover:-translate-y-2" style={{
+                transitionDelay: `${index * 150}ms`
+              }}>
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <CardHeader className="pb-4 relative">
                   <div className="flex items-start justify-between gap-3 mb-4">
                     <div className="relative">
-                      <div className="w-16 h-16 bg-secondary/80 rounded-xl flex items-center justify-center p-3 group-hover:scale-110 transition-transform duration-300">
+                      <div className="w-16 h-16 bg-gradient-to-br from-accent/20 to-primary/20 rounded-xl flex items-center justify-center p-3 group-hover:scale-110 transition-transform duration-300 border border-accent/20">
                         <img src={item.logo} alt={item.name} className="w-full h-full object-contain rounded-lg" />
-                      </div>
-                      <div className="absolute -top-1 -right-1">
-                        {getTypeIcon(item.type)}
                       </div>
                     </div>
                     <div className="flex flex-col gap-2">
@@ -138,7 +148,9 @@ const AllCertificates = () => {
                         {getTypeIcon(item.type)}
                         {item.type}
                       </Badge>
-                      
+                      <Badge variant="outline" className={`text-xs font-medium ${getStatusColor(item.status)}`}>
+                        {item.status}
+                      </Badge>
                     </div>
                   </div>
                   
@@ -150,47 +162,57 @@ const AllCertificates = () => {
                   </CardDescription>
                 </CardHeader>
                 
-                <CardContent className="pt-0">
+                <CardContent className="pt-0 relative">
                   <div className="flex items-center gap-2 mb-4 text-sm text-muted-foreground">
-                    <Calendar size={14} />
-                    <span>{item.date}</span>
+                    <div className="flex items-center gap-1 bg-secondary/50 rounded-md px-2 py-1">
+                      <Calendar size={14} className="text-accent" />
+                      <span>{item.date}</span>
+                    </div>
                   </div>
                   
                   <p className="text-sm text-muted-foreground leading-relaxed mb-6 line-clamp-3">
                     {item.description}
                   </p>
                   
-                  <Button asChild variant="outline" size="sm" className="w-full group-hover:bg-accent group-hover:text-accent-foreground transition-colors duration-300">
+                  <Button asChild variant="outline" size="sm" className="w-full bg-gradient-to-r from-accent/10 to-primary/10 hover:from-accent hover:to-primary hover:text-white group-hover:scale-105 transition-all duration-300 border border-accent/30">
                     <a href="https://www.notion.so/My-Certificates-233fddb4a0ff804ea948ff872b0b2efc?source=copy_link" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2">
                       <span>View Certificate</span>
                       <ExternalLink size={14} />
                     </a>
                   </Button>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
 
           {/* Call to Action Section */}
           <div className="text-center mt-16 animate-on-scroll">
-            <div className="glassmorphism p-8 rounded-2xl border border-border/50 max-w-2xl mx-auto">
-              <h3 className="text-2xl font-semibold mb-4">
-                Continuous Learning Journey
-              </h3>
-              <p className="text-muted-foreground mb-6">
-                I'm always exploring new technologies and participating in competitions to expand my knowledge and skills in electronics and IoT.
-              </p>
-              <Button asChild className="gap-2">
-                <Link to="/#contact">
-                  Get In Touch
-                  <ExternalLink size={16} />
-                </Link>
-              </Button>
-            </div>
+            <Card className="relative overflow-hidden border-border/50 bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm max-w-2xl mx-auto">
+              <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5" />
+              
+              <CardContent className="p-8 relative">
+                <h3 className="text-2xl font-semibold mb-4 flex items-center justify-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-gradient-to-r from-accent to-primary"></div>
+                  Continuous Learning Journey
+                </h3>
+                <p className="text-muted-foreground mb-6">
+                  I'm always exploring new technologies and participating in competitions to expand my knowledge and skills in electronics and IoT.
+                </p>
+                <Button asChild className="gap-2 bg-gradient-to-r from-accent to-primary hover:from-accent/90 hover:to-primary/90 text-white">
+                  <Link to="/#contact">
+                    Get In Touch
+                    <ExternalLink size={16} />
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </main>
       
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default AllCertificates;

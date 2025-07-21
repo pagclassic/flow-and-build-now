@@ -1,9 +1,11 @@
+
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { FileText, Download, Calendar, MapPin, Building, ArrowUpRight, Eye, Award } from "lucide-react";
 import { Link } from "react-router-dom";
+
 const ResumeSection = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
@@ -24,6 +26,7 @@ const ResumeSection = () => {
       });
     };
   }, []);
+
   const educationData = [{
     institution: "Atharva College of Engineering",
     degree: "Bachelor of Engineering - BE, Electronics and Communications Engineering",
@@ -48,7 +51,9 @@ const ResumeSection = () => {
 
   // Total count for the "View All" button
   const totalCertifications = 3;
-  return <section id="resume" className="section">
+
+  return (
+    <section id="resume" className="section">
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
           <div>
@@ -56,14 +61,14 @@ const ResumeSection = () => {
               My <span className="text-gradient">Resume</span>
             </h2>
             <p className="text-muted-foreground animate-on-scroll" style={{
-            transitionDelay: "200ms"
-          }}>
+              transitionDelay: "200ms"
+            }}>
               A summary of my education, experience and certifications
             </p>
           </div>
           <div className="mt-6 md:mt-0 animate-on-scroll" style={{
-          transitionDelay: "400ms"
-        }}>
+            transitionDelay: "400ms"
+          }}>
             <Button className="flex items-center gap-2">
               <FileText size={18} />
               <span>Download CV</span>
@@ -75,51 +80,60 @@ const ResumeSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           <div>
             <h3 className="text-2xl font-semibold mb-6 flex items-center animate-on-scroll" style={{
-            transitionDelay: "600ms"
-          }}>
+              transitionDelay: "600ms"
+            }}>
               <Building className="mr-2" />
               <span>Education</span>
             </h3>
 
             <div className="space-y-6">
-              {educationData.map((item, index) => <div key={index} className="dark-card p-4 md:p-5 transition-shadow animate-on-scroll hover:shadow-accent/10 hover:shadow-lg" style={{
-              transitionDelay: `${800 + index * 200}ms`
-            }}>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <div className="h-16 w-16 sm:h-12 sm:w-12 flex-shrink-0 bg-secondary rounded-md flex items-center justify-center p-2 mx-auto sm:mx-0">
-                    <img src={item.logo} alt={item.institution} className="h-full w-full object-cover rounded-md" />
-                  </div>
-                  <div className="text-center sm:text-left flex-1">
-                    <h4 className="font-medium text-lg mb-2">{item.institution}</h4>
-                    <p className="text-muted-foreground mb-3">{item.degree}</p>
-                    <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-4 text-sm text-muted-foreground">
-                      <span className="flex items-center justify-center sm:justify-start gap-1">
-                        <Calendar size={14} />
-                        {item.duration}
-                      </span>
-                      <span className="flex items-center justify-center sm:justify-start gap-1">
-                        <MapPin size={14} />
-                        {item.location}
-                      </span>
+              {educationData.map((item, index) => (
+                <Card key={index} className="group border-border/50 bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm hover:shadow-xl hover:shadow-accent/10 transition-all duration-500 animate-on-scroll overflow-hidden" style={{
+                  transitionDelay: `${800 + index * 200}ms`
+                }}>
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  <CardContent className="p-6 relative">
+                    <div className="flex flex-col sm:flex-row gap-4">
+                      <div className="relative">
+                        <div className="h-16 w-16 sm:h-12 sm:w-12 flex-shrink-0 bg-gradient-to-br from-accent/20 to-primary/20 rounded-xl flex items-center justify-center p-2 mx-auto sm:mx-0 border border-accent/20">
+                          <img src={item.logo} alt={item.institution} className="h-full w-full object-cover rounded-lg" />
+                        </div>
+                      </div>
+                      
+                      <div className="text-center sm:text-left flex-1">
+                        <h4 className="font-semibold text-lg mb-2 group-hover:text-accent transition-colors duration-300">{item.institution}</h4>
+                        <p className="text-muted-foreground mb-3 font-medium">{item.degree}</p>
+                        <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-4 text-sm text-muted-foreground">
+                          <div className="flex items-center justify-center sm:justify-start gap-1 bg-secondary/50 rounded-md px-2 py-1">
+                            <Calendar size={14} className="text-accent" />
+                            <span>{item.duration}</span>
+                          </div>
+                          <div className="flex items-center justify-center sm:justify-start gap-1 bg-secondary/50 rounded-md px-2 py-1">
+                            <MapPin size={14} className="text-accent" />
+                            <span>{item.location}</span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              </div>)}
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
 
           <div>
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-2xl font-semibold flex items-center animate-on-scroll" style={{
-              transitionDelay: "600ms"
-            }}>
+                transitionDelay: "600ms"
+              }}>
                 <Award className="mr-2" />
                 <span>Certifications</span>
               </h3>
               
               <Button asChild variant="outline" size="sm" className="animate-on-scroll" style={{
-              transitionDelay: "700ms"
-            }}>
+                transitionDelay: "700ms"
+              }}>
                 <Link to="/certificates" className="flex items-center gap-2">
                   <Eye size={16} />
                   View All ({totalCertifications})
@@ -129,18 +143,15 @@ const ResumeSection = () => {
 
             <div className="space-y-6">
               <Card className="group relative overflow-hidden border-border/50 bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm hover:shadow-2xl hover:shadow-accent/20 transition-all duration-500 animate-on-scroll" style={{
-              transitionDelay: "800ms"
-            }}>
+                transitionDelay: "800ms"
+              }}>
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
                 <CardContent className="p-6 relative">
                   <div className="flex items-start gap-4">
                     <div className="relative">
-                      <div className="h-16 w-16 bg-gradient-to-br from-accent/20 to-primary/20 rounded-xl flex items-center justify-center p-3 border border-accent/20">
+                      <div className="h-16 w-16 bg-gradient-to-br from-accent/20 to-primary/20 rounded-xl flex items-center justify-center p-3 border border-accent/20 group-hover:scale-110 transition-transform duration-300">
                         <img src={firstCertification.logo} alt={firstCertification.name} className="h-full w-full object-cover rounded-lg" />
-                      </div>
-                      <div className="absolute -top-1 -right-1">
-                        
                       </div>
                     </div>
                     
@@ -149,6 +160,9 @@ const ResumeSection = () => {
                         <h4 className="font-semibold text-lg text-foreground group-hover:text-accent transition-colors duration-300">
                           {firstCertification.name}
                         </h4>
+                        <Badge variant="outline" className="bg-emerald-500/10 text-emerald-400 border-emerald-500/30 text-xs">
+                          Competition
+                        </Badge>
                       </div>
                       
                       <p className="text-muted-foreground mb-4 font-medium">
@@ -176,35 +190,63 @@ const ResumeSection = () => {
             </div>
 
             <div className="mt-8 animate-on-scroll" style={{
-            transitionDelay: "1000ms"
-          }}>
-              <div className="glassmorphism p-5 rounded-lg border border-border/50 relative overflow-hidden">
-                <h4 className="font-medium text-lg mb-2">Technical Skills</h4>
-                <ul className="list-disc list-inside space-y-1 text-muted-foreground blur-sm">
-                  <li>ESP32 & Arduino Development</li>
-                  <li>IoT Systems & Sensor Integration</li>
-                  <li>Embedded C/C++ Programming</li>
-                  <li>Circuit Design & PCB Development</li>
-                  <li>Wireless Communication (WiFi, Bluetooth)</li>
-                  <li>Automation & Control Systems</li>
-                </ul>
+              transitionDelay: "1000ms"
+            }}>
+              <Card className="relative overflow-hidden border-border/50 bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm">
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5" />
                 
-                {/* Overlay message */}
-                <div className="absolute inset-0 flex items-center justify-center bg-black/20 backdrop-blur-[1px]">
-                  <div className="text-center p-4">
-                    <div className="text-lg font-semibold text-white mb-2">
-                      🚧 Potential Skills
-                    </div>
-                    <div className="text-sm text-gray-300">
-                      Currently working on mastering these technologies
+                <CardContent className="p-6 relative">
+                  <h4 className="font-semibold text-lg mb-4 flex items-center gap-2">
+                    <div className="h-2 w-2 rounded-full bg-gradient-to-r from-accent to-primary"></div>
+                    Technical Skills
+                  </h4>
+                  <ul className="list-none space-y-3 text-muted-foreground blur-sm">
+                    <li className="flex items-center gap-2">
+                      <div className="h-1.5 w-1.5 rounded-full bg-accent/50"></div>
+                      ESP32 & Arduino Development
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <div className="h-1.5 w-1.5 rounded-full bg-primary/50"></div>
+                      IoT Systems & Sensor Integration
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <div className="h-1.5 w-1.5 rounded-full bg-accent/50"></div>
+                      Embedded C/C++ Programming
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <div className="h-1.5 w-1.5 rounded-full bg-primary/50"></div>
+                      Circuit Design & PCB Development
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <div className="h-1.5 w-1.5 rounded-full bg-accent/50"></div>
+                      Wireless Communication (WiFi, Bluetooth)
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <div className="h-1.5 w-1.5 rounded-full bg-primary/50"></div>
+                      Automation & Control Systems
+                    </li>
+                  </ul>
+                  
+                  {/* Overlay message */}
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/20 backdrop-blur-[1px] rounded-lg">
+                    <div className="text-center p-4">
+                      <div className="text-lg font-semibold text-white mb-2 flex items-center justify-center gap-2">
+                        <div className="animate-pulse">🚧</div>
+                        Potential Skills
+                      </div>
+                      <div className="text-sm text-gray-300">
+                        Currently working on mastering these technologies
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default ResumeSection;
