@@ -122,7 +122,7 @@ const ResumeSection = () => {
             </div>
           </div>
 
-          <div className="flex flex-col">
+          <div>
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-2xl font-semibold flex items-center animate-on-scroll" style={{
                 transitionDelay: "600ms"
@@ -141,14 +141,14 @@ const ResumeSection = () => {
               </Button>
             </div>
 
-            <div className="flex flex-col flex-1 gap-6">
-              <Card className="group relative overflow-hidden border-border/50 bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm hover:shadow-2xl hover:shadow-accent/20 transition-all duration-500 animate-on-scroll flex-1" style={{
+            <div className="space-y-6">
+              <Card className="group relative overflow-hidden border-border/50 bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm hover:shadow-2xl hover:shadow-accent/20 transition-all duration-500 animate-on-scroll" style={{
                 transitionDelay: "800ms"
               }}>
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
-                <CardContent className="p-6 relative h-full flex flex-col">
-                  <div className="flex items-start gap-4 flex-1">
+                <CardContent className="p-6 relative">
+                  <div className="flex items-start gap-4">
                     <div className="relative">
                       <div className="h-16 w-16 bg-gradient-to-br from-accent/20 to-primary/20 rounded-xl flex items-center justify-center p-3 border border-accent/20 group-hover:scale-110 transition-transform duration-300">
                         <img src={firstCertification.logo} alt={firstCertification.name} className="h-full w-full object-cover rounded-lg" />
@@ -175,30 +175,32 @@ const ResumeSection = () => {
                           <span>{firstCertification.date}</span>
                         </div>
                       </div>
+                      
+                      <Button asChild size="sm" className="w-full bg-gradient-to-r from-accent to-primary hover:from-accent/90 hover:to-primary/90 text-white border-0 group-hover:scale-105 transition-transform duration-300">
+                        <a href="https://www.notion.so/My-Certificates-233fddb4a0ff804ea948ff872b0b2efc?source=copy_link" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+                          <Eye size={16} />
+                          <span>View Certificate</span>
+                          <ArrowUpRight size={14} />
+                        </a>
+                      </Button>
                     </div>
                   </div>
-                  
-                  <Button asChild size="sm" className="w-full bg-gradient-to-r from-accent to-primary hover:from-accent/90 hover:to-primary/90 text-white border-0 group-hover:scale-105 transition-transform duration-300 mt-auto">
-                    <a href="https://www.notion.so/My-Certificates-233fddb4a0ff804ea948ff872b0b2efc?source=copy_link" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-                      <Eye size={16} />
-                      <span>View Certificate</span>
-                      <ArrowUpRight size={14} />
-                    </a>
-                  </Button>
                 </CardContent>
               </Card>
+            </div>
 
-              <Card className="relative overflow-hidden border-border/50 bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm animate-on-scroll flex-1" style={{
-                transitionDelay: "1000ms"
-              }}>
+            <div className="mt-8 animate-on-scroll" style={{
+              transitionDelay: "1000ms"
+            }}>
+              <Card className="relative overflow-hidden border-border/50 bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm">
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5" />
                 
-                <CardContent className="p-6 relative h-full flex flex-col">
+                <CardContent className="p-6 relative">
                   <h4 className="font-semibold text-lg mb-4 flex items-center gap-2">
                     <div className="h-2 w-2 rounded-full bg-gradient-to-r from-accent to-primary"></div>
                     Technical Skills
                   </h4>
-                  <ul className="list-none space-y-3 text-muted-foreground blur-sm flex-1">
+                  <ul className="list-none space-y-3 text-muted-foreground blur-sm">
                     <li className="flex items-center gap-2">
                       <div className="h-1.5 w-1.5 rounded-full bg-accent/50"></div>
                       ESP32 & Arduino Development
