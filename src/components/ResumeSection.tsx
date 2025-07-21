@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { FileText, Download, Calendar, MapPin, Building, ArrowUpRight, Eye, Award } from "lucide-react";
+import { FileText, Download, Calendar, Eye, Award, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const ResumeSection = () => {
@@ -27,20 +27,6 @@ const ResumeSection = () => {
     };
   }, []);
 
-  const educationData = [{
-    institution: "Atharva College of Engineering",
-    degree: "Bachelor of Engineering - BE, Electronics and Communications Engineering",
-    duration: "Oct 2024 - May 2028",
-    location: "Mumbai, Maharashtra",
-    logo: "/lovable-uploads/35908cfa-bda5-4dbc-82fa-094de855dab6.png"
-  }, {
-    institution: "Mahatma Gandhi Vidyamandir's Loknete Vyankatrao Hiray Arts, Science & Commerce",
-    degree: "HSC, Science",
-    duration: "Jul 2022 - Feb 2024",
-    location: "Nashik, Maharashtra",
-    logo: "/lovable-uploads/7298afb2-69a5-468a-ad26-de1373dfedd9.png"
-  }];
-
   // Only show the first certificate in resume section
   const firstCertification = {
     name: "Dipex 2025",
@@ -63,7 +49,7 @@ const ResumeSection = () => {
             <p className="text-muted-foreground animate-on-scroll" style={{
               transitionDelay: "200ms"
             }}>
-              A summary of my education, experience and certifications
+              A summary of my experience and certifications
             </p>
           </div>
           <div className="mt-6 md:mt-0 animate-on-scroll" style={{
@@ -78,51 +64,7 @@ const ResumeSection = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-          <div>
-            <h3 className="text-2xl font-semibold mb-6 flex items-center animate-on-scroll" style={{
-              transitionDelay: "600ms"
-            }}>
-              <Building className="mr-2" />
-              <span>Education</span>
-            </h3>
-
-            <div className="space-y-6">
-              {educationData.map((item, index) => (
-                <Card key={index} className="group border-border/50 bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm hover:shadow-xl hover:shadow-accent/10 transition-all duration-500 animate-on-scroll overflow-hidden" style={{
-                  transitionDelay: `${800 + index * 200}ms`
-                }}>
-                  <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  
-                  <CardContent className="p-6 relative">
-                    <div className="flex flex-col sm:flex-row gap-4">
-                      <div className="relative">
-                        <div className="h-16 w-16 sm:h-12 sm:w-12 flex-shrink-0 bg-gradient-to-br from-accent/20 to-primary/20 rounded-xl flex items-center justify-center p-2 mx-auto sm:mx-0 border border-accent/20">
-                          <img src={item.logo} alt={item.institution} className="h-full w-full object-cover rounded-lg" />
-                        </div>
-                      </div>
-                      
-                      <div className="text-center sm:text-left flex-1">
-                        <h4 className="font-semibold text-lg mb-2 group-hover:text-accent transition-colors duration-300">{item.institution}</h4>
-                        <p className="text-muted-foreground mb-3 font-medium">{item.degree}</p>
-                        <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-4 text-sm text-muted-foreground">
-                          <div className="flex items-center justify-center sm:justify-start gap-1 bg-secondary/50 rounded-md px-2 py-1">
-                            <Calendar size={14} className="text-accent" />
-                            <span>{item.duration}</span>
-                          </div>
-                          <div className="flex items-center justify-center sm:justify-start gap-1 bg-secondary/50 rounded-md px-2 py-1">
-                            <MapPin size={14} className="text-accent" />
-                            <span>{item.location}</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-
-          <div>
+          <div className="h-full">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-2xl font-semibold flex items-center animate-on-scroll" style={{
                 transitionDelay: "600ms"
@@ -141,21 +83,21 @@ const ResumeSection = () => {
               </Button>
             </div>
 
-            <div className="space-y-6">
-              <Card className="group relative overflow-hidden border-border/50 bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm hover:shadow-2xl hover:shadow-accent/20 transition-all duration-500 animate-on-scroll" style={{
+            <div className="h-full">
+              <Card className="group relative overflow-hidden border-border/50 bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm hover:shadow-2xl hover:shadow-accent/20 transition-all duration-500 animate-on-scroll h-full flex flex-col" style={{
                 transitionDelay: "800ms"
               }}>
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
-                <CardContent className="p-6 relative">
-                  <div className="flex items-start gap-4">
+                <CardContent className="p-6 relative flex-1 flex flex-col">
+                  <div className="flex items-start gap-4 flex-1">
                     <div className="relative">
                       <div className="h-16 w-16 bg-gradient-to-br from-accent/20 to-primary/20 rounded-xl flex items-center justify-center p-3 border border-accent/20 group-hover:scale-110 transition-transform duration-300">
                         <img src={firstCertification.logo} alt={firstCertification.name} className="h-full w-full object-cover rounded-lg" />
                       </div>
                     </div>
                     
-                    <div className="flex-1 min-w-0">
+                    <div className="flex-1 min-w-0 flex flex-col">
                       <div className="flex items-start justify-between gap-2 mb-3">
                         <h4 className="font-semibold text-lg text-foreground group-hover:text-accent transition-colors duration-300">
                           {firstCertification.name}
@@ -176,72 +118,77 @@ const ResumeSection = () => {
                         </div>
                       </div>
                       
-                      <Button asChild size="sm" className="w-full bg-gradient-to-r from-accent to-primary hover:from-accent/90 hover:to-primary/90 text-white border-0 group-hover:scale-105 transition-transform duration-300">
-                        <a href="https://www.notion.so/My-Certificates-233fddb4a0ff804ea948ff872b0b2efc?source=copy_link" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-                          <Eye size={16} />
-                          <span>View Certificate</span>
-                          <ArrowUpRight size={14} />
-                        </a>
-                      </Button>
+                      <div className="mt-auto">
+                        <Button asChild size="sm" className="w-full bg-gradient-to-r from-accent to-primary hover:from-accent/90 hover:to-primary/90 text-white border-0 group-hover:scale-105 transition-transform duration-300">
+                          <a href="https://www.notion.so/My-Certificates-233fddb4a0ff804ea948ff872b0b2efc?source=copy_link" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+                            <Eye size={16} />
+                            <span>View Certificate</span>
+                            <ArrowUpRight size={14} />
+                          </a>
+                        </Button>
+                      </div>
                     </div>
                   </div>
                 </CardContent>
               </Card>
             </div>
+          </div>
 
-            <div className="mt-8 animate-on-scroll" style={{
+          <div className="h-full">
+            <h3 className="text-2xl font-semibold mb-6 flex items-center animate-on-scroll" style={{
+              transitionDelay: "600ms"
+            }}>
+              <div className="h-2 w-2 rounded-full bg-gradient-to-r from-accent to-primary mr-2"></div>
+              Technical Skills
+            </h3>
+
+            <Card className="relative overflow-hidden border-border/50 bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm animate-on-scroll h-full flex flex-col" style={{
               transitionDelay: "1000ms"
             }}>
-              <Card className="relative overflow-hidden border-border/50 bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm">
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5" />
+              <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5" />
+              
+              <CardContent className="p-6 relative flex-1 flex flex-col">
+                <ul className="list-none space-y-3 text-muted-foreground blur-sm flex-1">
+                  <li className="flex items-center gap-2">
+                    <div className="h-1.5 w-1.5 rounded-full bg-accent/50"></div>
+                    ESP32 & Arduino Development
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="h-1.5 w-1.5 rounded-full bg-primary/50"></div>
+                    IoT Systems & Sensor Integration
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="h-1.5 w-1.5 rounded-full bg-accent/50"></div>
+                    Embedded C/C++ Programming
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="h-1.5 w-1.5 rounded-full bg-primary/50"></div>
+                    Circuit Design & PCB Development
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="h-1.5 w-1.5 rounded-full bg-accent/50"></div>
+                    Wireless Communication (WiFi, Bluetooth)
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="h-1.5 w-1.5 rounded-full bg-primary/50"></div>
+                    Automation & Control Systems
+                  </li>
+                </ul>
                 
-                <CardContent className="p-6 relative">
-                  <h4 className="font-semibold text-lg mb-4 flex items-center gap-2">
-                    <div className="h-2 w-2 rounded-full bg-gradient-to-r from-accent to-primary"></div>
-                    Technical Skills
-                  </h4>
-                  <ul className="list-none space-y-3 text-muted-foreground blur-sm">
-                    <li className="flex items-center gap-2">
-                      <div className="h-1.5 w-1.5 rounded-full bg-accent/50"></div>
-                      ESP32 & Arduino Development
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="h-1.5 w-1.5 rounded-full bg-primary/50"></div>
-                      IoT Systems & Sensor Integration
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="h-1.5 w-1.5 rounded-full bg-accent/50"></div>
-                      Embedded C/C++ Programming
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="h-1.5 w-1.5 rounded-full bg-primary/50"></div>
-                      Circuit Design & PCB Development
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="h-1.5 w-1.5 rounded-full bg-accent/50"></div>
-                      Wireless Communication (WiFi, Bluetooth)
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="h-1.5 w-1.5 rounded-full bg-primary/50"></div>
-                      Automation & Control Systems
-                    </li>
-                  </ul>
-                  
-                  {/* Overlay message */}
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/20 backdrop-blur-[1px] rounded-lg">
-                    <div className="text-center p-4">
-                      <div className="text-lg font-semibold text-white mb-2 flex items-center justify-center gap-2">
-                        <div className="animate-pulse">🚧</div>
-                        Potential Skills
-                      </div>
-                      <div className="text-sm text-gray-300">
-                        Currently working on mastering these technologies
-                      </div>
+                {/* Overlay message */}
+                <div className="absolute inset-0 flex items-center justify-center bg-black/20 backdrop-blur-[1px] rounded-lg">
+                  <div className="text-center p-4">
+                    <div className="text-lg font-semibold text-white mb-2 flex items-center justify-center gap-2">
+                      <div className="animate-pulse">🚧</div>
+                      Potential Skills
+                    </div>
+                    <div className="text-sm text-gray-300">
+                      Currently working on mastering these technologies
                     </div>
                   </div>
-                </CardContent>
-              </Card>
-            </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>
