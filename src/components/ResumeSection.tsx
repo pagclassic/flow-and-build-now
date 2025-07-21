@@ -1,7 +1,8 @@
-
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { FileText, Download, Calendar, MapPin, Building, ArrowUpRight, Eye } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { FileText, Download, Calendar, MapPin, Building, ArrowUpRight, Eye, Award } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const ResumeSection = () => {
@@ -116,7 +117,7 @@ const ResumeSection = () => {
               <h3 className="text-2xl font-semibold flex items-center animate-on-scroll" style={{
                 transitionDelay: "600ms"
               }}>
-                <FileText className="mr-2" />
+                <Award className="mr-2" />
                 <span>Certifications</span>
               </h3>
               
@@ -131,33 +132,66 @@ const ResumeSection = () => {
             </div>
 
             <div className="space-y-6">
-              <div className="dark-card p-4 md:p-5 transition-shadow animate-on-scroll hover:shadow-accent/10 hover:shadow-lg" style={{
+              <Card className="group relative overflow-hidden border-border/50 bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm hover:shadow-2xl hover:shadow-accent/20 transition-all duration-500 animate-on-scroll" style={{
                 transitionDelay: "800ms"
               }}>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <div className="h-16 w-16 sm:h-12 sm:w-12 flex-shrink-0 bg-secondary rounded-md flex items-center justify-center p-2 mx-auto sm:mx-0">
-                    <img src={firstCertification.logo} alt={firstCertification.name} className="h-full w-full object-cover rounded-md" />
-                  </div>
-                  <div className="text-center sm:text-left flex-1">
-                    <h4 className="font-medium text-lg mb-2">{firstCertification.name}</h4>
-                    <p className="text-muted-foreground mb-3">{firstCertification.issuer}</p>
-                    <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-4 mb-3 text-sm text-muted-foreground">
-                      <span className="flex items-center justify-center sm:justify-start gap-1">
-                        <Calendar size={14} />
-                        {firstCertification.date}
-                      </span>
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <CardContent className="p-6 relative">
+                  <div className="flex items-start gap-4">
+                    <div className="relative">
+                      <div className="h-16 w-16 bg-gradient-to-br from-accent/20 to-primary/20 rounded-xl flex items-center justify-center p-3 border border-accent/20">
+                        <img 
+                          src={firstCertification.logo} 
+                          alt={firstCertification.name} 
+                          className="h-full w-full object-cover rounded-lg"
+                        />
+                      </div>
+                      <div className="absolute -top-1 -right-1">
+                        <Badge variant="default" className="bg-gradient-to-r from-accent to-primary text-white text-xs px-2 py-1">
+                          Featured
+                        </Badge>
+                      </div>
                     </div>
-                    <div className="flex justify-center sm:justify-start">
-                      <Button asChild variant="link" className="px-0">
-                        <a href="https://www.notion.so/My-Certificates-233fddb4a0ff804ea948ff872b0b2efc?source=copy_link" target="_blank" rel="noopener noreferrer">
-                          View Certificate
-                          <ArrowUpRight className="ml-1" size={14} />
+                    
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-start justify-between gap-2 mb-3">
+                        <h4 className="font-semibold text-lg text-foreground group-hover:text-accent transition-colors duration-300">
+                          {firstCertification.name}
+                        </h4>
+                      </div>
+                      
+                      <p className="text-muted-foreground mb-4 font-medium">
+                        {firstCertification.issuer}
+                      </p>
+                      
+                      <div className="flex items-center gap-2 mb-4">
+                        <div className="flex items-center gap-1 text-sm text-muted-foreground bg-secondary/50 rounded-md px-2 py-1">
+                          <Calendar size={14} className="text-accent" />
+                          <span>{firstCertification.date}</span>
+                        </div>
+                      </div>
+                      
+                      <Button 
+                        asChild 
+                        size="sm" 
+                        className="w-full bg-gradient-to-r from-accent to-primary hover:from-accent/90 hover:to-primary/90 text-white border-0 group-hover:scale-105 transition-transform duration-300"
+                      >
+                        <a 
+                          href="https://www.notion.so/My-Certificates-233fddb4a0ff804ea948ff872b0b2efc?source=copy_link" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-center gap-2"
+                        >
+                          <Eye size={16} />
+                          <span>View Certificate</span>
+                          <ArrowUpRight size={14} />
                         </a>
                       </Button>
                     </div>
                   </div>
-                </div>
-              </div>
+                </CardContent>
+              </Card>
             </div>
 
             <div className="mt-8 animate-on-scroll" style={{
