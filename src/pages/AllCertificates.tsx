@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -8,7 +7,6 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedBackground from "@/components/AnimatedBackground";
-
 const AllCertificates = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
@@ -29,7 +27,6 @@ const AllCertificates = () => {
       });
     };
   }, []);
-
   const certificationData = [{
     name: "Dipex 2025",
     issuer: "DIPEX Official",
@@ -55,7 +52,6 @@ const AllCertificates = () => {
     description: "Completed a hands-on course in IoT and Embedded Systems, covering microcontrollers, sensors, and communication protocols.",
     status: "Upcoming"
   }];
-
   const getTypeIcon = (type: string) => {
     switch (type) {
       case "hackathon":
@@ -68,7 +64,6 @@ const AllCertificates = () => {
         return <Award className="w-4 h-4" />;
     }
   };
-
   const getTypeColor = (type: string) => {
     switch (type) {
       case "hackathon":
@@ -81,15 +76,10 @@ const AllCertificates = () => {
         return "bg-gray-500/10 text-gray-400 border-gray-500/30";
     }
   };
-
   const getStatusColor = (status: string) => {
-    return status === "Completed" 
-      ? "bg-green-500/10 text-green-400 border-green-500/30" 
-      : "bg-orange-500/10 text-orange-400 border-orange-500/30";
+    return status === "Completed" ? "bg-green-500/10 text-green-400 border-green-500/30" : "bg-orange-500/10 text-orange-400 border-orange-500/30";
   };
-
-  return (
-    <div className="min-h-screen bg-background">
+  return <div className="min-h-screen bg-background">
       <AnimatedBackground />
       <Navbar />
       
@@ -130,10 +120,9 @@ const AllCertificates = () => {
 
           {/* Certificates Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {certificationData.map((item, index) => (
-              <Card key={index} className="group relative overflow-hidden border-border/50 bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm hover:shadow-2xl hover:shadow-accent/20 transition-all duration-500 animate-on-scroll hover:-translate-y-2" style={{
-                transitionDelay: `${index * 150}ms`
-              }}>
+            {certificationData.map((item, index) => <Card key={index} className="group relative overflow-hidden border-border/50 bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm hover:shadow-2xl hover:shadow-accent/20 transition-all duration-500 animate-on-scroll hover:-translate-y-2" style={{
+            transitionDelay: `${index * 150}ms`
+          }}>
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
                 <CardHeader className="pb-4 relative">
@@ -148,9 +137,7 @@ const AllCertificates = () => {
                         {getTypeIcon(item.type)}
                         {item.type}
                       </Badge>
-                      <Badge variant="outline" className={`text-xs font-medium ${getStatusColor(item.status)}`}>
-                        {item.status}
-                      </Badge>
+                      
                     </div>
                   </div>
                   
@@ -181,8 +168,7 @@ const AllCertificates = () => {
                     </a>
                   </Button>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
 
           {/* Call to Action Section */}
@@ -211,8 +197,6 @@ const AllCertificates = () => {
       </main>
       
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default AllCertificates;
