@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { FileText, Download, Calendar, MapPin, Building, ArrowUpRight, Eye } from "lucide-react";
@@ -142,26 +143,28 @@ const ResumeSection = () => {
               <div className="relative bg-gradient-to-br from-card/95 via-card/85 to-card/75 backdrop-blur-xl border-2 border-primary/10 text-foreground rounded-2xl overflow-hidden shadow-2xl shadow-primary/5 hover:shadow-primary/15 hover:shadow-3xl hover:border-primary/20 transition-all duration-700 animate-on-scroll group" style={{
                 transitionDelay: "800ms"
               }}>
-                {/* Premium gradient overlays */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-accent/6 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                <div className="absolute inset-0 bg-gradient-to-tl from-transparent via-card/20 to-primary/5" />
+                {/* Premium gradient overlays covering entire div */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-accent/6 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-2xl" />
+                <div className="absolute inset-0 bg-gradient-to-tl from-transparent via-card/20 to-primary/5 rounded-2xl" />
                 
-                {/* Subtle animated border */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary/20 via-accent/15 to-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10 blur-sm" />
+                {/* Subtle animated border covering full container */}
+                <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-primary/20 via-accent/15 to-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-sm" />
                 
-                <div className="relative p-6 md:p-7 bg-gradient-to-br from-transparent via-card/10 to-transparent">
-                  <div className="flex flex-col sm:flex-row gap-5">
+                <div className="relative p-6 md:p-7 bg-gradient-to-br from-transparent via-card/10 to-transparent h-full">
+                  <div className="flex flex-col sm:flex-row gap-5 h-full">
                     <div className="h-18 w-18 sm:h-16 sm:w-16 flex-shrink-0 bg-gradient-to-br from-primary/15 via-secondary/20 to-accent/10 rounded-2xl flex items-center justify-center p-3 mx-auto sm:mx-0 ring-2 ring-primary/15 shadow-xl shadow-primary/10 group-hover:ring-primary/25 group-hover:shadow-primary/20 transition-all duration-500">
                       <img src={firstCertification.logo} alt={firstCertification.name} className="h-full w-full object-cover rounded-xl" />
                     </div>
-                    <div className="text-center sm:text-left flex-1">
-                      <h4 className="font-bold text-xl mb-3 text-foreground bg-gradient-to-r from-foreground via-primary/80 to-foreground bg-clip-text group-hover:text-transparent transition-all duration-500">{firstCertification.name}</h4>
-                      <p className="text-muted-foreground/95 mb-4 leading-relaxed font-medium">{firstCertification.issuer}</p>
-                      <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-5 mb-5 text-sm">
-                        <span className="flex items-center justify-center sm:justify-start gap-2 text-muted-foreground/85 font-medium">
-                          <Calendar size={16} className="text-primary/90" />
-                          {firstCertification.date}
-                        </span>
+                    <div className="text-center sm:text-left flex-1 flex flex-col justify-between">
+                      <div>
+                        <h4 className="font-bold text-xl mb-3 text-foreground bg-gradient-to-r from-foreground via-primary/80 to-foreground bg-clip-text group-hover:text-transparent transition-all duration-500">{firstCertification.name}</h4>
+                        <p className="text-muted-foreground/95 mb-4 leading-relaxed font-medium">{firstCertification.issuer}</p>
+                        <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-5 mb-5 text-sm">
+                          <span className="flex items-center justify-center sm:justify-start gap-2 text-muted-foreground/85 font-medium">
+                            <Calendar size={16} className="text-primary/90" />
+                            {firstCertification.date}
+                          </span>
+                        </div>
                       </div>
                       <div className="flex justify-center sm:justify-start">
                         <Button asChild size="sm" className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 shadow-lg hover:shadow-xl transition-all duration-300 font-semibold group/btn">
@@ -182,10 +185,10 @@ const ResumeSection = () => {
               transitionDelay: "1000ms"
             }}>
               <div className="relative bg-gradient-to-br from-card/80 via-card/60 to-muted/40 backdrop-blur-xl border-2 border-border/40 rounded-2xl p-7 overflow-hidden shadow-2xl shadow-black/15">
-                {/* Premium background pattern */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-accent/5" />
+                {/* Premium background pattern covering entire container */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-accent/5 rounded-2xl" />
                 
-                <div className="relative">
+                <div className="relative h-full">
                   <h4 className="font-bold text-xl mb-4 text-foreground/95">Technical Skills</h4>
                   <ul className="list-disc list-inside space-y-3 text-muted-foreground/75 blur-sm font-medium">
                     <li>ESP32 & Arduino Development</li>
@@ -196,8 +199,8 @@ const ResumeSection = () => {
                     <li>Automation & Control Systems</li>
                   </ul>
                   
-                  {/* Premium overlay message */}
-                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-black/40 via-black/30 to-black/40 backdrop-blur-[3px] rounded-xl">
+                  {/* Premium overlay message covering full area */}
+                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-black/40 via-black/30 to-black/40 backdrop-blur-[3px] rounded-2xl">
                     <div className="text-center p-5">
                       <div className="text-xl font-bold text-white mb-3 drop-shadow-xl">
                         🚧 Potential Skills
