@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { FileText, Download, Calendar, MapPin, Building, ArrowUpRight, Eye } from "lucide-react";
 import { Link } from "react-router-dom";
+
 const ResumeSection = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
@@ -22,6 +23,7 @@ const ResumeSection = () => {
       });
     };
   }, []);
+  
   const educationData = [{
     institution: "Atharva College of Engineering",
     degree: "Bachelor of Engineering - BE, Electronics and Communications Engineering",
@@ -35,7 +37,7 @@ const ResumeSection = () => {
     location: "Nashik, Maharashtra",
     logo: "/lovable-uploads/7298afb2-69a5-468a-ad26-de1373dfedd9.png"
   }];
-
+  
   // Only show the first certificate in resume section
   const firstCertification = {
     name: "Dipex 2025",
@@ -43,10 +45,12 @@ const ResumeSection = () => {
     date: "2-6 April 2025",
     logo: "/lovable-uploads/87045168-7867-4479-bdd0-054f67d226d9.png"
   };
-
+  
   // Total count for the "View All" button
   const totalCertifications = 3;
-  return <section id="resume" className="section">
+  
+  return (
+    <section id="resume" className="section">
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
           <div>
@@ -54,14 +58,14 @@ const ResumeSection = () => {
               My <span className="text-gradient">Resume</span>
             </h2>
             <p className="text-muted-foreground animate-on-scroll" style={{
-            transitionDelay: "200ms"
-          }}>
+              transitionDelay: "200ms"
+            }}>
               A summary of my education, experience and certifications
             </p>
           </div>
           <div className="mt-6 md:mt-0 animate-on-scroll" style={{
-          transitionDelay: "400ms"
-        }}>
+            transitionDelay: "400ms"
+          }}>
             <Button className="flex items-center gap-2">
               <FileText size={18} />
               <span>Download CV</span>
@@ -73,16 +77,16 @@ const ResumeSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           <div>
             <h3 className="text-2xl font-semibold mb-6 flex items-center animate-on-scroll" style={{
-            transitionDelay: "600ms"
-          }}>
+              transitionDelay: "600ms"
+            }}>
               <Building className="mr-2" />
               <span>Education</span>
             </h3>
 
             <div className="space-y-6">
               {educationData.map((item, index) => <div key={index} className="relative bg-gradient-to-br from-card/95 via-card/85 to-card/75 backdrop-blur-xl border-2 border-primary/10 text-foreground rounded-2xl overflow-hidden shadow-2xl shadow-primary/5 hover:shadow-primary/15 hover:shadow-3xl hover:border-primary/20 transition-all duration-700 animate-on-scroll group" style={{
-              transitionDelay: `${800 + index * 200}ms`
-            }}>
+                transitionDelay: `${800 + index * 200}ms`
+              }}>
                 {/* Premium gradient overlays */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-accent/6 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-tl from-transparent via-card/20 to-primary/5" />
@@ -118,15 +122,15 @@ const ResumeSection = () => {
           <div>
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-2xl font-semibold flex items-center animate-on-scroll" style={{
-              transitionDelay: "600ms"
-            }}>
+                transitionDelay: "600ms"
+              }}>
                 <FileText className="mr-2" />
                 <span>Certifications</span>
               </h3>
               
               <Button asChild variant="outline" size="sm" className="animate-on-scroll" style={{
-              transitionDelay: "700ms"
-            }}>
+                transitionDelay: "700ms"
+              }}>
                 <Link to="/certificates" className="flex items-center gap-2">
                   <Eye size={16} />
                   View All ({totalCertifications})
@@ -136,8 +140,8 @@ const ResumeSection = () => {
 
             <div className="space-y-6">
               <div className="relative bg-gradient-to-br from-card/95 via-card/85 to-card/75 backdrop-blur-xl border-2 border-primary/10 text-foreground rounded-2xl overflow-hidden shadow-2xl shadow-primary/5 hover:shadow-primary/15 hover:shadow-3xl hover:border-primary/20 transition-all duration-700 animate-on-scroll group" style={{
-              transitionDelay: "800ms"
-            }}>
+                transitionDelay: "800ms"
+              }}>
                 {/* Premium gradient overlays */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-accent/6 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-tl from-transparent via-card/20 to-primary/5" />
@@ -161,7 +165,7 @@ const ResumeSection = () => {
                       </div>
                       <div className="flex justify-center sm:justify-start">
                         <Button asChild size="sm" className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 shadow-lg hover:shadow-xl transition-all duration-300 font-semibold group/btn">
-                          <a href="https://www.notion.so/My-Certificates-233fddb4a0ff804ea948ff872b0b2efc?source=copy_link" target="_blank" rel="noopener noreferrer" className="">
+                          <a href="https://www.notion.so/My-Certificates-233fddb4a0ff804ea948ff872b0b2efc?source=copy_link" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                             <FileText size={16} />
                             View Certificate
                             <ArrowUpRight className="ml-1 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform duration-300" size={16} />
@@ -175,8 +179,8 @@ const ResumeSection = () => {
             </div>
 
             <div className="mt-8 animate-on-scroll" style={{
-            transitionDelay: "1000ms"
-          }}>
+              transitionDelay: "1000ms"
+            }}>
               <div className="relative bg-gradient-to-br from-card/80 via-card/60 to-muted/40 backdrop-blur-xl border-2 border-border/40 rounded-2xl p-7 overflow-hidden shadow-2xl shadow-black/15">
                 {/* Premium background pattern */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-accent/5" />
@@ -209,6 +213,8 @@ const ResumeSection = () => {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default ResumeSection;
