@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { FileText, Download, Calendar, MapPin, Building, ArrowUpRight, Eye } from "lucide-react";
@@ -165,10 +164,11 @@ const ResumeSection = () => {
                         </span>
                       </div>
                       <div className="flex justify-center sm:justify-start">
-                        <Button asChild variant="link" className="px-0 text-primary/95 hover:text-primary font-semibold group/btn">
-                          <a href="https://www.notion.so/My-Certificates-233fddb4a0ff804ea948ff872b0b2efc?source=copy_link" target="_blank" rel="noopener noreferrer">
+                        <Button asChild size="sm" className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 shadow-lg hover:shadow-xl transition-all duration-300 font-semibold group/btn">
+                          <a href="https://www.notion.so/My-Certificates-233fddb4a0ff804ea948ff872b0b2efc?source=copy_link" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                            <FileText size={16} />
                             View Certificate
-                            <ArrowUpRight className="ml-2 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform duration-300" size={16} />
+                            <ArrowUpRight className="ml-1 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform duration-300" size={16} />
                           </a>
                         </Button>
                       </div>
