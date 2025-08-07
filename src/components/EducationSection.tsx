@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import { Card } from "@/components/ui/card";
 const EducationSection = () => {
@@ -41,29 +42,38 @@ const EducationSection = () => {
           {educations.map((education, index) => <div key={index} className="animate-on-scroll" style={{
           transitionDelay: `${200 * index}ms`
         }}>
-              <Card className="p-6 h-full hover:shadow-lg transition-shadow duration-300">
-                <div className="flex gap-4">
-                  <div className="h-16 w-16 flex-shrink-0 bg-gray-100 rounded-full flex items-center justify-center">
-                    <span className="font-bold text-primary text-xl">{education.logo}</span>
+              <div className="relative bg-gradient-to-br from-card/95 via-card/85 to-card/75 backdrop-blur-xl border-2 border-primary/10 text-foreground rounded-2xl overflow-hidden shadow-2xl shadow-primary/5 hover:shadow-primary/15 hover:shadow-3xl hover:border-primary/20 transition-all duration-700 group">
+                {/* Premium gradient overlays */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-accent/6 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-tl from-transparent via-card/20 to-primary/5" />
+                
+                {/* Subtle animated border */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary/20 via-accent/15 to-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10 blur-sm" />
+                
+                <div className="relative p-6 md:p-7 bg-gradient-to-br from-transparent via-card/10 to-transparent">
+                  <div className="flex gap-4">
+                    <div className="h-16 w-16 flex-shrink-0 bg-gradient-to-br from-primary/15 via-secondary/20 to-accent/10 rounded-2xl flex items-center justify-center ring-2 ring-primary/15 shadow-xl shadow-primary/10 group-hover:ring-primary/25 group-hover:shadow-primary/20 transition-all duration-500">
+                      <span className="font-bold text-primary text-xl">{education.logo}</span>
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-xl mb-3 text-foreground bg-gradient-to-r from-foreground via-primary/80 to-foreground bg-clip-text group-hover:text-transparent transition-all duration-500">{education.school}</h4>
+                      <p className="text-muted-foreground/95 mb-4 leading-relaxed font-medium">{education.degree}</p>
+                      <p className="text-muted-foreground/85 font-medium">{education.duration}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-medium text-xl">{education.school}</h4>
-                    <p className="text-md text-gray-600 mt-1">{education.degree}</p>
-                    <p className="text-sm text-gray-500 mt-2">{education.duration}</p>
+                  <div className="mt-4 pt-4 border-t border-border/30">
+                    <ul className="text-sm space-y-2 text-muted-foreground/85">
+                      {index === 0 ? <>
+                          <li>• Second-year student focusing on electronics and telecommunications</li>
+                          <li>• Exploring IoT and Embedded system</li>
+                        </> : <>
+                          <li>• Completed HSC with focus on science subjects</li>
+                          <li>• Participated in various technical exhibitions</li>
+                        </>}
+                    </ul>
                   </div>
                 </div>
-                <div className="mt-4 pt-4 border-t border-border/30">
-                  <ul className="text-sm space-y-2 text-gray-600">
-                    {index === 0 ? <>
-                        <li>• Second-year student focusing on electronics and telecommunications</li>
-                        <li>• Exploring IoT and Embedded system</li>
-                      </> : <>
-                        <li>• Completed HSC with focus on science subjects</li>
-                        <li>• Participated in various technical exhibitions</li>
-                      </>}
-                  </ul>
-                </div>
-              </Card>
+              </div>
             </div>)}
         </div>
       </div>
