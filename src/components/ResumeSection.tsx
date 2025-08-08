@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { FileText, Download, Calendar, MapPin, Building, ArrowUpRight, Eye } from "lucide-react";
@@ -140,17 +139,17 @@ const ResumeSection = () => {
             </div>
 
             <div className="space-y-6">
-              <div className="relative bg-gradient-to-br from-card/95 via-card/85 to-card/75 backdrop-blur-xl border-2 border-primary/10 text-foreground rounded-2xl overflow-hidden shadow-2xl shadow-primary/5 hover:shadow-primary/15 hover:shadow-3xl hover:border-primary/20 transition-all duration-700 animate-on-scroll group" style={{
+              <div className="relative bg-gradient-to-br from-card/95 via-card/85 to-card/75 backdrop-blur-xl border-2 border-primary/10 text-foreground rounded-2xl overflow-hidden shadow-2xl shadow-primary/5 hover:shadow-primary/15 hover:shadow-3xl hover:border-primary/20 transition-all duration-700 animate-on-scroll group h-full" style={{
                 transitionDelay: "800ms"
               }}>
-                {/* Premium gradient overlays covering entire div */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-accent/6 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-2xl" />
-                <div className="absolute inset-0 bg-gradient-to-tl from-transparent via-card/20 to-primary/5 rounded-2xl" />
+                {/* Premium gradient overlays covering entire card */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-accent/6 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-2xl z-10" />
+                <div className="absolute inset-0 bg-gradient-to-tl from-transparent via-card/20 to-primary/5 rounded-2xl z-10" />
                 
                 {/* Subtle animated border covering full container */}
-                <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-primary/20 via-accent/15 to-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-sm" />
+                <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-primary/20 via-accent/15 to-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-sm z-0" />
                 
-                <div className="relative p-6 md:p-7 bg-gradient-to-br from-transparent via-card/10 to-transparent h-full">
+                <div className="relative p-6 md:p-7 bg-gradient-to-br from-transparent via-card/10 to-transparent h-full z-20">
                   <div className="flex flex-col sm:flex-row gap-5 h-full">
                     <div className="h-18 w-18 sm:h-16 sm:w-16 flex-shrink-0 bg-gradient-to-br from-primary/15 via-secondary/20 to-accent/10 rounded-2xl flex items-center justify-center p-3 mx-auto sm:mx-0 ring-2 ring-primary/15 shadow-xl shadow-primary/10 group-hover:ring-primary/25 group-hover:shadow-primary/20 transition-all duration-500">
                       <img src={firstCertification.logo} alt={firstCertification.name} className="h-full w-full object-cover rounded-xl" />
