@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
-import { Mail, Phone, MapPin, Send, Github, Eye } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Linkedin, Eye } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 const ContactSection = () => {
@@ -138,7 +138,7 @@ const ContactSection = () => {
                   rel="noopener noreferrer"
                   className="p-3 bg-secondary rounded-full hover:bg-primary/10 transition-colors"
                 >
-                  <Github size={20} className="text-foreground" />
+                  <Linkedin size={20} className="text-foreground" />
                 </a>
                 <a 
                   href="https://www.linkedin.com/in/pratik-a-gangurde/" 
