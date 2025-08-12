@@ -1,9 +1,11 @@
 
 import { useEffect } from "react";
+import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Eye, Code, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
+
 
 const AllProjects = () => {
   useEffect(() => {
@@ -30,6 +32,7 @@ const AllProjects = () => {
       });
     };
   }, []);
+
 
   const projects = [{
     id: 1,
@@ -62,60 +65,53 @@ const AllProjects = () => {
         
         <div className="flex flex-col space-y-8">
           {projects.map((project, index) => (
-            <div key={project.id} className="relative bg-gradient-to-br from-card/95 via-card/85 to-card/75 backdrop-blur-xl border-2 border-primary/10 text-foreground rounded-2xl overflow-hidden shadow-2xl shadow-primary/5 hover:shadow-primary/15 hover:shadow-3xl hover:border-primary/20 transition-all duration-700 animate-on-scroll group" style={{
+            <Card key={project.id} className="overflow-hidden border-none shadow-lg dark-card animate-on-scroll" style={{
               transitionDelay: `${index * 200}ms`
             }}>
-              {/* Premium gradient overlays */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-accent/6 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-              <div className="absolute inset-0 bg-gradient-to-tl from-transparent via-card/20 to-primary/5" />
-              
-              {/* Subtle animated border */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary/20 via-accent/15 to-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10 blur-sm" />
-              
-              <div className="relative flex flex-col lg:flex-row">
-                <div className="lg:w-1/2 h-60 lg:h-auto overflow-hidden">
-                  <div className="h-full w-full relative">
-                    <img src={project.image} alt={project.title} className="w-full h-full object-cover object-center" />
-                    <div className="absolute top-4 right-4 bg-black/70 text-white px-2 py-1 text-xs rounded">
-                      Completed
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="lg:w-1/2 p-6 lg:p-10 flex flex-col justify-between bg-gradient-to-br from-transparent via-card/10 to-transparent">
-                  <div>
-                    <h3 className="font-bold text-2xl mb-4 text-foreground bg-gradient-to-r from-foreground via-primary/80 to-foreground bg-clip-text group-hover:text-transparent transition-all duration-500">{project.title}</h3>
-                    <p className="text-muted-foreground/95 mb-6 line-clamp-3 leading-relaxed font-medium">
-                      {project.description}
-                    </p>
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {project.tags.map((tag, i) => (
-                        <span key={i} className="text-xs px-3 py-1 bg-accent/10 text-accent rounded-full font-medium">
-                          {tag}
-                        </span>
-                      ))}
+                <div className="flex flex-col lg:flex-row">
+                  <div className="lg:w-1/2 h-60 lg:h-auto overflow-hidden">
+                    <div className="h-full w-full relative">
+                      <img src={project.image} alt={project.title} className="w-full h-full object-cover object-center" />
+                      <div className="absolute top-4 right-4 bg-black/70 text-white px-2 py-1 text-xs rounded">
+                        Completed
+                      </div>
                     </div>
                   </div>
                   
-                  <div className="flex items-center gap-4 mt-4">
-                    <Button 
-                      variant="outline" 
-                      className="gap-2 border-gray-700 hover:bg-gray-800" 
-                      onClick={() => window.open(project.codeUrl, "_blank")}
-                    >
-                      <Code size={18} />
-                      View Code
-                    </Button>
-                    <Link to={`/projects/${project.id}`}>
-                      <Button className="gap-2">
-                        <Eye size={18} />
-                        View Details
+                  <div className="lg:w-1/2 p-6 lg:p-10 flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-2xl font-bold mb-4">{project.title}</h3>
+                      <p className="text-muted-foreground mb-6 line-clamp-3">
+                        {project.description}
+                      </p>
+                      <div className="flex flex-wrap gap-2 mb-6">
+                        {project.tags.map((tag, i) => (
+                          <span key={i} className="text-xs px-3 py-1 bg-accent/10 text-accent rounded-full">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center gap-4 mt-4">
+                      <Button 
+                        variant="outline" 
+                        className="gap-2 border-gray-700 hover:bg-gray-800" 
+                        onClick={() => window.open(project.codeUrl, "_blank")}
+                      >
+                        <Code size={18} />
+                        View Code
                       </Button>
-                    </Link>
+                      <Link to={`/projects/${project.id}`}>
+                        <Button className="gap-2">
+                          <Eye size={18} />
+                          View Details
+                        </Button>
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
+            </Card>
           ))}
         </div>
       </div>
