@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
-import { Mail, Phone, MapPin, Send, Github, Eye } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Github, Eye, Linkedin } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 const ContactSection = () => {
