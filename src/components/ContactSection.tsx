@@ -146,7 +146,7 @@ const ContactSection = () => {
                   rel="noopener noreferrer"
                   className="p-3 bg-secondary rounded-full hover:bg-primary/10 transition-colors"
                 >
-                  <Mail size={20} className="text-foreground" />
+                  <Linkedin size={20} className="text-foreground" />
                 </a>
               </div>
             </div>
