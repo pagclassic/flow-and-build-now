@@ -6,7 +6,6 @@ import { Eye, Code, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 
-
 const AllProjects = () => {
   useEffect(() => {
     // Initialize scroll animation observer
@@ -33,18 +32,30 @@ const AllProjects = () => {
     };
   }, []);
 
-
-  const projects = [{
-    id: 1,
-    title: "Real-Time Accelerometer Data Display",
-    category: "HARDWARE PROJECT",
-    description: "Arduino project using ADXL345 accelerometer and 16x2 LCD display to show real-time X, Y, Z axis data. Demonstrates I2C communication, LCD interfacing, and hardware debugging skills.",
-    tags: ["Arduino", "ADXL345", "LCD", "I2C", "Hardware"],
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop",
-    codeUrl: "https://github.com/username/accelerometer-lcd-display",
-    demoUrl: "",
-    hardwareProject: true
-  }];
+  const projects = [
+    {
+      id: 1,
+      title: "Real-Time Accelerometer Data Display",
+      category: "HARDWARE PROJECT",
+      description: "Arduino project using ADXL345 accelerometer and 16x2 LCD display to show real-time X, Y, Z axis data. Demonstrates I2C communication, LCD interfacing, and hardware debugging skills.",
+      tags: ["Arduino", "ADXL345", "LCD", "I2C", "Hardware"],
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop",
+      codeUrl: "https://github.com/username/accelerometer-lcd-display",
+      demoUrl: "",
+      hardwareProject: true
+    },
+    {
+      id: 2,
+      title: "Dipex Smart & Sustainable Highway",
+      category: "IOT & AI PROJECT",
+      description: "Intelligent transport infrastructure with AI-based dynamic traffic signals, YOLO-powered vehicle tracking, and automated speed-breaking system. Features solar-powered signals and ESP32-based IoT integration for smart city applications.",
+      tags: ["ESP32", "Arduino", "YOLO", "OpenCV", "Python", "IoT", "Blynk", "Computer Vision"],
+      image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=2070&auto=format&fit=crop",
+      codeUrl: "https://github.com/username/dipex-smart-highway",
+      demoUrl: "",
+      hardwareProject: true
+    }
+  ];
   
   return (
     <div className="min-h-screen bg-background">

@@ -41,6 +41,14 @@ const ProjectsSection = () => {
               description: "Real-time accelerometer data display using Arduino and LCD",
               tags: ["Arduino", "ADXL345", "Hardware"],
               image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop"
+            },
+            {
+              id: 2,
+              title: "Dipex Smart & Sustainable Highway",
+              category: "IoT & AI Project",
+              description: "Intelligent transport infrastructure with AI-based traffic management and automated speed-breaking system",
+              tags: ["ESP32", "YOLO", "IoT", "Computer Vision", "Arduino"],
+              image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=2070&auto=format&fit=crop"
             }
           ].map((project, index) => (
             <Card key={index} className="overflow-hidden border-none shadow-lg dark-card animate-on-scroll hover:shadow-xl transition-shadow duration-300" style={{
