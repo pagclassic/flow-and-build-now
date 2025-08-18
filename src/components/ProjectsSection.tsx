@@ -1,12 +1,10 @@
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Code, Eye, ChevronDown, ChevronUp, Zap, Camera, Wifi, Wrench } from "lucide-react";
+import { Code, Eye, Zap, Camera, Wifi, Wrench } from "lucide-react";
 
 const ProjectsSection = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
-
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -26,10 +24,6 @@ const ProjectsSection = () => {
       });
     };
   }, []);
-
-  const toggleExpanded = () => {
-    setIsExpanded(!isExpanded);
-  };
 
   return (
     <section id="projects" className="section bg-background py-24">
@@ -88,69 +82,7 @@ const ProjectsSection = () => {
                 </div>
               </div>
 
-              {/* Expandable Detailed Content */}
-              {isExpanded && (
-                <div className="space-y-6 border-t pt-6">
-                  <div>
-                    <h4 className="text-lg font-semibold mb-3">🔹 Key Features</h4>
-                    <ul className="space-y-2 text-muted-foreground">
-                      <li>🚦 <strong>Smart Traffic Management</strong> – AI-based dynamic traffic signals for smoother vehicle flow</li>
-                      <li>📷 <strong>Camera-Based Vehicle Tracking</strong> – Real-time car movement and number plate recognition using YOLO and computer vision</li>
-                      <li>🛑 <strong>Adaptive Speed-Breaking System</strong> – Automated speed-breakers that rise during red signals and lower during green signals</li>
-                      <li>🌱 <strong>Sustainability</strong> – Solar-powered signal systems and energy-efficient IoT sensors</li>
-                      <li>📡 <strong>IoT Integration</strong> – ESP32 and Arduino-based system for data collection, signal control, and remote monitoring</li>
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h4 className="text-lg font-semibold mb-3">🔹 Tech Stack</h4>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <p className="font-medium mb-2">Hardware:</p>
-                        <p className="text-muted-foreground text-sm">ESP32, Arduino, Servo Motors, IR Sensors, Camera Modules</p>
-                      </div>
-                      <div>
-                        <p className="font-medium mb-2">Software:</p>
-                        <p className="text-muted-foreground text-sm">Python, OpenCV, YOLO, Arduino IDE, Blynk IoT</p>
-                      </div>
-                      <div>
-                        <p className="font-medium mb-2">Communication:</p>
-                        <p className="text-muted-foreground text-sm">WiFi / LoRa for real-time updates</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div>
-                    <h4 className="text-lg font-semibold mb-3">🔹 Impact</h4>
-                    <ul className="space-y-2 text-muted-foreground">
-                      <li>🚗 Reduced traffic congestion and accidents</li>
-                      <li>⚡ Energy-efficient with renewable power usage</li>
-                      <li>🛡️ Enhanced road safety through automation and AI</li>
-                      <li>📊 Scalable design for smart cities and national highways</li>
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h4 className="text-lg font-semibold mb-3">🔹 My Role</h4>
-                    <ul className="space-y-2 text-muted-foreground">
-                      <li>• Designed the hardware architecture and IoT setup</li>
-                      <li>• Implemented YOLO-based number plate recognition</li>
-                      <li>• Developed the Arduino + ESP32 logic for automated signals and servo-based speed breakers</li>
-                      <li>• Integrated the system with Blynk for remote monitoring</li>
-                    </ul>
-                  </div>
-                </div>
-              )}
-
               <div className="flex flex-col sm:flex-row items-center gap-4 mt-6">
-                <Button 
-                  onClick={toggleExpanded}
-                  variant="outline" 
-                  className="w-full sm:w-auto gap-2"
-                >
-                  {isExpanded ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
-                  {isExpanded ? 'Show Less' : 'Read More'}
-                </Button>
                 <div className="flex gap-2 w-full sm:w-auto">
                   <a href="/projects/2" className="flex-1 sm:flex-none">
                     <Button className="w-full gap-2">
