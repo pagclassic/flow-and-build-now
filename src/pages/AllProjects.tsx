@@ -8,7 +8,6 @@ import Navbar from "@/components/Navbar";
 
 const AllProjects = () => {
   useEffect(() => {
-    // Initialize scroll animation observer
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -20,7 +19,6 @@ const AllProjects = () => {
       { threshold: 0.1 }
     );
 
-    // Observe all elements with animate-on-scroll class
     document.querySelectorAll(".animate-on-scroll").forEach((el) => {
       observer.observe(el);
     });
@@ -32,30 +30,30 @@ const AllProjects = () => {
     };
   }, []);
 
-  const projects = [
-    {
-      id: 1,
-      title: "Real-Time Accelerometer Data Display",
-      category: "HARDWARE PROJECT",
-      description: "Arduino project using ADXL345 accelerometer and 16x2 LCD display to show real-time X, Y, Z axis data. Demonstrates I2C communication, LCD interfacing, and hardware debugging skills.",
-      tags: ["Arduino", "ADXL345", "LCD", "I2C", "Hardware"],
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop",
-      codeUrl: "https://github.com/username/accelerometer-lcd-display",
-      demoUrl: "",
-      hardwareProject: true
-    },
-    {
-      id: 2,
-      title: "Dipex Smart & Sustainable Highway",
-      category: "IOT & AI PROJECT",
-      description: "Intelligent transport infrastructure with AI-based dynamic traffic signals, YOLO-powered vehicle tracking, and automated speed-breaking system. Features solar-powered signals and ESP32-based IoT integration for smart city applications.",
-      tags: ["ESP32", "Arduino", "YOLO", "OpenCV", "Python", "IoT", "Blynk", "Computer Vision"],
-      image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=2070&auto=format&fit=crop",
-      codeUrl: "https://github.com/username/dipex-smart-highway",
-      demoUrl: "",
-      hardwareProject: true
-    }
-  ];
+  const project = {
+    id: 2,
+    title: "🌍 Dipex Smart & Sustainable Highway",
+    category: "IOT & AI PROJECT",
+    description: "Intelligent transport infrastructure that improves traffic management, enhances safety, and promotes sustainability through technology-driven solutions. Features AI-based dynamic traffic signals, YOLO-powered vehicle tracking, automated speed-breaking system, solar-powered signals, and ESP32-based IoT integration for smart city applications.",
+    tags: ["ESP32", "Arduino", "YOLO", "OpenCV", "Python", "IoT", "Blynk", "Computer Vision", "AI", "Sustainability"],
+    image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=2070&auto=format&fit=crop",
+    codeUrl: "#",
+    demoUrl: "",
+    hardwareProject: true,
+    keyFeatures: [
+      "🚦 Smart Traffic Management – AI-based dynamic traffic signals",
+      "📷 Camera-Based Vehicle Tracking – Real-time car movement and number plate recognition",
+      "🛑 Adaptive Speed-Breaking System – Automated speed-breakers",
+      "🌱 Sustainability – Solar-powered signal systems",
+      "📡 IoT Integration – ESP32 and Arduino-based system"
+    ],
+    impact: [
+      "🚗 Reduced traffic congestion and accidents",
+      "⚡ Energy-efficient with renewable power usage",
+      "🛡️ Enhanced road safety through automation and AI",
+      "📊 Scalable design for smart cities and national highways"
+    ]
+  };
   
   return (
     <div className="min-h-screen bg-background">
@@ -71,59 +69,77 @@ const AllProjects = () => {
         </div>
         
         <h1 className="text-4xl font-bold mb-12 animate-on-scroll">
-          All <span className="text-gradient">Projects</span>
+          Featured <span className="text-gradient">Project</span>
         </h1>
         
-        <div className="flex flex-col space-y-8">
-          {projects.map((project, index) => (
-            <Card key={project.id} className="overflow-hidden border-none shadow-lg dark-card animate-on-scroll" style={{
-              transitionDelay: `${index * 200}ms`
-            }}>
-                <div className="flex flex-col lg:flex-row">
-                  <div className="lg:w-1/2 h-60 lg:h-auto overflow-hidden">
-                    <div className="h-full w-full relative">
-                      <img src={project.image} alt={project.title} className="w-full h-full object-cover object-center" />
-                      <div className="absolute top-4 right-4 bg-black/70 text-white px-2 py-1 text-xs rounded">
-                        Completed
-                      </div>
-                    </div>
+        <div className="max-w-6xl mx-auto">
+          <Card className="overflow-hidden border-none shadow-lg dark-card animate-on-scroll">
+            <div className="flex flex-col lg:flex-row">
+              <div className="lg:w-1/2 h-80 lg:h-auto overflow-hidden">
+                <div className="h-full w-full relative">
+                  <img src={project.image} alt={project.title} className="w-full h-full object-cover object-center" />
+                  <div className="absolute top-4 right-4 bg-black/70 text-white px-3 py-2 text-sm rounded">
+                    Completed
                   </div>
-                  
-                  <div className="lg:w-1/2 p-6 lg:p-10 flex flex-col justify-between">
-                    <div>
-                      <h3 className="text-2xl font-bold mb-4">{project.title}</h3>
-                      <p className="text-muted-foreground mb-6 line-clamp-3">
-                        {project.description}
-                      </p>
-                      <div className="flex flex-wrap gap-2 mb-6">
-                        {project.tags.map((tag, i) => (
-                          <span key={i} className="text-xs px-3 py-1 bg-accent/10 text-accent rounded-full">
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-center gap-4 mt-4">
-                      <Button 
-                        variant="outline" 
-                        className="gap-2 border-gray-700 hover:bg-gray-800" 
-                        onClick={() => window.open(project.codeUrl, "_blank")}
-                      >
-                        <Code size={18} />
-                        View Code
-                      </Button>
-                      <Link to={`/projects/${project.id}`}>
-                        <Button className="gap-2">
-                          <Eye size={18} />
-                          View Details
-                        </Button>
-                      </Link>
-                    </div>
+                  <div className="absolute bottom-4 left-4 bg-black/70 text-white px-3 py-2 rounded">
+                    <span className="text-xs uppercase tracking-wide">{project.category}</span>
                   </div>
                 </div>
-            </Card>
-          ))}
+              </div>
+              
+              <div className="lg:w-1/2 p-6 lg:p-10 flex flex-col justify-between">
+                <div>
+                  <h2 className="text-3xl font-bold mb-6">{project.title}</h2>
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                    {project.description}
+                  </p>
+                  
+                  <div className="mb-6">
+                    <h3 className="text-lg font-semibold mb-3">Key Features</h3>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      {project.keyFeatures.map((feature, i) => (
+                        <li key={i}>{feature}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="mb-6">
+                    <h3 className="text-lg font-semibold mb-3">Project Impact</h3>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      {project.impact.map((impact, i) => (
+                        <li key={i}>{impact}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.tags.map((tag, i) => (
+                      <span key={i} className="text-xs px-3 py-1 bg-accent/10 text-accent rounded-full">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-4 mt-6">
+                  <Button 
+                    variant="outline" 
+                    className="gap-2 border-gray-700 hover:bg-gray-800" 
+                    onClick={() => window.open(project.codeUrl, "_blank")}
+                  >
+                    <Code size={18} />
+                    View Code
+                  </Button>
+                  <Link to={`/projects/${project.id}`}>
+                    <Button className="gap-2">
+                      <Eye size={18} />
+                      Full Details
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </Card>
         </div>
       </div>
     </div>
