@@ -54,7 +54,7 @@ const ProjectsSection = () => {
                 </p>
                 
                 <div className="flex flex-wrap gap-2 mb-6">
-                  {["ESP32", "Arduino", "YOLO", "OpenCV", "Python", "IoT", "Blynk", "Computer Vision"].map((tag, i) => (
+                  {[ "Arduino", "YOLO", "OpenCV", "Python", "Computer Vision"].map((tag, i) => (
                     <span key={i} className="text-xs px-3 py-1 bg-accent/10 text-accent rounded-full">
                       {tag}
                     </span>
