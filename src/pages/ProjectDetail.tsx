@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Github, Zap, Camera, Wifi, Wrench, Target, Lightbulb, User, TrendingUp,Image } from "lucide-react";
+import { ArrowLeft, Github, Zap, Camera, Wifi, Wrench, Target, Lightbulb, User, TrendingUp, Image } from "lucide-react";
 import Navbar from "@/components/Navbar";
 
 const ProjectDetail = () => {
@@ -170,8 +170,6 @@ const ProjectDetail = () => {
                   ))}
                 </div>
               </div>
-              
-
             </div>
           </Card>
 
@@ -241,19 +239,21 @@ const ProjectDetail = () => {
               </Button>
             </div>
           </Card>
-            {/* img/videos */}
+
+          {/* Project Gallery */}
           <Card className="p-6 md:p-8 border-none shadow-lg dark-card animate-on-scroll">
             <div className="flex items-center gap-3 mb-4">
               <Image className="w-6 h-6 text-accent" />
-                <h2 className="text-2xl font-bold">Project Gallary</h2>
+              <h2 className="text-2xl font-bold">Project Gallery</h2>
             </div>
-            <div className = flex items-center gap-4">
-            <Button
-              classname="gap-2"
-              onClick={() =>window.open("")}>
-            <Image size={18} />
-                View Project Gallary
-            </Button>
+            <div className="flex items-center gap-4">
+              <Button
+                className="gap-2"
+                onClick={() => window.open("", "_blank")}
+              >
+                <Image size={18} />
+                View Project Gallery
+              </Button>
             </div>
           </Card>
         </div>
