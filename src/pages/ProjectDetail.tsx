@@ -116,8 +116,8 @@ const ProjectDetail = () => {
               <div className="flex items-start gap-4 p-4 rounded-lg bg-muted/30">
                 <Wrench className="w-6 h-6 text-accent mt-1" />
                 <div>
-                  <h3 className="font-semibold mb-2">🛑 Adaptive Speed-Breaking System</h3>
-                  <p className="text-muted-foreground text-sm">Automated speed-breakers that rise during red signals and lower during green signals.</p>
+                  <h3 className="font-semibold mb-2">🛑 Sustainable Speed-Breaking System</h3>
+                  <p className="text-muted-foreground text-sm">speed-breakers that can genrate energy when vehicle pass on.</p>
                 </div>
               </div>
               
@@ -125,7 +125,7 @@ const ProjectDetail = () => {
                 <Wifi className="w-6 h-6 text-accent mt-1" />
                 <div>
                   <h3 className="font-semibold mb-2">📡 IoT Integration</h3>
-                  <p className="text-muted-foreground text-sm">ESP32 and Arduino-based system for data collection, signal control, and remote monitoring.</p>
+                  <p className="text-muted-foreground text-sm">Arduino-based system for data collection, signal control, and remote monitoring.</p>
                 </div>
               </div>
             </div>
@@ -152,7 +152,7 @@ const ProjectDetail = () => {
               <div>
                 <h3 className="font-semibold mb-3">Hardware</h3>
                 <div className="flex flex-wrap gap-2">
-                  {["ESP32", "Arduino", "Servo Motors", "IR Sensors", "Camera Modules"].map((tech, i) => (
+                  {[ "Arduino", "Servo Motors", "IR Sensors", "Camera Modules"].map((tech, i) => (
                     <span key={i} className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">
                       {tech}
                     </span>
@@ -163,7 +163,7 @@ const ProjectDetail = () => {
               <div>
                 <h3 className="font-semibold mb-3">Software</h3>
                 <div className="flex flex-wrap gap-2">
-                  {["Python", "OpenCV", "YOLO", "Arduino IDE", "Blynk IoT"].map((tech, i) => (
+                  {["Python", "OpenCV", "YOLO", "Arduino IDE"].map((tech, i) => (
                     <span key={i} className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">
                       {tech}
                     </span>
@@ -212,7 +212,7 @@ const ProjectDetail = () => {
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <span className="text-accent mt-1">🔧</span>
-                <span className="text-muted-foreground">Designed the hardware architecture and IoT setup</span>
+                <span className="text-muted-foreground">Designed the hardware architecture </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-accent mt-1">🔧</span>
@@ -220,11 +220,7 @@ const ProjectDetail = () => {
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-accent mt-1">🔧</span>
-                <span className="text-muted-foreground">Developed the Arduino + ESP32 logic for automated signals and servo-based speed breakers</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-accent mt-1">🔧</span>
-                <span className="text-muted-foreground">Integrated the system with Blynk for remote monitoring</span>
+                <span className="text-muted-foreground">Developed the Arduino logic for automated signals and speed breakers</span>
               </li>
             </ul>
           </Card>
