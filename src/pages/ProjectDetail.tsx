@@ -171,16 +171,7 @@ const ProjectDetail = () => {
                 </div>
               </div>
               
-              <div>
-                <h3 className="font-semibold mb-3">Communication</h3>
-                <div className="flex flex-wrap gap-2">
-                  {["WiFi", "LoRa"].map((tech, i) => (
-                    <span key={i} className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
+
             </div>
           </Card>
 
